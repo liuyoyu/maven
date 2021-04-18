@@ -11,6 +11,7 @@
     <modules>
         <module>excelMerge</module>
         <module>excel2DB</module>
+        <module>encryptAndDecrypt</module>
     </modules>
 
 

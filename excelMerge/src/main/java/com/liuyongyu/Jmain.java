@@ -1,3 +1,5 @@
+package com.liuyongyu;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -99,20 +101,23 @@ public class Jmain implements ActionListener {
         output = getFileName(e, button3, text3, output, 1);
 
         if (e.getSource().equals(button4)) {
-            String[] t = text4.getText().split(";");
-            int[] colNo = new int[t.length];
-            for(int i=0; i<colNo.length; i++){
-                colNo[i] = Integer.valueOf(t[i]);
-            }
             if("".equals(first)){
                 JOptionPane.showMessageDialog(null, "请选择Excel文件1", "提示", 2);
             }else if("".equals(second)){
                 JOptionPane.showMessageDialog(null, "请选择Excel文件2", "提示", 2);
             }else if("".equals(output)){
                 JOptionPane.showMessageDialog(null, "输出路径", "提示", 2);
-            }else if(colNo.length == 0){
+            }else if("".equals(text4.getText())){
                 JOptionPane.showMessageDialog(null, "请输入索引列值", "提示", 2);
             }else{
+                String[] t = text4.getText().split(";");
+                int[] colNo = new int[t.length];
+                for(int i=0; i<colNo.length; i++){
+                    colNo[i] = Integer.valueOf(t[i]);
+                }
+                if(colNo.length == 0){
+                    JOptionPane.showMessageDialog(null, "请输入索引列值", "提示", 2);
+                }
                 try {
                     ExcelMerge.mergeAndOutput(first, second, output, colNo);
                     JOptionPane.showMessageDialog(null, "合并完成", "成功", 2);
