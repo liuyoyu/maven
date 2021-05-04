@@ -1,22 +1,41 @@
 package com.liuyongyu;
 
-import javax.management.loading.MLet;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Server {
     private static final Integer port = 8000;
     private static final RSA.KeyPairBase64 key = RSA.generator();
+    private static final ExecutorService pool = Executors.newCachedThreadPool();
 
     public void start()  {
         MyLog.info("Server启动");
         try {
+            ServerSocket server = new ServerSocket(port);
             while(true){
-                ServerSocket server = new ServerSocket(port);
-//                server.setSoTimeout(3000);
                 Socket accept = server.accept();
+                pool.submit(new MyThread(accept));
+                MyLog.info("连接断开");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    class MyThread extends Thread {
+        private Socket accept = null;
+
+        public MyThread(Socket socket) {
+            super();
+            this.accept = socket;
+        }
+
+        @Override
+        public void run() {
+            try {
                 while (accept.isConnected() && !accept.isClosed()) {
                     MyLog.info("成功建立连接");
                     //读入数据
@@ -34,7 +53,7 @@ public class Server {
                         writer = new PrintWriter(accept.getOutputStream());
                         writer.println(key.getPublicKey());
                         writer.flush();
-                    }else{
+                    } else {
                         //解析数据
                         String data = RSA.privateKeyDecrypt(readCnt.toString(), key.getPrivateKey());
                         String res = this.service(data);
@@ -48,18 +67,16 @@ public class Server {
                     reader.close();
                     writer.close();
                 }
-                MyLog.info("连接断开");
-                //关闭操作
-                accept.close();
-                server.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        }
+
+        private String service(String s){
+            MyLog.info("收到客户端消息：%s", s);
+            return "服务端";
         }
     }
 
-    private String service(String s){
-        MyLog.info("收到客户端消息：%s", s);
-        return "服务端";
-    }
 }
