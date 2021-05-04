@@ -9,7 +9,10 @@ import java.util.concurrent.Executors;
 public class Server {
     private static final Integer port = 8000;
     private static final RSA.KeyPairBase64 key = RSA.generator();
-    private static final ExecutorService pool = Executors.newCachedThreadPool();
+    private static String secretKey = "";
+    private static final ExecutorService pool = Executors.newSingleThreadExecutor();
+    private static final String END = "\n$EOF";
+    private static final String EOF = "$EOF";
 
     public void start()  {
         MyLog.info("Server启动");
@@ -18,7 +21,6 @@ public class Server {
             while(true){
                 Socket accept = server.accept();
                 pool.submit(new MyThread(accept));
-                MyLog.info("连接断开");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,38 +37,58 @@ public class Server {
 
         @Override
         public void run() {
+            MyLog.info("成功建立连接");
             try {
+                BufferedReader reader = null;
+                PrintWriter writer = null;
                 while (accept.isConnected() && !accept.isClosed()) {
-                    MyLog.info("成功建立连接");
                     //读入数据
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(accept.getInputStream()));
+                    reader = new BufferedReader(new InputStreamReader(accept.getInputStream()));
                     StringBuilder readCnt = new StringBuilder();
                     String t = null;
-                    while ((t = reader.readLine()) != null) {
+                    while (!EOF.equals(t = reader.readLine())) {
                         readCnt.append(t);
                     }
-                    PrintWriter writer = null;
-
+                    writer = new PrintWriter(accept.getOutputStream());
                     if ("hello".equals(readCnt.toString())) {
-                        MyLog.info("提供公钥");
-                        //写入数据
-                        writer = new PrintWriter(accept.getOutputStream());
-                        writer.println(key.getPublicKey());
+                        MyLog.info("提供公钥: %s", key.getPublicKey());
+                        //发送公钥
+                        writer.println(key.getPublicKey() + END);
                         writer.flush();
+                        //获取密钥
+                        reader = new BufferedReader(new InputStreamReader(accept.getInputStream()));
+                        readCnt = new StringBuilder();
+                        while (!EOF.equals(t = reader.readLine())) {
+                            readCnt.append(t);
+                        }
+                        secretKey = readCnt.toString();
+                        MyLog.info("获取到密钥: %s", secretKey);
+                        accept.close();
                     } else {
+                        if ("".equals(secretKey)){
+                            writer = new PrintWriter(accept.getOutputStream());
+                            writer.println("send \'hello\' first, please!!" + END);
+                            writer.flush();
+                            accept.close();
+                            break;
+                        }
                         //解析数据
-                        String data = RSA.privateKeyDecrypt(readCnt.toString(), key.getPrivateKey());
+                        String data = AES.decrypt(readCnt.toString(), secretKey);
                         String res = this.service(data);
-                        res = RSA.privateKeyEncrypt(res, key.getPrivateKey());
+                        res = AES.encrypt(res, secretKey);
                         //写入数据
                         writer = new PrintWriter(accept.getOutputStream());
-                        writer.println(res);
+                        writer.println(res + END);
                         writer.flush();
                     }
-                    accept.shutdownOutput();    //关闭输出流不然客户端可能会一直处于阻塞状态
+                }
+                if (reader != null) {
                     reader.close();
+                }
+                if (writer != null) {
                     writer.close();
                 }
+                MyLog.info("连接断开");
             } catch (IOException e) {
                 e.printStackTrace();
             }

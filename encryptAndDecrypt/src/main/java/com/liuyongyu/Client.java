@@ -11,7 +11,10 @@ import java.net.Socket;
 public class Client {
     private static final String address = "localhost";
     private static final Integer port = 8000;
-    private static String key = "";
+    private static String key = ""; //保存公钥
+    private static String secretKey = "";   //保存密钥
+    private static final String END = "\n$EOF";
+    private static final String EOF = "$EOF";
 
     public void start(){
         try {
@@ -21,20 +24,19 @@ public class Client {
             Socket client = new Socket(address, port);
 
             PrintWriter writer = new PrintWriter(client.getOutputStream());
-            String cnt = sendCnt(); //todo
-            cnt = RSA.publicKeyEncrypt(cnt, key);
-            writer.println(cnt);
+            String cnt = sendCnt();
+            cnt = AES.encrypt(cnt, secretKey);
+            writer.println(cnt + END);
             writer.flush();
-            client.shutdownOutput();  //关闭输出流
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
             StringBuilder readCnt = new StringBuilder();
             String t = null;
-            while ((t = reader.readLine()) != null) {
+            while (!EOF.equals(t = reader.readLine())) {
                 readCnt.append(t);
             }
-
-            String res = RSA.publicKeyDecrypt(readCnt.toString(), key);
+            MyLog.info(readCnt.toString());
+            String res = AES.decrypt(readCnt.toString(), secretKey);
             responseCnt(res);
 
             client.close();
@@ -52,33 +54,42 @@ public class Client {
      */
     private void init() throws IOException {
         while ("".equals(key)) {
-            key = getKey();
+            getKey();
         }
     }
 
     /**
      * 当密钥为空时，那么会先向服务器请求密钥（发送一个hello）
+     * 并发送公钥
      * @return
      * @throws IOException
      */
-    private String getKey() throws IOException {
+    private void getKey() throws IOException {
         Socket client = new Socket(address, port);
 
         PrintWriter writer = new PrintWriter(client.getOutputStream());
-        writer.println("hello");
+        writer.println("hello" + END);
         writer.flush();
-        client.shutdownOutput();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
         StringBuilder sb = new StringBuilder();
         String t = null;
-        while ((t = reader.readLine()) != null) {
+        while (!EOF.equals(t = reader.readLine())) {
             sb.append(t);
         }
+        key = sb.toString();    //获取到公钥
+        MyLog.info("获取到公钥：%s", key);
+
+        //发送密钥
+        secretKey = AES.generator();
+        MyLog.info("创建并发送密钥：%s", secretKey);
+        writer = new PrintWriter(client.getOutputStream());
+        writer.print(secretKey + END);
+        writer.flush();
+
         client.close();
         writer.close();
         reader.close();
-        return sb.toString();
     }
 
     /**
