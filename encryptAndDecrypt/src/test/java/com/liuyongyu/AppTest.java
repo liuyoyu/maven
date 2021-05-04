@@ -26,7 +26,7 @@ public class AppTest
     }
 
     @Test
-    public void RSQTest(){
+    public void RSATest(){
         String text = "所有的结局都已写好\n" +
                 "所有的泪水也都已启程\n" +
                 "却忽然忘了是怎麽样的一个开始\n" +
@@ -65,6 +65,36 @@ public class AppTest
         System.out.println("公钥解密：");
         pkd = RSA.publicKeyDecrypt(pke, pbcKey);
         System.out.println(pkd);
+    }
+
+    @Test
+    public void AES(){
+        String text = "所有的结局都已写好\n" +
+                "所有的泪水也都已启程\n" +
+                "却忽然忘了是怎麽样的一个开始\n" +
+                "在那个古老的不再回来的夏日\n" +
+                "\n" +
+                "无论我如何地去追索\n" +
+                "年轻的你只如云影掠过\n" +
+                "而你微笑的面容极浅极淡\n" +
+                "逐渐隐没在日落後的群岚\n" +
+                "\n" +
+                "遂翻开那发黄的扉页\n" +
+                "命运将它装订得极为拙劣\n" +
+                "含著泪 我一读再读\n" +
+                "却不得不承认\n" +
+                "青春是一本太仓促的书";
+        String key = AES.generator();
+        System.out.println("key:");
+        System.out.println(key);
+        System.out.println();
+        System.out.println("加密后的密文：");
+        String encrypt = AES.encrypt(text, key);
+        System.out.println(encrypt);
+        System.out.println();
+        System.out.println("解密后的明文：");
+        String decrypt = AES.decrypt(encrypt, key);
+        System.out.println(decrypt);
     }
 
     @Test
