@@ -19,7 +19,7 @@ public class RSA {
 
     public static final String ALGORITHM_NAME ="RSA";
 
-    public static final String CHAESET = "UTF-8";
+    public static final String CHARSET = "UTF-8";
 
     private static final Integer keySize = 1024;
 
@@ -171,7 +171,7 @@ public class RSA {
             Cipher cipher = Cipher.getInstance(ALGORITHM_NAME);
             cipher.init(Cipher.DECRYPT_MODE, publicKey);
             byte[] bytes = doFinal(cipher, Cipher.DECRYPT_MODE, Base64.decode(data));
-            return new String(bytes, CHAESET);
+            return new String(bytes, CHARSET);
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -210,7 +210,7 @@ public class RSA {
             Cipher cipher = Cipher.getInstance(ALGORITHM_NAME);
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
             byte[] bytes = doFinal(cipher, Cipher.DECRYPT_MODE, Base64.decode(data));
-            return new String(bytes, CHAESET);
+            return new String(bytes, CHARSET);
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -245,7 +245,7 @@ public class RSA {
      * @throws IllegalBlockSizeException
      * @throws IOException
      */
-    private static byte[] doFinal(Cipher cipher, int cipherModel, byte[] data) throws Exception {
+    public static byte[] doFinal(Cipher cipher, int cipherModel, byte[] data) throws Exception {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         byte[] buffe;
         int offset = 0, len = data.length;
