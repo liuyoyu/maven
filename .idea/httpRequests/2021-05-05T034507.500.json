@@ -1,0 +1,7 @@
+{
+  "timestamp": "2021-05-05T07:45:07.181+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "",
+  "path": "/user/123"
+}

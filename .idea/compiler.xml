@@ -9,8 +9,11 @@
         <module name="encryptAndDecrypt" />
         <module name="excel2DB" />
         <module name="excelMerge" />
+        <module name="uploadfile" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="uploadFile" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

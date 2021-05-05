@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/encryptAndDecrypt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/excelMerge" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uploadFile" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uploadfile" charset="UTF-8" />
   </component>
 </project>
