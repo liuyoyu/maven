@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>登录</title>
+    <div th:replace="link::header"></div>
+    <div th:replace="script::js_footer"></div>
+    <style>
+        html body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .imgCover {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+        }
+        .box {
+            margin-top: 30%;
+            height: 200px;
+            width: 300px;
+            padding-top: 5%;
+            padding-right: 10%;
+            padding-left: 10%;
+            padding-bottom: 15%;
+            background-color: rgba(255,255,255,0.6);
+            border-radius: 5px;
+        }
+        .inputdiv{
+            display:flex;
+            border: 1px solid #D2D2D2!important;
+            background-color: #fff;
+            height: 38px;
+            line-height: 38px;
+            padding: 0px 19px;
+            border-radius: 19px;
+        }
+        .layui-input {
+            border-style: none;
+        }
+        .layui-form-switch{
+            margin-top: 0px;
+        }
+        .layui-btn{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<img src="img/bg-email.jpg" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md6 layui-col-md-offset3">
+            <div class="box">
+                <div style="padding-bottom: 10px">
+                    <p class="layui-font-black" style="font-size: 30px;text-align: center">管理系统</p>
+                </div>
+                <form class="layui-form" action="">
+                    <div class="layui-form-item inputdiv">
+                        <i class="layui-icon layui-icon-username"></i>
+                        <input type="text" name="account" required lay-verify="required" placeholder="用户名/邮箱" autocomplete="off" class="layui-input">
+                    </div>
+
+                    <div class="layui-form-item inputdiv">
+                        <i class="layui-icon layui-icon-password"></i>
+                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </div>
+
+                    <div class="layui-form-item">
+                        <input type="checkbox" name="rememberMe" lay-skin="switch">
+                        <span class="layui-font-green layui-font-12">记住我</span>
+                        <label style="float: right;">没有账号？<a href="signUp.html" class="layui-font-blue">点击注册</a></label>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div style="text-align: center">
+                            <a href="javascript:void(0)" class="layui-btn">登录</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(function(){
+        var $ = layui.jquery;
+
+        $('.layui-form a').click(function(){
+            var actionUrl = basePath + '/login/signIn';
+            var account = $('.layui-form input[name="account"]').val();
+            var password = $('.layui-form input[name="password"]').val();
+            var remember = $('.layui-form input[name="rememberMe"]').is(':checked');
+            $.ajax({
+                url: actionUrl,
+                data: {
+                    account: account,
+                    password: password,
+                    remember: remember
+                },
+                dataType: 'json',
+                type: 'post',
+                success:function(data){
+                    layer.msg(data.msg);
+                }
+            })
+        });
+    });
+</script>
+</body>
+</html>

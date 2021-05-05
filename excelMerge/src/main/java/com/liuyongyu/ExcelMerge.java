@@ -44,6 +44,7 @@ public class ExcelMerge {
         }
     }
 
+
     /**
      * 合并两个文件，并输出
      * @param fileName1
@@ -59,7 +60,8 @@ public class ExcelMerge {
         //文档输出
         String name = fileName1.substring(fileName1.lastIndexOf('/')+1, fileName1.lastIndexOf('.')) + "_" +
                 fileName2.substring(fileName2.lastIndexOf('/')+1, fileName2.lastIndexOf('.'));
-        FileOutputStream out = new FileOutputStream(output + "/" + name + ".xlsx");
+        String type = fileName1.endsWith(EXCEL_XLS) || fileName2.endsWith(EXCEL_XLS) ? ".xls" : ".xlsx";    //判断类型，只要有xls格式就输出xls格式的excel
+        FileOutputStream out = new FileOutputStream(output + "/" + name + type);
         workbook.write(out);
         out.close();
     }
