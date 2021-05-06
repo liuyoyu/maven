@@ -2,6 +2,7 @@ package com.lyy.uploadfile.Controller;
 
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Service.UserService;
+import com.lyy.uploadfile.Utils.Message;
 import com.lyy.uploadfile.Utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -23,8 +24,8 @@ public class UserController {
 
     @RequestMapping(value = "/account/{account}", method = RequestMethod.GET)
     public Result getUserByAccount(@PathVariable("account") String account) {
-        UserUF userUF = userService.find(account);
-        return userUF == null ? Result.error("该用户不存在") : Result.success("查询成功", userUF);
+        Message userUF = userService.find(account);
+        return userUF.isSuccess()? Result.error(userUF.msg()) : Result.success(userUF.msg(), userUF.res());
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
@@ -38,8 +39,8 @@ public class UserController {
             String msg = sb.toString();
             return Result.error(msg.substring(0, msg.length()-1));
         }
-        int res = userService.insert(userUF);
+        Message res = userService.insert(userUF);
 
-        return res == 0 ? Result.error("用户创建失败") : Result.success("用户创建成功");
+        return res.isSuccess() ? Result.error(res.msg()) : Result.success(res.msg());
     }
 }

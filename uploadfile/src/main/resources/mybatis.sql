@@ -12,6 +12,7 @@ email varchar(30) not null,
 createDate date
 );
 
+
 -- 创建TablePrimaryKey表格，该表格用来存储各个表的主键增长方式，其他增减新的数据时，都要访问该表获取自身的主键值
 create table table_primary_key(
 classReferenceName varchar(200) primary key ,

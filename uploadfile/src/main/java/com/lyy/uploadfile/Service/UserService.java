@@ -1,14 +1,15 @@
 package com.lyy.uploadfile.Service;
 
 import com.lyy.uploadfile.Entry.UserUF;
+import com.lyy.uploadfile.Utils.Message;
 
 public interface UserService {
 
-    UserUF find(Long id);
+    Message find(Long id);
 
-    int update(UserUF userUF);
+    Message update(UserUF userUF);
 
-    int insert(UserUF userUF);
+    Message insert(UserUF userUF);
 
-    UserUF find(String account);
+    Message find(String account);
 }
