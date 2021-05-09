@@ -16,10 +16,29 @@ import javax.servlet.http.Cookie;
 @Controller
 public class PageController extends BaseController {
 
-    @GetMapping("/{path}")
-    public String jumpTo(@PathVariable("path") String path){
-        //todo 限制跳转
-        return "/" + path;
+    /**
+     * 对跳转页面进行判断
+     * @return
+     */
+    @RequestMapping("/")
+    @ResponseBody
+    public ModelAndView jumpTo(){
+        Cookie cookieByName = HttpUtil.getCookieByName(SystemParameters.COOKIE_USR_INFORMATION);
+        String token = cookieByName.getValue();
+        if (JWTUtil.verify(token)) {
+            //判断是否自动登录
+            String info = JWTUtil.getTokenStr(token);
+            JSONObject jsonObject = new JSONObject(info);
+            Object remember = jsonObject.get("remember");
+            if (remember != null && (Boolean) remember) {
+                modelAndView.setViewName("main");
+                modelAndView.addObject("user_account", jsonObject.get(SystemParameters.JWT_VERIDATION_NAME_1));
+                modelAndView.addObject("user_name", jsonObject.get(SystemParameters.JWT_VERIDATION_NAME_2));
+                return modelAndView;
+            }
+        }
+        modelAndView.setViewName("login");
+        return modelAndView;
     }
 
     @RequestMapping("/uploadFile/mainPage")
@@ -55,7 +74,7 @@ public class PageController extends BaseController {
     @ResponseBody
     public ModelAndView jumpToLoginPage(@RequestParam("status") int status) {
         modelAndView.setViewName("login");
-        modelAndView.addObject("message", status>0 && status<3 ? msg[status] : "");
+        modelAndView.addObject("message", status>=0 && status<2 ? msg[status] : "");
         return modelAndView;
     }
 }

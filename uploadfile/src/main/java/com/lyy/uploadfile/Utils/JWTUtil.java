@@ -78,7 +78,7 @@ public class JWTUtil {
                     .withHeader(header)
                     //要往token中存储的东西
                     .withClaim(JWT_STRING, string)
-                    .withExpiresAt(date)
+//                    .withExpiresAt(date)
                     .sign(algorithm);
         } catch (UnsupportedEncodingException e) {
             return null;

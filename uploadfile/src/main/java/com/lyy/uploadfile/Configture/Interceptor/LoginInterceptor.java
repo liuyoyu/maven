@@ -25,19 +25,25 @@ public class LoginInterceptor implements HandlerInterceptor {
                 //验证有效
                 if (JWTUtil.verify(value)) {
                     return true;
+                }else{
+                    //令cookie失效
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
                 }
             }
         }
+
+        // 跳转到登录界面
         if (hasCookie) {
             /*
             token失效或token校验出错，需要进行重新登录
              */
-            response.sendRedirect("/uploadFile/loginPage?status=1");
+            response.sendRedirect("/uploadFile/loginPage?status=0");
         } else {
             /*
             第一次登录
              */
-            response.sendRedirect("/uploadFile/loginPage?status=2");
+            response.sendRedirect("/uploadFile/loginPage?status=1");
         }
         return false;
     }

@@ -10,7 +10,6 @@
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">UF</div>
-        <!-- 头部区域（可配合layui 已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">nav 1</a></li>
             <li class="layui-nav-item"><a href="">nav 2</a></li>
@@ -28,23 +27,23 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                    tester
+                    <span th:text="${user_name}">测试名称</span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">set 1</a></dd>
-                    <dd><a href="">set 2</a></dd>
+                    <dd><a href="">个人信息</a></dd>
+                    <dd><a href="">查看记录</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="" id="signOut">注销</a></li>
+            <li class="layui-nav-item"><a href="/login/out" id="signOut">注销</a></li>
         </ul>
     </div>
 
-    <div class="layui-body">
+    <div class="layui-body" style="left: 0">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">内容主体区域</div>
     </div>
 
-    <div class="layui-footer">
+    <div class="layui-footer" style="left: 0">
         <!-- 底部固定区域 -->
         底部固定区域
     </div>

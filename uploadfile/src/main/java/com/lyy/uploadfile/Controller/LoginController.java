@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/login")
-public class LoginController {
+public class LoginController extends BaseController {
 
     final LoginService loginService;
 
@@ -46,28 +47,26 @@ public class LoginController {
             JSONObject jo = new JSONObject();
             jo.put(SystemParameters.JWT_VERIDATION_NAME_1, user.getAccount());
             jo.put(SystemParameters.JWT_VERIDATION_NAME_2, user.getName());
+            //自动登录
+            if (remember) {
+                jo.put("remember", true);
+            }
             String userInfo = jo.toString();
             String sign = JWTUtil.sign(userInfo);
-
-            if (remember) {
-                //七天内自动登录，无需输入
-                HttpUtil.setCookie(SystemParameters.COOKIE_USR_INFORMATION, sign, 3600 * 24 * 7);
-            }else{
-                HttpUtil.setCookie(SystemParameters.COOKIE_USR_INFORMATION, sign, 3600 * 6);
-            }
+            HttpUtil.setCookie(SystemParameters.COOKIE_USR_INFORMATION, sign, 3600 * 24 * 7);
             return Result.success(login.msg());
         }
         return Result.error(login.msg());
     }
 
     @RequestMapping(value = "/out")
-    public Result logout(){
-        Cookie[] cookies = HttpUtil.getRequest().getCookies();
-        for (Cookie cookie : cookies) {
-            if ("userInfo".equals(cookie.getName())) {
-                cookie.setMaxAge(0);
-            }
+    public ModelAndView logout(){
+        Cookie cookie = HttpUtil.getCookieByName(SystemParameters.COOKIE_USR_INFORMATION);
+        if (cookie != null) {
+            cookie.setMaxAge(0);
+            HttpUtil.getResponse().addCookie(cookie);
         }
-        return Result.success("退出登录");
+        modelAndView.setViewName("/login");
+        return modelAndView;
     }
 }

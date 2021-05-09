@@ -29,7 +29,7 @@ public class WebMVCConfig implements WebMvcConfigurer {
     public void configureViewResolvers(ViewResolverRegistry registry) {
         if (thymeleafViewResolver != null) {
             Map<String, String> map = new HashMap<>();
-            map.put("basePath", basePath);
+//            map.put("basePath", basePath);
             map.put("respSuccess", String.valueOf(Result.Type.SUCCESS.value()));
             thymeleafViewResolver.setStaticVariables(map);
         }
@@ -43,6 +43,6 @@ public class WebMVCConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("login");
+//        registry.addViewController("/").setViewName("login");
     }
 }

@@ -71,9 +71,9 @@
                     </div>
 
                     <div class="layui-form-item">
-                        <input type="checkbox" lay-filter="remember" lay-skin="switch">
-                        <input type="hidden" name="remember" value="false">
-                        <span class="layui-font-green layui-font-12">记住我</span>
+                        <input type="checkbox" checked="" lay-filter="remember" lay-skin="switch">
+                        <input type="hidden" name="remember" value="true">
+                        <span class="layui-font-green layui-font-12" id="rmtxt">记住我</span>
                         <label style="float: right;">没有账号？<a href="signUp.html" class="layui-font-blue">点击注册</a></label>
                     </div>
 
@@ -89,7 +89,7 @@
 </div>
 
 <script>
-    layui.use('form', function(){
+    layui.use(['form'], function(){
         var form = layui.form;
 
         //监听提交
@@ -99,6 +99,9 @@
                 dataType: 'json',
                 type: 'post',
                 data: data.field,
+                beforeSend: function(){
+                    layerload = layer.load();
+                },
                 success: function (data) {
                     if(data.code == respSuccess){
                         layer.msg(data.msg, {
@@ -113,22 +116,33 @@
                         layer.msg(data.msg, {
                             icon: 5,
                             anim: 6,
-                            time: 2000
-                        },function () {});
+                            time: 1000
+                        });
                     }
+                },
+                complete: function () {
+                    layer.close(layerload);
                 }
             });
             return false;
         });
 
         form.on('switch(remember)',function(data){
-            layer.tips('温馨提示：将自动登录', data.othis);
-            if(data.value == "on"){
+            if(this.checked){
+                layer.tips('自动登录', '#rmtxt');
                 form.val('loginForm', {'remember' : true})
             }else{
+                layer.tips('取消自动登录', '#rmtxt');
                 form.val('loginForm', {'remember' : false})
             }
         });
+
+        layer.ready(function () {
+            if('' !== '[[${message}]]'){
+                layer.msg('[[${message}]]')
+            }
+
+        })
     });
 </script>
 </body>
