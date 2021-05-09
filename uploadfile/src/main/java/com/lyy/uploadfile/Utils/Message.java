@@ -19,8 +19,16 @@ public class Message<T> {
         return new Message<>(true, msg, res);
     }
 
+    public static <T>Message success(String msg){
+        return Message.success(msg, null);
+    }
+
     public static <T>Message fail(String msg, T res){
         return new Message<>(false, msg, res);
+    }
+
+    public static <T>Message fail(String msg){
+        return Message.fail(msg, null);
     }
 
     public boolean isSuccess(){

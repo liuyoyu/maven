@@ -26,10 +26,7 @@
             margin-top: 30%;
             height: 200px;
             width: 300px;
-            padding-top: 5%;
-            padding-right: 10%;
-            padding-left: 10%;
-            padding-bottom: 15%;
+            padding: 5% 10% 15%;
             background-color: rgba(255,255,255,0.6);
             border-radius: 5px;
         }
@@ -54,15 +51,15 @@
     </style>
 </head>
 <body>
-<img src="img/bg-email.jpg" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
+<img th:src="@{/img/bg.jpg}" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
 <div class="layui-container">
     <div class="layui-row">
         <div class="layui-col-xs6 layui-col-sm6 layui-col-md6 layui-col-md-offset3">
             <div class="box">
                 <div style="padding-bottom: 10px">
-                    <p class="layui-font-black" style="font-size: 30px;text-align: center">管理系统</p>
+                    <p class="layui-font-black" style="font-size: 30px;text-align: center">用来登录的登录界面</p>
                 </div>
-                <form class="layui-form" action="">
+                <form class="layui-form" lay-filter="loginForm">
                     <div class="layui-form-item inputdiv">
                         <i class="layui-icon layui-icon-username"></i>
                         <input type="text" name="account" required lay-verify="required" placeholder="用户名/邮箱" autocomplete="off" class="layui-input">
@@ -74,14 +71,15 @@
                     </div>
 
                     <div class="layui-form-item">
-                        <input type="checkbox" name="rememberMe" lay-skin="switch">
+                        <input type="checkbox" lay-filter="remember" lay-skin="switch">
+                        <input type="hidden" name="remember" value="false">
                         <span class="layui-font-green layui-font-12">记住我</span>
                         <label style="float: right;">没有账号？<a href="signUp.html" class="layui-font-blue">点击注册</a></label>
                     </div>
 
                     <div class="layui-form-item">
-                        <div style="text-align: center">
-                            <a href="javascript:void(0)" class="layui-btn">登录</a>
+                        <div class="layui-input-block" style="margin-left: 0px;">
+                            <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="loginSubmit">登录</button>
                         </div>
                     </div>
                 </form>
@@ -91,27 +89,45 @@
 </div>
 
 <script>
-    layui.use(function(){
-        var $ = layui.jquery;
+    layui.use('form', function(){
+        var form = layui.form;
 
-        $('.layui-form a').click(function(){
-            var actionUrl = basePath + '/login/signIn';
-            var account = $('.layui-form input[name="account"]').val();
-            var password = $('.layui-form input[name="password"]').val();
-            var remember = $('.layui-form input[name="rememberMe"]').is(':checked');
-            $.ajax({
-                url: actionUrl,
-                data: {
-                    account: account,
-                    password: password,
-                    remember: remember
-                },
+        //监听提交
+        form.on('submit(loginSubmit)', function(data){
+            layui.$.ajax({
+                url: '/login/check',
                 dataType: 'json',
                 type: 'post',
-                success:function(data){
-                    layer.msg(data.msg);
+                data: data.field,
+                success: function (data) {
+                    if(data.code == respSuccess){
+                        layer.msg(data.msg, {
+                            icon: 6,//成功的表情
+                            anim: 5,
+                            time: 1000 //1秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                            window.location.href = "/uploadFile/mainPage";
+                        });
+                    }else{
+                        form.val('loginForm', {'password': ''});
+                        layer.msg(data.msg, {
+                            icon: 5,
+                            anim: 6,
+                            time: 2000
+                        },function () {});
+                    }
                 }
-            })
+            });
+            return false;
+        });
+
+        form.on('switch(remember)',function(data){
+            layer.tips('温馨提示：将自动登录', data.othis);
+            if(data.value == "on"){
+                form.val('loginForm', {'remember' : true})
+            }else{
+                form.val('loginForm', {'remember' : false})
+            }
         });
     });
 </script>

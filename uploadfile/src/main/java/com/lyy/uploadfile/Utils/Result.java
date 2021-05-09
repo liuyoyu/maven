@@ -20,7 +20,7 @@ public class Result<T> implements Serializable {
             this.value = value;
         }
 
-        int value(){
+        public int value(){
             return value;
         }
     }

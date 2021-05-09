@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     public Message find(String account) {
         UserUF oneByAccount = userMapper.getOneByAccount(account);
         if (oneByAccount == null) {
-            return Message.fail("不存在该账户", null);
+            return Message.fail("不存在该账户");
         }
         return Message.success("查询成功", oneByAccount);
     }
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     public Message update(UserUF userUF) {
         int update = userMapper.update(userUF);
         if (update <= 0) {
-            return Message.fail("更新用户失败", null);
+            return Message.fail("更新用户失败");
         }
         return Message.success("更新用户成功", userUF);
     }
@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
     public Message insert(UserUF userUF) {
         UserUF oneByAccount = userMapper.getOneByAccount(userUF.getAccount());
         if (oneByAccount != null) {
-            return Message.fail("该账户已经存在", null);
+            return Message.fail("该账户已经存在");
         }
         Long id = tablePrimaryKeyService.get(UserUF.class);
         userUF.setId(id);
