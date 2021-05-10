@@ -5,7 +5,9 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ExcelMerge {
@@ -98,22 +100,24 @@ public class ExcelMerge {
         int addOffset = 1;
 
         Map<String, Integer> map = new HashMap<String, Integer>();
-        for(int i=0; i<=wb1RowNum; i++){
+        for(int i=1; i<=wb1RowNum; i++){
             String s = key2String(wb1SheetAts.getRow(i), colNo);
             map.put(s, i);
         }
 
         for(int i=0; i<=rowNum; i++){
-            Row row2 = wb2SheetAts.getRow(i), row1 = null;
+            Row row2 = wb2SheetAts.getRow(i), row1 = null, preRow = null;
             String s = key2String(row2, colNo);
             if (map.containsKey(s)) {
                 Integer row_i = map.get(s);
                 row1 = wb1SheetAts.getRow(row_i);
+                preRow = row_i == 1 ? null : wb1SheetAts.getRow(row_i - 1);
             }else{
                 row1 = wb1SheetAts.createRow(wb1RowNum + addOffset);
+                preRow = wb1RowNum + addOffset == 1 ? null : wb1SheetAts.getRow(wb1RowNum + addOffset - 1);
                 addOffset++;
             }
-            writeRow(row2, row1);
+            writeRow(row2, row1, preRow);
         }
         return wb1;
     }
@@ -153,26 +157,36 @@ public class ExcelMerge {
      * 将行数据写入另一个表格的行中
      * @param from
      * @param to
+     * @Param preRow 前一行表格数据
      */
-    private static void writeRow(Row from, Row to){
+    private static void writeRow(Row from, Row to, Row preRow){
         int n = from.getLastCellNum();
         for(int i=0; i<n; i++){
             Cell cell = from.getCell(i);
-            CellType type = null;
-            if((type = cell.getCellType()) == CellType.STRING){
-                to.createCell(i,cell.getCellType()).setCellValue(cell.getStringCellValue());
+            if (cell == null) {
+                to.createCell(i,cell.getCellType()).setCellValue("");   //空格直接写入""
+                continue;
+            }
+            CellType type = cell.getCellType(), preType = null;
+            if (preRow == null || preRow.getCell(i) == null) {
+                preType = type; //当前一行没有数据时，使用当前数据的格式
+            }else{
+                preType = preRow.getCell(i).getCellType();  //当前一行有数据时，填入数据使用前一行数据的格式
+            }
+            if(type == CellType.STRING){
+                to.createCell(i,preType).setCellValue(cell.getStringCellValue());
             }else if(type == CellType.BOOLEAN){
-                to.createCell(i, cell.getCellType()).setCellValue(cell.getBooleanCellValue());
+                to.createCell(i, preType).setCellValue(cell.getBooleanCellValue());
             }else if(type == CellType.NUMERIC){
                 if(DateUtil.isCellDateFormatted(cell)){
-                    to.createCell(i, cell.getCellType()).setCellValue(cell.getDateCellValue());
+                    to.createCell(i, preType).setCellValue(cell.getDateCellValue());
                 }else{
-                    to.createCell(i, cell.getCellType()).setCellValue(cell.getNumericCellValue());
+                    to.createCell(i, preType).setCellValue(cell.getNumericCellValue());
                 }
             }else if(type == CellType.BLANK){
-                to.createCell(i, cell.getCellType()).setCellValue(cell.getStringCellValue());
+                to.createCell(i, preType).setCellValue(cell.getStringCellValue());
             }else if(type == CellType.FORMULA){
-                to.createCell(i, cell.getCellType()).setCellValue(cell.getRichStringCellValue());
+                to.createCell(i, preType).setCellValue(cell.getRichStringCellValue());
             }
         }
     }
@@ -199,6 +213,7 @@ public class ExcelMerge {
 
     /**
      * 将workbook中的列名提取出来
+     * 修复有时列名出现空字符串的问题
      * @param wb
      * @return
      */
@@ -206,10 +221,18 @@ public class ExcelMerge {
         Sheet sheetAt = wb.getSheetAt(0);
         Row row = sheetAt.getRow(0);
         int colNum = row.getPhysicalNumberOfCells();
-        String[] names = new String[colNum];
+        List<String> names = new ArrayList<>();
         for(int i=0; i<colNum; i++){
-            names[i] = row.getCell(i).getStringCellValue();
+            Cell cell = row.getCell(i);
+            if (cell == null) { //遇到空格就停止
+                break;
+            }
+            String value = cell.getStringCellValue();
+            if ("".equals(value)) { //遇到空字符串就停止
+                break;
+            }
+            names.add(value);
         }
-        return names;
+        return names.toArray(new String[names.size()]);
     }
 }
