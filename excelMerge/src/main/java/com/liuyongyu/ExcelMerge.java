@@ -105,7 +105,7 @@ public class ExcelMerge {
             map.put(s, i);
         }
 
-        for(int i=0; i<=rowNum; i++){
+        for(int i=1; i<=rowNum; i++){
             Row row2 = wb2SheetAts.getRow(i), row1 = null, preRow = null;
             String s = key2String(row2, colNo);
             if (map.containsKey(s)) {
@@ -164,7 +164,7 @@ public class ExcelMerge {
         for(int i=0; i<n; i++){
             Cell cell = from.getCell(i);
             if (cell == null) {
-                to.createCell(i,cell.getCellType()).setCellValue("");   //空格直接写入""
+                to.createCell(i,CellType.STRING).setCellValue("");   //空格直接写入""
                 continue;
             }
             CellType type = cell.getCellType(), preType = null;

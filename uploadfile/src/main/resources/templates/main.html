@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>主界面</title>
+    <title>文件搬运工</title>
     <div th:replace="link::header"></div>
     <div th:replace="script::js_footer"></div>
 </head>
@@ -27,20 +27,35 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                    <span th:text="${user_name}">测试名称</span>
+                    <span th:text="${user_name}">用户名称</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">个人信息</a></dd>
                     <dd><a href="">查看记录</a></dd>
+                    <hr>
+                    <dd style="text-align: center;"><a href="/login/out" id="signOu">退出</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="/login/out" id="signOut">注销</a></li>
         </ul>
     </div>
 
     <div class="layui-body" style="left: 0">
-        <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
+        <div class="layui-container" style="margin-top: 5%;">
+            <div class="layui-row">
+                <div class="toolBar">
+                    搜索文件名称:
+                    <div class="layui-inline">
+                        <input class="layui-input" name="fileName" id="tableReloadInput" autocomplete="off">
+                    </div>
+                    <button class="layui-btn" data-type="reload">搜索</button>
+                    <button class="layui-btn layui-btn-normal layui-layout-right">
+                        <span class="layui-icon-add-1"></span>
+                        申请上传文件
+                    </button>
+                </div>
+                <table class="layui-table" id="fileList" lay-filter='tableFilter'></table>
+            </div>
+        </div>
     </div>
 
     <div class="layui-footer" style="left: 0">
@@ -49,25 +64,68 @@
     </div>
 </div>
 <script>
-    //JavaScript代码区域
-    layui.use(function(){
+    layui.use('table', function(){
+        var table = layui.table;
 
-        layui.$('#signOut').click(function () {
-            var url = basePath + '/login/signOut';
-            layui.$.ajax({
-                url: url,
-                dataType: 'json',
-                type: 'get',
-                success:function(data){
-                    layer.msg(data.msg);
-                    if(data.code == respSuccess){
-                        window.location.href = '/index';
-
-                    }
-                }
-            })
+        table.render({
+            elem: '#fileList',
+            url:'/file/all/[[${user_account}]]',
+            width: '100%',
+            cols:[
+                [
+                    {field:'name', width:'40%', title: '文件名称'},
+                    {field:'createDate', width:'20%', title: '上传时间', sort: true},
+                    {field:'uploadName', width:'20%', title: '上传者'},
+                    {field:'reviseName', width:'20%', title: '审核人'}
+                ]
+            ],
+            id: 'tableReload',
+            page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'],
+                group: 3
+            },
+            text:{
+                none: '好可怜，没人给我传文件 T_T '
+            },
+            loading: true,
+            done: function () {
+                layui.$('.layui-table').css('width', '100%');
+            }
         });
+
+        layui.$('.toolBar .layui-btn').click(function () {
+            var type = layui.$(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+        var active = {
+            reload: function () {
+                var input = layui.$('#tableReloadInput');
+                //执行重载
+                table.reload('tableReload', {
+                    url: '/file/search',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        fileName: input.val()
+                    }
+                });
+            }
+        };
+
+        table.on('row(tableFilter)', function (obj) {
+            var data = obj.data;
+
+            layer.alert(JSON.stringify(data), {
+                title: '是否下载文件'
+            });
+
+            //标注选中样式
+            obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+        })
     });
+
 </script>
 </body>
 </html>

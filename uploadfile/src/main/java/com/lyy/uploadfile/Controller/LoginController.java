@@ -3,7 +3,6 @@ package com.lyy.uploadfile.Controller;
 import com.lyy.uploadfile.Configture.SystemParameters;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Service.LoginService;
-import com.lyy.uploadfile.Service.UserService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
 import com.lyy.uploadfile.Utils.Message;
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/login")
