@@ -5,13 +5,26 @@
     <title>文件搬运工</title>
     <div th:replace="link::header"></div>
     <div th:replace="script::js_footer"></div>
+    <style>
+        .imgCover {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+        }
+    </style>
 </head>
 <body>
+<img th:src="@{/img/bg.jpg}" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">UF</div>
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">nav 1</a></li>
+            <li class="layui-nav-item"><a href="">首页</a></li>
             <li class="layui-nav-item"><a href="">nav 2</a></li>
             <li class="layui-nav-item"><a href="">nav 3</a></li>
             <li class="layui-nav-item">
@@ -81,8 +94,9 @@
             ],
             id: 'tableReload',
             page: {
-                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'],
-                group: 3
+                layout: ['count', 'prev', 'page', 'next', 'skip'],
+                group: 3,
+                limit: 10
             },
             text:{
                 none: '好可怜，没人给我传文件 T_T '

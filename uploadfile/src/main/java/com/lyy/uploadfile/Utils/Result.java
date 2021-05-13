@@ -3,9 +3,9 @@ package com.lyy.uploadfile.Utils;
 import java.io.Serializable;
 
 public class Result<T> implements Serializable {
-    private int code;
-    private String msg;
-    private T data;
+    protected int code;
+    protected String msg;
+    protected T data;
 
     public enum Type{
         /*成功*/
