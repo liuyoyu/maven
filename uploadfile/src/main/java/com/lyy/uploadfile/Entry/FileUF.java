@@ -33,7 +33,13 @@ public class FileUF {
 
     private int status;     //状态：1 -可下载；0 -无法下载
 
+    private int downloadCount;
+
     private String locatePath;
+
+    public FileUF() {
+        this.downloadCount = 0;
+    }
 
     public long getId() {
         return id;
@@ -109,7 +115,7 @@ public class FileUF {
     }
 
     public String getDownloadStatus() {
-        return status == 0 ? "否" : "是";
+        return status == 0 ? "否" : "能";
     }
 
     public void setStatus(int status) {
@@ -138,5 +144,13 @@ public class FileUF {
 
     public void setLocatePath(String locatePath) {
         this.locatePath = locatePath;
+    }
+
+    public int getDownloadCount() {
+        return downloadCount;
+    }
+
+    public void setDownloadCount(int downloadCount) {
+        this.downloadCount = downloadCount;
     }
 }

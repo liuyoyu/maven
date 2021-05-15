@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 @RestController
 @RequestMapping("/file")
@@ -35,10 +36,13 @@ public class FileController extends BaseController {
 
     LoginService loginService;
 
+    private final ReentrantLock lock;
+
     public FileController(FileService fileService,
                           LoginService loginService) {
         this.fileService = fileService;
         this.loginService = loginService;
+        lock = new ReentrantLock();
     }
 
     @RequestMapping(value = "/all/{account}", method = RequestMethod.GET)
@@ -150,37 +154,44 @@ public class FileController extends BaseController {
         if (!one.isSuccess()) {
             return Result.error(one.msg());
         }
+        lock.lock();
+        try{
+            FileUF fileuf = (FileUF)one.res();
+            fileuf.setDownloadCount(fileuf.getDownloadCount() + 1);
+            File file = new File(fileuf.getLocatePath() + "/" + fileuf.getStoreName() + "." + fileuf.getFileType());
+            if(file.exists()){ //判断文件父目录是否存在
+                fileService.updateDownloadCount(fileuf.getId(), fileuf.getDownloadCount()); //更新下载次数
+                response.setContentType("application/vnd.ms-excel;charset=UTF-8");
+                response.setCharacterEncoding("UTF-8");
+                // response.setContentType("application/force-download");
+                response.setHeader("Content-Disposition", "attachment;fileName=" +
+                        java.net.URLEncoder.encode(fileuf.getStoreName() + "." + fileuf.getFileType(),"UTF-8"));
+                byte[] buffer = new byte[1024];
+                FileInputStream fis = null; //文件输入流
+                BufferedInputStream bis = null;
 
-        FileUF fileuf = (FileUF)one.res();
-        File file = new File(fileuf.getLocatePath() + "/" + fileuf.getStoreName() + "." + fileuf.getFileType());
-        if(file.exists()){ //判断文件父目录是否存在
-            response.setContentType("application/vnd.ms-excel;charset=UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            // response.setContentType("application/force-download");
-            response.setHeader("Content-Disposition", "attachment;fileName=" +
-                    java.net.URLEncoder.encode(fileuf.getStoreName() + "." + fileuf.getFileType(),"UTF-8"));
-            byte[] buffer = new byte[1024];
-            FileInputStream fis = null; //文件输入流
-            BufferedInputStream bis = null;
+                OutputStream os = null; //输出流
+                try {
+                    os = response.getOutputStream();
+                    fis = new FileInputStream(file);
+                    bis = new BufferedInputStream(fis);
+                    int i = bis.read(buffer);
+                    while(i != -1){
+                        os.write(buffer);
+                        i = bis.read(buffer);
+                    }
 
-            OutputStream os = null; //输出流
-            try {
-                os = response.getOutputStream();
-                fis = new FileInputStream(file);
-                bis = new BufferedInputStream(fis);
-                int i = bis.read(buffer);
-                while(i != -1){
-                    os.write(buffer);
-                    i = bis.read(buffer);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-            } catch (Exception e) {
-                e.printStackTrace();
+                bis.close();
+                fis.close();
+                return null;
             }
-            bis.close();
-            fis.close();
-            return null;
+        }finally {
+            lock.unlock();
         }
+
         return Result.error("文件不存在");
     }
 

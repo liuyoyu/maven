@@ -120,12 +120,13 @@
             elem: '#fileList',
             url:'/file/all/[[${user_account}]]',
             cols:[ [
-                {field:'fileName', width:'30%', title: '文件名称'},
-                {field:'fileSize', width:'10%', title: '文件大小', sort: true},
+                {field:'fileName', width:'20%', title: '文件名称'},
+                {field:'fileSize', width:'10%', title: '大小', sort: true},
                 {field:'fileType', width:'10%', title: '文件格式'},
                 {field:'upDate', width:'20%', title: '上传时间', sort: true},
                 {field:'uploadName', width: '10%', title: '上传者'},
                 {field:'reviseName', width:'10%', title: '审核人'},
+                {field:'downloadCount', width:'10%', title: '下载次数'},
                 {field: 'downloadStatus', width: '10%', title: '能否下载'},
                 {field:'uploadAccount', title: '上传账号', hide: true},
                 {field:'reviseAccount', title: '审核人账号', hide: true}
@@ -290,7 +291,9 @@
                     }else{
                         layer.msg("暂不支持预览");
                     }
-
+                },
+                end: function () {
+                    tableObj.reload(fileList); //更新表格
                 }
             });
 

@@ -60,4 +60,10 @@ public class FileServiceImpl implements FileService {
         }
         return Message.success("文件获取成功", one);
     }
+
+    @Override
+    public Message updateDownloadCount(long id, int downloadCount) {
+        int i = fileUFMapper.updateDownloadCount(id, downloadCount);
+        return i == 0 ? Message.success("更新成功") : Message.fail("更新失败");
+    }
 }

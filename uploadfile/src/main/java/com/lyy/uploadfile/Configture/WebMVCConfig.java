@@ -38,7 +38,7 @@ public class WebMVCConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/","/uploadFile/loginPage", "/login", "/error","/favicon.ico", "/login/**", "/img/**", "/layui/**");
+                .excludePathPatterns("/uploadFile/loginPage", "/login", "/error","/favicon.ico", "/login/**", "/img/**", "/layui/**");
     }
 
     @Override

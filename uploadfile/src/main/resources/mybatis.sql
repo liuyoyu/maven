@@ -35,7 +35,8 @@ reviseName varchar(20),
 reviseAccount varchar(20),
 uploadDate date,
 status int,
-locatePath varchar(400)
+locatePath varchar(400),
+downloadCount number
 );
 
 

@@ -14,4 +14,6 @@ public interface FileService {
     int count(String account);
 
     Message getOne(long id);
+
+    Message updateDownloadCount(long id, int downloadCount);
 }
