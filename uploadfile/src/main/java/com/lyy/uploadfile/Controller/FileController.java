@@ -96,6 +96,11 @@ public class FileController extends BaseController {
         return Result.success(name + " 文件上传成功", fileUF);
     }
 
+    /**
+     * 多文件上传（预留）
+     * @param files
+     * @return
+     */
     @PostMapping("/upload/multi")
     public Result upload(@RequestParam("files") MultipartFile[] files) {
         StringBuilder msg = new StringBuilder();
@@ -210,13 +215,13 @@ public class FileController extends BaseController {
             response.setCharacterEncoding("UTF-8");
             response.addHeader("Content-Length", "" + f.length());
             //设置输出文件类型
-            response.setContentType("video/mpeg4");
+            response.setContentType("video/mpeg4;video/ts");
             //获取response输出流
             os = response.getOutputStream();
             // 输出文件
             os.write(buffer);
         }catch(Exception e){
-            logger.error("文件下载出现异常：{}", e.getMessage());
+            logger.error("文件预览出现异常：{}", e.getMessage());
         } finally{
             //关闭流
             try {

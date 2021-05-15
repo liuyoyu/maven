@@ -5283,3 +5283,129 @@ java.lang.NullPointerException: null
 2021-05-15 12:45:09.439 >>> [http-nio-127.0.0.1-8080-exec-2] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
 2021-05-15 12:45:09.613 >>> [http-nio-127.0.0.1-8080-exec-2] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
 2021-05-15 12:45:10.930 >>> [http-nio-127.0.0.1-8080-exec-4] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件下载出现异常：/Users/liuyongyu/desktop/2a50ee83-ecc3-4987-a498-f1c46bcd7ea2mp4.mp4 (No such file or directory)
+2021-05-15 12:57:10.913 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-15 12:57:10.914 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-15 12:57:10.936 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-15 12:57:12.998 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.104 with PID 3493 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-05-15 12:57:13.003 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-05-15 12:57:13.928 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-05-15 12:57:13.935 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-05-15 12:57:13.935 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-15 12:57:13.986 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-05-15 12:57:13.986 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 923 ms
+2021-05-15 12:57:14.310 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-15 12:57:14.477 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-15 12:57:14.486 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 1.948 seconds (JVM running for 2.668)
+2021-05-15 12:57:20.144 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-15 12:57:20.144 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+2021-05-15 12:57:20.148 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 4 ms
+2021-05-15 12:57:20.714 >>> [http-nio-127.0.0.1-8080-exec-3] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-15 12:57:20.716 >>> [http-nio-127.0.0.1-8080-exec-3] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-15 12:57:20.886 >>> [http-nio-127.0.0.1-8080-exec-3] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-15 12:57:39.964 >>> [http-nio-127.0.0.1-8080-exec-8] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件下载出现异常：/Users/liuyongyu/desktop/2a393ba9-a36a-4831-aff7-98f3bd5409cc.ts.ts (No such file or directory)
+2021-05-15 13:05:12.723 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:05:12.725 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-15 13:05:12.749 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-15 13:05:14.468 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.104 with PID 3554 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-05-15 13:05:14.472 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-05-15 13:05:15.482 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-05-15 13:05:15.490 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-05-15 13:05:15.490 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-15 13:05:15.547 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-05-15 13:05:15.547 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 994 ms
+2021-05-15 13:05:15.876 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:05:16.043 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-15 13:05:16.052 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 2.008 seconds (JVM running for 2.575)
+2021-05-15 13:05:42.301 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-15 13:05:42.301 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+2021-05-15 13:05:42.305 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 4 ms
+2021-05-15 13:05:42.909 >>> [http-nio-127.0.0.1-8080-exec-3] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-15 13:05:42.911 >>> [http-nio-127.0.0.1-8080-exec-3] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-15 13:05:43.091 >>> [http-nio-127.0.0.1-8080-exec-3] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-15 13:05:44.130 >>> [http-nio-127.0.0.1-8080-exec-5] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/a377ac86-4841-4f29-b0e4-d0b629020844mp4.mp4 (No such file or directory)
+2021-05-15 13:05:48.379 >>> [http-nio-127.0.0.1-8080-exec-7] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/deb4fd56-5d5e-4f65-af7a-896cf3bc21cf.ts.ts (No such file or directory)
+2021-05-15 13:05:55.728 >>> [http-nio-127.0.0.1-8080-exec-9] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/9f4724e5-564b-4f99-9d6d-7f07bd902b7dmp4.mp4 (No such file or directory)
+2021-05-15 13:05:58.268 >>> [http-nio-127.0.0.1-8080-exec-10] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/71862034-92fe-4029-8a0a-2e0b27a35be0.mp4.mp4 (No such file or directory)
+2021-05-15 13:07:29.490 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:07:29.491 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-15 13:07:29.520 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-15 13:07:31.369 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.104 with PID 3582 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-05-15 13:07:31.372 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-05-15 13:07:32.321 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-05-15 13:07:32.329 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-05-15 13:07:32.329 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-15 13:07:32.383 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-05-15 13:07:32.383 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 955 ms
+2021-05-15 13:07:32.703 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:07:32.864 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-15 13:07:32.873 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 1.904 seconds (JVM running for 2.616)
+2021-05-15 13:07:35.433 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-15 13:07:35.434 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+2021-05-15 13:07:35.438 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 4 ms
+2021-05-15 13:07:36.052 >>> [http-nio-127.0.0.1-8080-exec-2] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-15 13:07:36.054 >>> [http-nio-127.0.0.1-8080-exec-2] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-15 13:07:36.231 >>> [http-nio-127.0.0.1-8080-exec-2] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-15 13:08:07.189 >>> [http-nio-127.0.0.1-8080-exec-7] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/024c623d-fa1b-4b64-a04b-cb749aeae5e8.ts.ts (No such file or directory)
+2021-05-15 13:08:12.833 >>> [http-nio-127.0.0.1-8080-exec-9] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/1f77734b-db5a-44f2-8b21-a08321d89476.mp4..mp4 (No such file or directory)
+2021-05-15 13:10:32.347 >>> [HikariPool-1 housekeeper] >>> WARN  >>> com.zaxxer.hikari.pool.HikariPool >>> HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50s788ms).
+2021-05-15 13:10:32.441 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:10:32.442 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-15 13:10:32.464 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-15 13:10:34.956 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.104 with PID 3607 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-05-15 13:10:34.959 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-05-15 13:10:35.962 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-05-15 13:10:35.969 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-05-15 13:10:35.969 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-15 13:10:36.022 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-05-15 13:10:36.023 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 992 ms
+2021-05-15 13:10:36.337 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:10:36.504 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-15 13:10:36.513 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 1.921 seconds (JVM running for 2.503)
+2021-05-15 13:10:41.448 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-15 13:10:41.448 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+2021-05-15 13:10:41.453 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 5 ms
+2021-05-15 13:10:42.076 >>> [http-nio-127.0.0.1-8080-exec-2] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-15 13:10:42.078 >>> [http-nio-127.0.0.1-8080-exec-2] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-15 13:10:42.255 >>> [http-nio-127.0.0.1-8080-exec-2] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-15 13:13:07.572 >>> [http-nio-127.0.0.1-8080-exec-4] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/024c623d-fa1b-4b64-a04b-cb749aeae5e8.ts.ts (No such file or directory)
+2021-05-15 13:14:09.383 >>> [http-nio-127.0.0.1-8080-exec-6] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/b13b50df-996d-4155-9d36-29d474b9e1f5.ts.ts (No such file or directory)
+2021-05-15 13:14:33.446 >>> [http-nio-127.0.0.1-8080-exec-9] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/ad6cfc8a-16d3-46e7-90b5-f47c89e37831.ts.ts (No such file or directory)
+2021-05-15 13:17:02.430 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:17:02.431 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-15 13:17:02.456 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-15 13:17:04.636 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.104 with PID 3641 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-05-15 13:17:04.641 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-05-15 13:17:05.572 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-05-15 13:17:05.579 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-05-15 13:17:05.580 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-15 13:17:05.634 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-05-15 13:17:05.634 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 940 ms
+2021-05-15 13:17:05.952 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:17:06.116 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-15 13:17:06.126 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 1.931 seconds (JVM running for 2.739)
+2021-05-15 13:17:09.968 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-15 13:17:09.968 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+2021-05-15 13:17:09.974 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 6 ms
+2021-05-15 13:17:10.602 >>> [http-nio-127.0.0.1-8080-exec-3] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-15 13:17:10.604 >>> [http-nio-127.0.0.1-8080-exec-3] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-15 13:17:10.770 >>> [http-nio-127.0.0.1-8080-exec-3] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-15 13:17:36.294 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:17:36.297 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-15 13:17:36.327 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-15 13:17:38.189 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.104 with PID 3648 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-05-15 13:17:38.192 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-05-15 13:17:39.377 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-05-15 13:17:39.386 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-05-15 13:17:39.386 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-15 13:17:39.453 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-05-15 13:17:39.453 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 1203 ms
+2021-05-15 13:17:39.871 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-15 13:17:40.146 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-15 13:17:40.160 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 2.294 seconds (JVM running for 3.058)
+2021-05-15 13:17:41.011 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-15 13:17:41.011 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
+2021-05-15 13:17:41.015 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 4 ms
+2021-05-15 13:17:41.623 >>> [http-nio-127.0.0.1-8080-exec-2] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-15 13:17:41.625 >>> [http-nio-127.0.0.1-8080-exec-2] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-15 13:17:41.803 >>> [http-nio-127.0.0.1-8080-exec-2] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-15 13:17:42.530 >>> [http-nio-127.0.0.1-8080-exec-4] >>> ERROR >>> com.lyy.uploadfile.Controller.FileController >>> 文件预览出现异常：/Users/liuyongyu/desktop/8a43826e-d345-4a34-ab64-0b8ce5727189mp4.mp4 (No such file or directory)

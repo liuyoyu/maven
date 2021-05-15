@@ -100,7 +100,7 @@
     <div id="video_layer" style="display: none">
         <!-- 视频预览 -->
         <div style="margin: 10px">
-            <video alt="播放" id="video" controls="controls" height="400" width="700"></video>
+            <video alt="播放" id="video" controls height="400" width="700" controlsList="nodownload" disablePictureInPicture></video>
         </div>
     </div>
 
@@ -253,6 +253,7 @@
                 form.attr("action",'/file/download/' + id);
                 layui.$("body").append(form);
                 form.submit();//表单提交
+                form.remove();
             }
         };
 
@@ -273,18 +274,23 @@
                     active['download'] ? active['download'].call(this, data.id) : '';
                 },
                 success: function () {
-                    var xmlHttpRequest = new XMLHttpRequest();
-                    xmlHttpRequest.open('POST', '/file/video/', true);
-                    xmlHttpRequest.responseType = "blob";
-                    xmlHttpRequest.onload = function (e) {
-                        if (this.status == 200) {
-                            var blob = this.response;
-                            layui.$('#div_video_layer #video').attr('src', URL.createObjectURL(blob));
-                        }
-                    };
-                    var formData = new FormData();
-                    formData.append("id", data.id);
-                    xmlHttpRequest.send(formData);
+                    if (data.fileType == 'mp4') {
+                        var xmlHttpRequest = new XMLHttpRequest();
+                        xmlHttpRequest.open('POST', '/file/video/', true);
+                        xmlHttpRequest.responseType = "blob";
+                        xmlHttpRequest.onload = function (e) {
+                            if (this.status == 200) {
+                                var blob = this.response;
+                                layui.$('#div_video_layer #video').attr('src', URL.createObjectURL(blob));
+                            }
+                        };
+                        var formData = new FormData();
+                        formData.append("id", data.id);
+                        xmlHttpRequest.send(formData);
+                    }else{
+                        layer.msg("暂不支持预览");
+                    }
+
                 }
             });
 
