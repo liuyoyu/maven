@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="layui-form-item">
-                        <input type="checkbox" checked="" lay-filter="remember" lay-skin="switch">
+                        <input type="checkbox" checked="" lay-filter="remember" id="swcx" lay-skin="switch">
                         <input type="hidden" name="remember" value="true">
                         <span class="layui-font-green layui-font-12" id="rmtxt">记住我</span>
                         <label style="float: right;">没有账号？<a href="signUp.html" class="layui-font-blue">点击注册</a></label>
@@ -132,7 +132,9 @@
                 layer.tips('自动登录', '#rmtxt');
                 form.val('loginForm', {'remember' : true})
             }else{
-                layer.tips('取消自动登录', '#rmtxt');
+                layer.tips('取消自动登录', data.othis,{
+                    tips: 4
+                });
                 form.val('loginForm', {'remember' : false})
             }
         });

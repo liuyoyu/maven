@@ -31,6 +31,11 @@ public class UserUF {
 
     private Date createDate;
 
+    public UserUF(String name, String account) {
+        this.account = account;
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

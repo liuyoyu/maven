@@ -21,5 +21,22 @@ strategy number(1) not null,
 createDate date
 );
 
+-- 创建File表，用来保存文件信息
+drop table file_uf;
+create table file_uf(
+id number(12) primary key,
+fileName varchar(200),
+storeName varchar(200),
+fileType varchar(20),
+fileSize varchar(10),
+uploadName varchar(20),
+uploadAccount varchar(20),
+reviseName varchar(20),
+reviseAccount varchar(20),
+uploadDate date,
+status int,
+locatePath varchar(400)
+);
+
 
 

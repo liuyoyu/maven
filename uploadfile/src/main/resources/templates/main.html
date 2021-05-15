@@ -5,6 +5,7 @@
     <title>文件搬运工</title>
     <div th:replace="link::header"></div>
     <div th:replace="script::js_footer"></div>
+    <script th:src="@{/myJS/utils.js}"></script>
     <style>
         .imgCover {
             top: 0;
@@ -61,13 +62,45 @@
                         <input class="layui-input" name="fileName" id="tableReloadInput" autocomplete="off">
                     </div>
                     <button class="layui-btn" data-type="reload">搜索</button>
-                    <button class="layui-btn layui-btn-normal layui-layout-right">
-                        <span class="layui-icon-add-1"></span>
+                    <button class="layui-btn layui-btn-normal layui-layout-right" style="margin-right: 15px;" data-type="upload">
+                        <!--<span class="layui-icon-add-1"></span>-->
                         申请上传文件
                     </button>
                 </div>
                 <table class="layui-table" id="fileList" lay-filter='tableFilter'></table>
             </div>
+        </div>
+    </div>
+
+    <div id="upload_layer" style="display: none;">
+        <div class="layui-row" style="margin: 10px;">
+            <div class="layui-upload">
+                <button type="button" class="layui-btn layui-btn-normal" id="chooseFileList">选择文件</button>
+                <button type="button" class="layui-btn" id="chooseFileListAction">开始上传</button>
+                <div class="layui-upload-list" style="max-width: 1000px;">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col>
+                            <col width="150">
+                            <col width="260">
+                            <col width="150">
+                        </colgroup>
+                        <thead>
+                        <tr><th>文件名</th>
+                            <th>大小</th>
+                            <th>上传进度</th>
+                            <th>操作</th>
+                        </tr></thead>
+                        <tbody id="demoList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="video_layer" style="display: none">
+        <!-- 视频预览 -->
+        <div style="margin: 10px">
+            <video alt="播放" id="video" controls="controls" height="400" width="700"></video>
         </div>
     </div>
 
@@ -77,21 +110,26 @@
     </div>
 </div>
 <script>
-    layui.use('table', function(){
+    layui.use(['table', 'layer', 'upload', 'element'], function(){
         var table = layui.table;
+        var layer = layui.layer;
+        var upload = layui.upload;
+        var element = layui.element;
 
-        table.render({
+        var fileList = {
             elem: '#fileList',
             url:'/file/all/[[${user_account}]]',
-            width: '100%',
-            cols:[
-                [
-                    {field:'name', width:'40%', title: '文件名称'},
-                    {field:'createDate', width:'20%', title: '上传时间', sort: true},
-                    {field:'uploadName', width:'20%', title: '上传者'},
-                    {field:'reviseName', width:'20%', title: '审核人'}
-                ]
-            ],
+            cols:[ [
+                {field:'fileName', width:'30%', title: '文件名称'},
+                {field:'fileSize', width:'10%', title: '文件大小', sort: true},
+                {field:'fileType', width:'10%', title: '文件格式'},
+                {field:'upDate', width:'20%', title: '上传时间', sort: true},
+                {field:'uploadName', width: '10%', title: '上传者'},
+                {field:'reviseName', width:'10%', title: '审核人'},
+                {field: 'downloadStatus', width: '10%', title: '能否下载'},
+                {field:'uploadAccount', title: '上传账号', hide: true},
+                {field:'reviseAccount', title: '审核人账号', hide: true}
+            ] ],
             id: 'tableReload',
             page: {
                 layout: ['count', 'prev', 'page', 'next', 'skip'],
@@ -105,7 +143,10 @@
             done: function () {
                 layui.$('.layui-table').css('width', '100%');
             }
-        });
+        };
+        var tableObj = table.render();
+
+        tableObj.reload(fileList);
 
         layui.$('.toolBar .layui-btn').click(function () {
             var type = layui.$(this).data('type');
@@ -125,19 +166,131 @@
                         fileName: input.val()
                     }
                 });
+            },
+            upload: function () {
+                var one = layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: 0,
+                    shadeClose: true,
+                    resize: false,
+                    content: '<div id="div_upload_layer">' + layui.$('#upload_layer').html() + "</div>",
+                    success: function () {
+                        uploadListIns = upload.render({
+                            elem: layui.$('#div_upload_layer #chooseFileList'),
+                            url: '/file/upload',
+                            accept: 'file, video',
+                            exts: 'mp4|ts',
+                            multiple: true,
+                            number: 3,
+                            auto: false,
+                            bindAction: layui.$('#div_upload_layer #chooseFileListAction'),
+                            choose: function(obj){
+                                var that = layui.$('#div_upload_layer .layui-table');
+                                var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                                //读取本地文件
+                                obj.preview(function(index, file, result){
+                                    var tr = layui.$(['<tr id="upload-'+ index +'">'
+                                        ,'<td>'+ file.name +'</td>'
+                                        ,'<td>'+ (file.size/1014).toFixed(1) +'kb</td>'
+                                        ,'<td><div class="layui-progress" lay-filter="progress-demo-'+ index +'"><div class="layui-progress-bar" lay-percent=""></div></div></td>'
+                                        ,'<td>'
+                                        ,'<button class="layui-btn layui-btn-xs item-reload layui-hide">重传</button>'
+                                        ,'<button class="layui-btn layui-btn-xs layui-btn-danger item-delete">删除</button>'
+                                        ,'</td>'
+                                        ,'</tr>'].join(''));
+
+                                    //单个重传
+                                    tr.find('.item-reload').on('click', function(){
+                                        obj.upload(index, file);
+                                    });
+
+                                    //删除
+                                    tr.find('.item-delete').on('click', function(){
+                                        delete files[index]; //删除对应的文件
+                                        tr.remove();
+                                        uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+                                    });
+
+                                    that.append(tr);
+                                    element.render('progress'); //渲染新加的进度条组件
+                                });
+                            },
+                            done: function(data, index, upload){ //成功的回调
+                                var that = layui.$('#div_upload_layer .layui-table');
+                                if(data.code == respSuccess){ //上传成功
+                                    var tr = that.find('tr#upload-'+ index)
+                                        ,tds = tr.children();
+                                    tds.eq(3).html(''); //清空操作
+                                    delete this.files[index]; //删除文件队列已经上传成功的文件
+                                    layer.msg(data.msg);
+                                    //插入表格中
+                                    tableObj.reload(fileList);
+
+                                    layer.close(one);
+                                }else {
+                                    this.error(index, upload);
+                                }
+                            },
+                            error: function(index, upload){ //错误回调
+                                var that = layui.$('#div_upload_layer .layui-table');
+                                var tr = that.find('tr#upload-'+ index)
+                                    ,tds = tr.children();
+                                tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+                            },
+                            progress: function(n, elem, e, index){
+                                element.progress('progress-demo-'+ index, n + '%'); //执行进度条。n 即为返回的进度百分比
+                            }
+                        });
+                    }
+                });
+            },
+            download: function (id) {
+                var form=layui.$("<form>");
+                form.attr("style","display:none");
+                form.attr("target","");
+                form.attr("method","get");
+                form.attr("action",'/file/download/' + id);
+                layui.$("body").append(form);
+                form.submit();//表单提交
             }
         };
 
+
         table.on('row(tableFilter)', function (obj) {
             var data = obj.data;
-
-            layer.alert(JSON.stringify(data), {
-                title: '是否下载文件'
+            var title = '正在浏览 ' + lossInfo(data.fileName, 20);//超出200个字符就用省略号
+            layer.open({
+                type: 1,
+                title: title,
+                closeBtn: 0,
+                shadeClose: true,
+                resize: true,
+                fix: false,
+                content: '<div id="div_video_layer">' + layui.$('#video_layer').html() + '</div>',
+                btn: ["下载", "取消"],
+                btn1: function (index, layero) {
+                    active['download'] ? active['download'].call(this, data.id) : '';
+                },
+                success: function () {
+                    var xmlHttpRequest = new XMLHttpRequest();
+                    xmlHttpRequest.open('POST', '/file/video/', true);
+                    xmlHttpRequest.responseType = "blob";
+                    xmlHttpRequest.onload = function (e) {
+                        if (this.status == 200) {
+                            var blob = this.response;
+                            layui.$('#div_video_layer #video').attr('src', URL.createObjectURL(blob));
+                        }
+                    };
+                    var formData = new FormData();
+                    formData.append("id", data.id);
+                    xmlHttpRequest.send(formData);
+                }
             });
 
             //标注选中样式
             obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
-        })
+        });
     });
 
 </script>

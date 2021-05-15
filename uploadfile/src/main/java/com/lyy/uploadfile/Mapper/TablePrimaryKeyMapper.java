@@ -18,5 +18,5 @@ public interface TablePrimaryKeyMapper {
     int insert(TablePrimaryKey tablePrimaryKey);
 
     @Update("update table_primary_key set currentTableID = #{currentTableID} where classReferenceName = #{classReferenceName}")
-    int update(@Param("currentTableID") String classReferenceName, @Param("classReferenceName") String currentTableID);
+    int update(@Param("currentTableID") String currentTableID, @Param("classReferenceName") String classReferenceName);
 }

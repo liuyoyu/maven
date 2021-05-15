@@ -4,6 +4,8 @@ import com.lyy.uploadfile.Configture.Interface.PrimaryKey;
 import com.lyy.uploadfile.Entry.TablePrimaryKey;
 import com.lyy.uploadfile.Mapper.TablePrimaryKeyMapper;
 import com.lyy.uploadfile.Service.TablePrimaryKeyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,23 +13,39 @@ import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 @Service
 public class TablePrimaryKeyServiceImpl implements TablePrimaryKeyService {
 
+    private static final Logger logger = LoggerFactory.getLogger(TablePrimaryKeyServiceImpl.class);
+
     final TablePrimaryKeyMapper tablePrimaryKeyMapper;
+
+    private final ReentrantLock lock;
 
     @Autowired
     public TablePrimaryKeyServiceImpl(TablePrimaryKeyMapper tablePrimaryKeyMapper) {
+        this.lock = new ReentrantLock();
         this.tablePrimaryKeyMapper = tablePrimaryKeyMapper;
     }
 
+    /**
+     * 主键增长时加锁，防止多个线程调用出现主键冲突
+     * @param clazz
+     * @return
+     */
     @Override
     public Long get(Class clazz) {
-        String name = clazz.getName();
-        TablePrimaryKey one = tablePrimaryKeyMapper.getOne(name);
-        return one == null ? createId(clazz) : nextId(one);
+        lock.lock();
+        try {
+            String name = clazz.getName();
+            TablePrimaryKey one = tablePrimaryKeyMapper.getOne(name);
+            return one == null ? createId(clazz) : nextId(one);
+        }finally {
+            lock.unlock();
+        }
     }
 
     @Override
@@ -82,7 +100,10 @@ public class TablePrimaryKeyServiceImpl implements TablePrimaryKeyService {
                         newId = Long.valueOf(currId) + 1;
                     }
             }
-            tablePrimaryKeyMapper.update(tablePrimaryKey.getClassReferenceName(), String.valueOf(newId));   //更新表
+            int res = tablePrimaryKeyMapper.update(String.valueOf(newId), tablePrimaryKey.getClassReferenceName());   //更新表
+            if (res == 0) {
+                logger.error("表主键更新异常，DTO类：{}", tablePrimaryKey.getClassReferenceName());
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
