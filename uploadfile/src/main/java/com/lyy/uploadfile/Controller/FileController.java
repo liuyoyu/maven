@@ -9,8 +9,6 @@ import com.lyy.uploadfile.Utils.Message;
 import com.lyy.uploadfile.Utils.PageData;
 import com.lyy.uploadfile.Utils.Result;
 import com.lyy.uploadfile.VO.FileListVO;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -195,6 +193,13 @@ public class FileController extends BaseController {
         return Result.error("文件不存在");
     }
 
+    /**
+     * 视频播放
+     * @param id
+     * @param request
+     * @param response
+     * @return
+     */
     @PostMapping("/video")
     public Result videoView(@RequestParam("id") long id, HttpServletRequest request, HttpServletResponse response) {
         Message one = fileService.getOne(id);
@@ -222,42 +227,59 @@ public class FileController extends BaseController {
             }else{//其他浏览器
                 response.addHeader("Content-Disposition", "attachment;filename="+ java.net.URLEncoder.encode(fileName, "UTF-8"));
             }
-            //设置response编码
             response.setCharacterEncoding("UTF-8");
             response.addHeader("Content-Length", "" + f.length());
-            //设置输出文件类型
             response.setContentType("video/mpeg4;video/ts");
-            //获取response输出流
             os = response.getOutputStream();
-            // 输出文件
             os.write(buffer);
         }catch(Exception e){
-            logger.error("文件预览出现异常：{}", e.getMessage());
+            logger.error("视频播放出现异常：{}", e.getMessage());
         } finally{
             //关闭流
             try {
                 if(fis != null){
                     fis.close();
                 }
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            } finally{
-                try {
-                    if(os != null){
-                        os.flush();
-                    }
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                } finally{
-                    try {
-                        if(os != null){
-                            os.close();
-                        }
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage());
-                    }
+                if(os != null){
+                    os.flush();
                 }
+                if(os != null){
+                    os.close();
+                }
+            } catch (IOException e) {
+                logger.error("视频播放发送失败：{}", e.getMessage());
             }
+        }
+        return null;
+    }
+
+    /**
+     *  pdf预览
+     * @param id
+     * @param response
+     * @return
+     */
+    @GetMapping("/pdf/{id}")
+    public Result pdfView(@PathVariable("id") long id, HttpServletRequest request, HttpServletResponse response) {
+        Message one = fileService.getOne(id);
+        if (!one.isSuccess()) {
+            return Result.error("文件不存在");
+        }
+        FileUF res = (FileUF)one.res();
+        File file = new File(res.getLocatePath() + "/" + res.getStoreName() + "." + res.getFileType());
+        try {
+            response.setContentType("application/pdf");
+            FileInputStream in = new FileInputStream(file);
+            OutputStream out = response.getOutputStream();
+            byte[] b = new byte[1024];
+            while ((in.read(b))!=-1) {
+                out.write(b);
+            }
+            out.flush();
+            in.close();
+            out.close();
+        } catch (IOException e) {
+            logger.error("PDF预览出现问题：{}", e.getMessage());
         }
         return null;
     }
