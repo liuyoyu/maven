@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>文件搬运工</title>
+    <div th:replace="link::header"></div>
+    <div th:replace="script::js_footer"></div>
+    <script th:src="@{/js/pdfobject.js}"></script>
+    <script th:src="@{/js/utils.js}"></script>
+    <style>
+        .imgCover {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+        }
+        .pdfobject-container {
+            height: 30rem;
+            border: 1rem solid rgba(0,0,0,.1);
+        }
+    </style>
+</head>
+<body>
+<img th:src="@{/img/bg.jpg}" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">UF</div>
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="/uploadFile/mainPage">首页</a></li>
+            <li class="layui-nav-item"><a href="/uploadFile/myTask">审核任务</a></li>
+            <li class="layui-nav-item"><a href="/uploadFile/myDownload">下载记录</a></li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                    <span th:text="${user_name}">用户名称</span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">个人信息</a></dd>
+                    <hr>
+                    <dd style="text-align: center;"><a href="/login/out" id="signOu">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-body" style="left: 0">
+        <div class="layui-container" style="margin-top: 5%;">
+            <div class="layui-row">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-footer" style="left: 0">
+        <!-- 底部固定区域 -->
+        底部固定区域
+    </div>
+</div>
+<script>
+    layui.use(['table', 'layer', 'upload', 'element'], function(){
+
+    });
+
+</script>
+</body>
+</html>

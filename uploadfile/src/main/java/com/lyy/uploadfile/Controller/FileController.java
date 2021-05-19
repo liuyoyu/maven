@@ -1,5 +1,6 @@
 package com.lyy.uploadfile.Controller;
 
+import com.lyy.uploadfile.Entry.DownloadUF;
 import com.lyy.uploadfile.Entry.FileUF;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Service.FileService;
@@ -11,6 +12,7 @@ import com.lyy.uploadfile.Utils.Result;
 import com.lyy.uploadfile.VO.FileListVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,6 +38,7 @@ public class FileController extends BaseController {
 
     private final ReentrantLock lock;
 
+    @Autowired
     public FileController(FileService fileService,
                           LoginService loginService) {
         this.fileService = fileService;
@@ -59,7 +62,7 @@ public class FileController extends BaseController {
                          @RequestParam("limit") int limit) {
         List<FileListVO> res = new ArrayList<>();
         for (int i = 0; i < limit; i++) {
-            res.add(new FileListVO(((page - 1) * limit +i) + "_刘永裕", new Date(), "-", "-"));
+            //res.add(new FileListVO(((page - 1) * limit +i) + "_刘永裕", new Date(), "-", "-"));
         }
         return PageData.success(res, 50);
     }
@@ -152,6 +155,7 @@ public class FileController extends BaseController {
         if (!one.isSuccess()) {
             return Result.error(one.msg());
         }
+        UserUF loginInfo = loginService.getLoginInfo();
         lock.lock();
         try{
             FileUF fileuf = (FileUF)one.res();
@@ -184,6 +188,13 @@ public class FileController extends BaseController {
                 }
                 bis.close();
                 fis.close();
+
+                DownloadUF duf = new DownloadUF();
+                duf.setFileId(id);
+                duf.setAccount(loginInfo.getAccount());
+                duf.setDownloadDate(new Date());
+                fileService.insertDownloadFile(duf);
+
                 return null;
             }
         }finally {

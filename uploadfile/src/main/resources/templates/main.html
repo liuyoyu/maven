@@ -31,8 +31,8 @@
         <div class="layui-logo">UF</div>
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="/uploadFile/mainPage">首页</a></li>
-            <li class="layui-nav-item"><a href="">我的审核</a></li>
-            <li class="layui-nav-item"><a href="">我的下载</a></li>
+            <li class="layui-nav-item"><a href="/uploadFile/myTask">审核任务</a></li>
+            <li class="layui-nav-item"><a href="/uploadFile/myDownload">下载记录</a></li>
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
@@ -270,7 +270,7 @@
                 btn: ["下载", "取消"],
                 btn1: function (index, layero) {
                     active['download'] ? active['download'].call(this, data.id) : '';
-                    tableObj.reload(fileList); //更新表格
+                    //tableObj.reload(fileList); //更新表格
                 },
                 success: function () {
                     if (data.fileType == 'mp4') {

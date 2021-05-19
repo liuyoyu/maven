@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我的下载</title>
+    <div th:replace="link::header"></div>
+    <div th:replace="script::js_footer"></div>
+    <style>
+        .imgCover {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<img th:src="@{/img/bg.jpg}" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">UF</div>
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="/uploadFile/mainPage">首页</a></li>
+            <li class="layui-nav-item"><a href="/uploadFile/myTask">我的审核</a></li>
+            <li class="layui-nav-item"><a href="/uploadFile/myDownload">下载记录</a></li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                    <span th:text="${user_name}">用户名称</span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">个人信息</a></dd>
+                    <hr>
+                    <dd style="text-align: center;"><a href="/login/out" id="signOu">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="layui-body" style="left: 0px;">
+        <div class="layui-container" style="margin-top: 5%;">
+            <div class="layui-row">
+                <table class="layui-table" id="fileList" lay-filter="fileFilter"></table>
+                <script type="text/html" id="rowBtn">
+                    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="download">下载</a>
+                    <!--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>-->
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none">
+    <video controls id="video"></video>
+</div>
+<script>
+    layui.use(['table'],function () {
+       var table = layui.table;
+       table.render({
+           elem: '#fileList',
+           url:'/download/list',
+           skin: 'nob',
+           cols:[ [
+               {field:'fileName', width:'30%', title: '文件名称'},
+               {field:'fileSize', width:'10%', title: '文件大小'},
+               {field:'fileType', width:'10%', title: '文件格式'},
+               {field:'createDate', width:'10%', title: '上传时间'},
+               {field:'uploadName', width: '10%', title: '上传者'},
+               {field:'reviseName', width:'10%', title: '审核人'},
+               {field:'downloadDate', width:'10%', title:'下载时间'},
+               {field:'#', width:'10%', title:'操作', toolbar: '#rowBtn'}
+           ] ],
+           text:{
+               none: '没有下载记录'
+           },
+           done: function () {
+               layui.$('.layui-table').css('width', '100%');
+           }
+       });
+
+        table.on('tool(fileFilter)', function (obj) {
+            var id = obj.data.fileId;
+            var form=layui.$("<form>");
+            form.attr("style","display:none");
+            form.attr("target","");
+            form.attr("method","get");
+            form.attr("action",'/file/download/' + id);
+            layui.$("body").append(form);
+            form.submit();//表单提交
+            form.remove();
+        });
+    });
+</script>
+</body>
+</html>

@@ -22,7 +22,7 @@ createDate date
 );
 
 -- 创建File表，用来保存文件信息
-drop table file_uf;
+-- drop table file_uf;
 create table file_uf(
 id number(12) primary key,
 fileName varchar(200),
@@ -39,5 +39,11 @@ locatePath varchar(400),
 downloadCount number
 );
 
-
-
+-- 创建FileDownload表，用来保存用户下载的文件
+-- drop table download;
+create table download(
+id number(12) primary key,
+account varchar(20) not null,
+fileId number(12) not null,
+downloadDate date
+);

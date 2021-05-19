@@ -4,39 +4,45 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FileListVO {
-    private String name;
-    private String createDate;
+    private String fileId;
+    private String fileName;
+    private String fileSize;
+    private String fileType;
     private String reviseName;
     private String uploadName;
+    private Date createDate;
+    private Date downloadDate;
 
-    public FileListVO() {
+    public String getFileId() {
+        return fileId;
     }
 
-    public FileListVO(String name, Date createDate, String reviseName, String uploadName) {
-        this.name = name;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date = sdf.format(createDate);
-        this.createDate = date;
-        this.reviseName = reviseName;
-        this.uploadName = uploadName;
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
     }
 
-    public String getName() {
-        return name;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public String getCreateDate() {
-        return createDate;
+    public String getFileSize() {
+        return fileSize;
     }
 
-    public void setCreateDate(Date createDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date = sdf.format(createDate);
-        this.createDate = date;
+    public void setFileSize(String fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
     public String getReviseName() {
@@ -53,5 +59,23 @@ public class FileListVO {
 
     public void setUploadName(String uploadName) {
         this.uploadName = uploadName;
+    }
+
+    public String getCreateDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(createDate);
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getDownloadDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(downloadDate);
+    }
+
+    public void setDownloadDate(Date downloadDate) {
+        this.downloadDate = downloadDate;
     }
 }

@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49b47a1d-36ac-4961-b414-4755394d6e6a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/static/js/pdfobject.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/static/js/pdfobject.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/DownloadListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/DownloadUF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/DownloadMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/downloadList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/task.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/upload_file.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/upload_file.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/upload_file.log.2021-05-09.0.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/upload_file.log.2021-05-09.1.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/upload_file.log.2021-05-09.2.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/resources/static/myJS/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/static/js/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,8 +60,8 @@
       <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2959">
-              <caret line="248" column="37" selection-start-line="248" selection-start-column="37" selection-end-line="248" selection-end-column="37" />
+            <state relative-caret-position="190">
+              <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,22 +69,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mybatis.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="23" selection-start-line="23" selection-end-line="39" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="239" column="63" lean-forward="true" selection-start-line="239" selection-start-column="63" selection-end-line="239" selection-end-column="63" />
+            <state relative-caret-position="269">
+              <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
               <folding>
-                <element signature="n#style#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -85,11 +86,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/static/js/utils.js">
+      <file leaf-file-name="task.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="26" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="26" />
+            <state relative-caret-position="54">
+              <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="116" column="28" selection-start-line="116" selection-start-column="28" selection-end-line="116" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="downloadList.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/downloadList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,8 +128,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+            <state relative-caret-position="205">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -107,45 +138,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUF.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/FileUF.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="117" column="37" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#811#812#0" expanded="true" />
-                <element signature="e#2730#2731#0" expanded="true" />
-                <element signature="e#2763#2764#0" expanded="true" />
-                <element signature="e#2932#2933#0" expanded="true" />
-                <element signature="e#2968#2969#0" expanded="true" />
-                <element signature="e#3023#3024#0" expanded="true" />
-                <element signature="e#3073#3074#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FileServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1608#1609#0" expanded="true" />
-                <element signature="e#1658#1659#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="52" column="47" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="47" />
+            <state relative-caret-position="257">
+              <caret line="110" column="15" selection-start-line="110" selection-start-column="15" selection-end-line="110" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,11 +150,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUFMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java">
+      <file leaf-file-name="FileService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+            <state relative-caret-position="330">
+              <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/DownloadMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadUF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/DownloadUF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,10 +188,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -226,13 +244,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/Interface/PrimaryKey.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/TablePrimaryKeyService.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/TablePrimaryKey.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/UserService.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/UserController.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/Message.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/encryptAndDecrypt/pom.xml" />
@@ -247,13 +258,11 @@
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/BaseController.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/script.html" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/Interceptor/LoginInterceptor.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/JWTUtil.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/LoginController.java" />
         <option value="$PROJECT_DIR$/excelMerge/src/main/java/com/liuyongyu/ExcelMerge.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/uploadfile/README.md" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/Result.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/PageData.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/File.java" />
@@ -261,7 +270,6 @@
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/UserUF.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/LoginService.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/LoginServiceImpl.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/main_layer_upload.html" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/TablePrimaryKeyMapper.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/TablePrimaryKeyServiceImpl.java" />
@@ -270,13 +278,23 @@
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/static/utils.js" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/static/myJS/utils.js" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/WebMVCConfig.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/FileUF.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/FileDownload.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/myDownload.html" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/Download.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/DownloadListController.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/DownloadMapper.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/task.html" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/downloadList.html" />
       </list>
     </option>
   </component>
@@ -507,8 +525,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -873,7 +891,9 @@
       <workItem from="1620143889720" duration="85901000" />
       <workItem from="1620549830863" duration="35694000" />
       <workItem from="1620922343731" duration="22642000" />
-      <workItem from="1621020319376" duration="52760000" />
+      <workItem from="1621020319376" duration="53302000" />
+      <workItem from="1621179486833" duration="33000" />
+      <workItem from="1621348442907" duration="19571000" />
     </task>
     <servers />
   </component>
@@ -910,7 +930,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259285000" />
+    <option name="totallyTimeSpent" value="279431000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,7 +955,7 @@
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.24945135" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="7" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32948717" />
       <window_info anchor="bottom" id="Messages" order="15" weight="0.32948717" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
@@ -944,10 +964,9 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32948717" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.3269934" />
       <window_info anchor="bottom" id="Spring" order="2" />
       <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49786323" visible="true" weight="0.28529626" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49786323" visible="true" weight="0.2933431" />
       <window_info anchor="right" id="Bean Validation" order="0" />
       <window_info id="Web" order="0" sideWeight="0.50213677" side_tool="true" weight="0.27432334" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -960,6 +979,7 @@
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32948717" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.3269934" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -970,7 +990,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="177" />
+      <option name="time" value="178" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -978,109 +998,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/SystemParameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="73" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/no-login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="97" column="88" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/JWTUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="79" column="50" lean-forward="true" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/excelMerge/src/main/java/com/liuyongyu/Jmain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/excelMerge/src/main/java/com/liuyongyu/ExcelMerge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="102" column="40" lean-forward="true" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/basePageHTML.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="7" selection-start-line="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/src.zip!/java/text/DateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="342" column="24" selection-start-line="342" selection-start-column="24" selection-end-line="342" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="100" column="18" lean-forward="true" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
-            <caret line="11" selection-start-line="11" selection-end-line="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/UploadfileApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1095,41 +1012,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/UserUF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/LoginService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/LoginServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="47" column="41" lean-forward="true" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/main_layer_upload.html" />
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/TablePrimaryKeyMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.2.14.RELEASE/spring-aop-5.2.14.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1172,27 +1062,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.14.RELEASE/spring-web-5.2.14.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
           <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/PageData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1255,97 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="74" column="77" lean-forward="true" selection-start-line="74" selection-start-column="77" selection-end-line="74" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="23" selection-start-line="23" selection-end-line="39" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1608#1609#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/FileUF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="117" column="37" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#811#812#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2763#2764#0" expanded="true" />
-            <element signature="e#2932#2933#0" expanded="true" />
-            <element signature="e#2968#2969#0" expanded="true" />
-            <element signature="e#3023#3024#0" expanded="true" />
-            <element signature="e#3073#3074#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1362,16 +1144,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2959">
-          <caret line="248" column="37" selection-start-line="248" selection-start-column="37" selection-end-line="248" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/static/layui/layui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1382,18 +1154,287 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/basePageHTML.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.0/mybatis-3.5.0.jar!/org/apache/ibatis/annotations/ResultType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/UploadfileApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#416#417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/TablePrimaryKeyMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.14.RELEASE/spring-beans-5.2.14.RELEASE.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="922" selection-start-line="922" selection-end-line="922" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/UserUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+          <folding>
+            <element signature="e#940#941#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/LoginServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding>
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/PageData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/FileUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/DownloadListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+          <folding>
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#919#920#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="e#996#997#0" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="true" />
+            <element signature="e#1081#1082#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1195#1196#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+            <element signature="e#1291#1292#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+            <element signature="e#1457#1458#0" expanded="true" />
+            <element signature="e#1587#1588#0" expanded="true" />
+            <element signature="e#1635#1636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="110" column="15" selection-start-line="110" selection-start-column="15" selection-end-line="110" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/DownloadUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/DownloadMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="116" column="28" selection-start-line="116" selection-start-column="28" selection-end-line="116" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="239" column="63" lean-forward="true" selection-start-line="239" selection-start-column="63" selection-end-line="239" selection-end-column="63" />
+        <state relative-caret-position="269">
+          <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
           <folding>
-            <element signature="n#style#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/task.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/downloadList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

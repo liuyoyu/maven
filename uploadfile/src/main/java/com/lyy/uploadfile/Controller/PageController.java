@@ -1,20 +1,39 @@
 package com.lyy.uploadfile.Controller;
 
 import com.lyy.uploadfile.Configture.SystemParameters;
+import com.lyy.uploadfile.Entry.FileUF;
+import com.lyy.uploadfile.Entry.UserUF;
+import com.lyy.uploadfile.Service.FileService;
+import com.lyy.uploadfile.Service.LoginService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
+import com.lyy.uploadfile.Utils.Message;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
+import java.util.List;
 
 /**
  * 控制thymeleaf页面跳转
  */
 @Controller
 public class PageController extends BaseController {
+
+    LoginService loginService;
+
+    FileService fileService;
+
+    @Autowired
+    public PageController(LoginService loginService,
+                          FileService fileService) {
+        this.loginService = loginService;
+        this.fileService = fileService;
+    }
 
     /**
      * 对跳转页面进行判断
@@ -75,6 +94,26 @@ public class PageController extends BaseController {
     public ModelAndView jumpToLoginPage(@RequestParam("status") int status) {
         modelAndView.setViewName("login");
         modelAndView.addObject("message", status>=0 && status<2 ? msg[status] : "");
+        return modelAndView;
+    }
+
+    @GetMapping("/uploadFile/myDownload")
+    @ResponseBody
+    public ModelAndView jumpToMyDownload(){
+        UserUF loginInfo = loginService.getLoginInfo();
+        modelAndView.setViewName("downloadList");
+        modelAndView.addObject("user_account", loginInfo.getAccount());
+        modelAndView.addObject("user_name", loginInfo.getName());
+        return modelAndView;
+    }
+
+    @GetMapping("/uploadFile/myTask")
+    @ResponseBody
+    public ModelAndView jumpToMyTask(){
+        UserUF loginInfo = loginService.getLoginInfo();
+        modelAndView.setViewName("task");
+        modelAndView.addObject("user_account", loginInfo.getAccount());
+        modelAndView.addObject("user_name", loginInfo.getName());
         return modelAndView;
     }
 }

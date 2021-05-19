@@ -1,5 +1,6 @@
 package com.lyy.uploadfile.Service;
 
+import com.lyy.uploadfile.Entry.DownloadUF;
 import com.lyy.uploadfile.Entry.FileUF;
 import com.lyy.uploadfile.Utils.Message;
 
@@ -16,4 +17,10 @@ public interface FileService {
     Message getOne(long id);
 
     Message updateDownloadCount(long id, int downloadCount);
+
+    Message getDownloadList(String account);
+
+    Message addDownloadFile(String account, long fileId);
+
+    Message insertDownloadFile(DownloadUF downloadUF);
 }
