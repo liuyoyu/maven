@@ -1,5 +1,6 @@
 package com.lyy.uploadfile.ServiceImpl;
 
+import com.lyy.uploadfile.Configture.DTO.FileDTO;
 import com.lyy.uploadfile.Entry.DownloadUF;
 import com.lyy.uploadfile.Entry.FileUF;
 
@@ -82,7 +83,7 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public Message getDownloadList(String account) {
-        List<FileListVO> all = downloadMapper.getAll(account);
+        List<FileDTO> all = downloadMapper.getAll(account);
         return Message.success("获取成功", all);
     }
 
