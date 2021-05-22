@@ -6,6 +6,7 @@ import com.lyy.uploadfile.Mapper.UserRoleMapper;
 import com.lyy.uploadfile.Service.TablePrimaryKeyService;
 import com.lyy.uploadfile.Service.UserRoleService;
 import com.lyy.uploadfile.Utils.Message;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,12 @@ public class UserRoleServiceImpl implements UserRoleService {
     TablePrimaryKeyService tablePrimaryKeyService;
 
     UserRoleMapper userRoleMapper;
+
+    @Autowired
+    public UserRoleServiceImpl(TablePrimaryKeyService tablePrimaryKeyService, UserRoleMapper userRoleMapper) {
+        this.tablePrimaryKeyService = tablePrimaryKeyService;
+        this.userRoleMapper = userRoleMapper;
+    }
 
     @Override
     public Message insert(UserRole userRole) {

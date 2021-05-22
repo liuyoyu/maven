@@ -62,3 +62,25 @@ account varchar(20) not null,
 fileId number(12) not null,
 downloadDate date
 );
+
+-- 创建菜单表
+drop table menu;
+create table menu(
+id number(12) primary key,
+name varchar(100),
+url varchar(200),
+parentId number(12),
+createDate date,
+seq numeric (3, 1),
+status int
+);
+
+-- 创建email表
+create table email_store(
+id number(12) primary key,
+account varchar(20),
+froEmailAddr varchar(20), -- 发送邮箱
+toEmailAddr varchar(20),  -- 接收邮箱
+code int,
+createDate date
+);

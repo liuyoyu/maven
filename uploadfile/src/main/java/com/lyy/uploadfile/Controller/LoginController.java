@@ -3,16 +3,17 @@ package com.lyy.uploadfile.Controller;
 import com.lyy.uploadfile.Configture.SystemParameters;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Service.LoginService;
+import com.lyy.uploadfile.Service.UserService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
 import com.lyy.uploadfile.Utils.Message;
 import com.lyy.uploadfile.Utils.Result;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
@@ -23,9 +24,13 @@ public class LoginController extends BaseController {
 
     final LoginService loginService;
 
+    final UserService userService;
+
     @Autowired
-    public LoginController(LoginService loginService) {
+    public LoginController(LoginService loginService,
+                           UserService userService) {
         this.loginService = loginService;
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
@@ -65,5 +70,22 @@ public class LoginController extends BaseController {
         }
         modelAndView.setViewName("/login");
         return modelAndView;
+    }
+
+    @PostMapping("/register")
+    public Result register(@Validated UserUF userUF, @RequestParam("code") int code, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            StringBuilder sb = new StringBuilder();
+            for (ObjectError objectError : bindingResult.getAllErrors()) {
+                sb.append(objectError.getDefaultMessage() + '，');
+            }
+            String msg = sb.toString();
+            return Result.error(msg.substring(0, msg.length()-1));
+        }
+
+        Message res = userService.insert(userUF);
+
+        return res.isSuccess() ? Result.error(res.msg()) : Result.success(res.msg());
+
     }
 }
