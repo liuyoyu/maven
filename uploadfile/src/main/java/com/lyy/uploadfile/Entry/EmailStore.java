@@ -15,7 +15,9 @@ public class EmailStore {
 
     private String froEmailAddr;
 
-    private int code;
+    private String contextHtml;
+
+    private String context;
 
     private Date createDate;
 
@@ -35,12 +37,12 @@ public class EmailStore {
         this.account = account;
     }
 
-    public int getCode() {
-        return code;
+    public String getContextHTML() {
+        return contextHtml;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setContextHTML(String contextHTML) {
+        this.contextHtml = contextHTML;
     }
 
     public Date getCreateDate() {
@@ -65,5 +67,13 @@ public class EmailStore {
 
     public void setFroEmailAddr(String froEmailAddr) {
         this.froEmailAddr = froEmailAddr;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
     }
 }

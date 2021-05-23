@@ -20,20 +20,20 @@ public interface UserRoleMapper {
             " r.id as roleId, r.name as roleName from user_role_uf ur " +
             "left join user_uf u on ur.account = u.account " +
             "left join role_uf r on ur.roleId = r.id " +
-            "where rownum <= {pageEnd}) t where t.rn > {pageStart}")
+            "where rownum <= #{pageEnd}) t where t.rn > {pageStart}")
     @ResultType(UserRoleDTO.class)
     List<UserRoleDTO> getAllByPage(int pageStart, int pageEnd);
 
-    @Select("select id, account, roleId from user_role_uf where id = {id}")
+    @Select("select id, account, roleId from user_role_uf where id = #{id}")
     @ResultType(UserRoleDTO.class)
     UserRoleDTO getOne(long id);
 
-    @Select("select count(id) from user_role_uf where account = {account} and id = {id}")
+    @Select("select count(id) from user_role_uf where account = #{account} and id = #{id}")
     int countByAccountAndRoleId(@Param("account") String account, @Param("id") long id);
 
-    @Select("select count(id) from user_role_uf where roleId = {roleId}")
+    @Select("select count(id) from user_role_uf where roleId = #{roleId}")
     int countByRoleId(long roleId);
 
-    @Delete("delete from user_role_uf where id = {id}")
+    @Delete("delete from user_role_uf where id = #{id}")
     int deleteOne(long id);
 }

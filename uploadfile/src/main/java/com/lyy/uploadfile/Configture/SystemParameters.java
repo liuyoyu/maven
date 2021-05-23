@@ -12,4 +12,7 @@ public class SystemParameters {
 
     public static final String JWT_VERIDATION_NAME_2 = "user_name";
     //end
+
+    //邮件验证码缓存前缀
+    public static final String EMAIL_CODE = "EMAIL_CODE_";
 }

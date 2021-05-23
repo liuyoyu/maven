@@ -56,10 +56,20 @@ public class UserServiceImpl implements UserService {
         if (oneByAccount != null) {
             return Message.fail("该账户已经存在");
         }
+        int i = userMapper.countByEmail(userUF.getEmail());
+        if (i != 0) {
+            return Message.fail("该邮箱已被注册");
+        }
         Long id = tablePrimaryKeyService.get(UserUF.class);
         userUF.setId(id);
         userUF.setCreateDate(new Date());
         int insert = userMapper.insert(userUF);
         return Message.success("用户创建成功", userUF);
+    }
+
+    @Override
+    public Message countAccountAndEmail(String account, String email) {
+        int n = userMapper.countAccountOrEmail(account, email);
+        return n > 0 ? Message.success("成功", n): Message.fail("失败");
     }
 }

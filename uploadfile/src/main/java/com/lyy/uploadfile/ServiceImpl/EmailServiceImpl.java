@@ -7,6 +7,7 @@ import com.lyy.uploadfile.Utils.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -35,22 +36,30 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public Message sendHTMLMail(List<String> to, String from, String subject, List<String> cc, String content) {
+    public Message sendHTMLMail(String[] to, String from, String subject, String[] cc, String content) {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        log.info("\n开始发送邮件.......\n收件人：{}\n发件人：{}\n主题：{}\n抄送：{}\n内容：{}", to,
+                from, subject, cc, content);
         try {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-            assert from != null && !to.isEmpty();
+            assert from != null && to.length != 0;
             mimeMessageHelper.setFrom(from);
-            mimeMessageHelper.setTo(to.toArray(new String[0]));
-            if (cc != null && !cc.isEmpty())
-                mimeMessageHelper.setCc(cc.toArray(new String[0]));
+            mimeMessageHelper.setTo(to);
+            if (cc != null && cc.length != 0)
+                mimeMessageHelper.setCc(cc);
             mimeMessageHelper.setSubject(subject);
             mimeMessageHelper.setText(content, true);
             javaMailSender.send(mimeMessage);
-        } catch (MessagingException e) {
-            log.error("验证码发送异常：{}", e.getMessage());
-            return Message.fail("验证码发送失败");
+        } catch (MessagingException | MailSendException e) {
+            String error = e.getMessage();
+            log.error("邮件发送异常：{}", error);
+
+            String exception = error.substring(0, error.indexOf(';'));
+            exception = exception.substring(exception.lastIndexOf(':'));
+            StringBuilder msg = new StringBuilder("邮件发送失败，报错信息如下：");
+            msg.append(exception);
+            return Message.fail(msg.toString());
         }
-        return Message.success("验证码已发送至有效，请查看");
+        return Message.success("邮件已发送至有效，请查看");
     }
 }

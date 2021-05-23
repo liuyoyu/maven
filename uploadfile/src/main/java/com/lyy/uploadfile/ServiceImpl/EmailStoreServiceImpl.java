@@ -28,10 +28,8 @@ public class EmailStoreServiceImpl implements EmailsStoreService {
 
     @Override
     public Message insert(EmailStore emailStore) {
-        ArrayList<String> to = new ArrayList<>();
-        to.add(emailStore.getToEmailAddr());
-        int code = 1234;  //todo
-        Message res = emailService.sendHTMLMail(to, emailStore.getFroEmailAddr(), "UF注册邮件", null, code + "");
+        String to = emailStore.getToEmailAddr();
+        Message res = emailService.sendHTMLMail(new String[]{to}, emailStore.getFroEmailAddr(), "UF注册邮件", null, emailStore.getContextHTML());
         if (res.isSuccess()) {
             Long id = tablePrimaryKeyService.get(EmailStore.class);
             emailStore.setId(id);
@@ -40,6 +38,5 @@ public class EmailStoreServiceImpl implements EmailsStoreService {
         } else {
             return res;
         }
-
     }
 }

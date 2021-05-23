@@ -25,6 +25,10 @@ public class Result<T> implements Serializable {
         }
     }
 
+    public static Result message(Message message) {
+        return message.isSuccess() ? Result.success(message.msg()) : Result.success(message.msg());
+    }
+
     public static Result success(){
         return Result.success("操作成功");
     }

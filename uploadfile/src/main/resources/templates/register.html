@@ -29,66 +29,132 @@
 <img th:src="@{/img/bg.jpg}" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
 <div class="layui-container">
     <div class="layui-row">
-        <div class="layui-col-xs6 layui-col-sm6 layui-col-md6 layui-col-md-offset3">
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend>注册信息</legend>
-                <div class="layui-field-box">
-                    <form class="layui-form" action="">
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">账号</label>
-                            <div class="layui-input-inline">
-                                <input type="account" name="account" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
-                            </div>
-                            <div class="layui-form-mid layui-word-aux">账号长度为8～10</div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">密码</label>
-                            <div class="layui-input-inline">
-                                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-                            </div>
-                            <div class="layui-form-mid layui-word-aux">辅助文字</div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">单选框</label>
-                            <div class="layui-input-block">
-                                <input type="radio" name="sex" value="男" title="男" checked>
-                                <input type="radio" name="sex" value="女" title="女">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">手机号</label>
-                            <div class="layui-input-block">
-                                <input type="tel" name="telephone" required placeholder="输入手机号" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">邮箱</label>
-                            <div class="layui-input-block">
-                                <input type="email" name="email" required placeholder="输入邮箱" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-form-item">
-                            <div class="layui-input-block">
-                                <button class="layui-btn" lay-submit lay-filter="formSubmit">立即提交</button>
-                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                            </div>
-                        </div>
-                    </form>
+        <div class="layui-col-xs6 layui-col-sm6 layui-col-md6 layui-col-md-offset3" style="padding-top: 10%">
+            <div class="layui-box">
+                <div style="padding-bottom: 10px">
+                    <p class="layui-font-black" style="font-size: 30px;text-align: center">用来注册的注册界面</p>
                 </div>
-            </fieldset>
-
-
+                <form class="layui-form" lay-filter="infoFilter">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">账号</label>
+                        <div class="layui-input-block">
+                            <input type="account" name="account" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">确认密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" id="rePassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" required placeholder="输入用户昵称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">单选框</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="sex" value="男" title="男" checked>
+                            <input type="radio" name="sex" value="女" title="女">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">手机号</label>
+                        <div class="layui-input-block">
+                            <input type="tel" name="telephone" required placeholder="输入手机号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">邮箱</label>
+                        <div class="layui-input-block">
+                            <input type="email" name="email" required placeholder="输入邮箱" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">验证码</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="code" required placeholder="输入验证码" autocomplete="off" class="layui-input">
+                        </div>
+                        <a class="layui-btn layui-btn-primary layui-border-green layui-btn-sm" id="sendCode" style="margin-top: 4px">发送</a>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formSubmit">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary layui-border">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    layui.use('form', function(){
-        var form = layui.form;
+    layui.use(['form', 'layer'], function(){
+        var form = layui.form, layer = layui.layer, $ = layui.$;
+        var load;
 
         form.on('submit(formSubmit)', function(data){
-            layer.msg(JSON.stringify(data.field));
+            $.ajax({
+                url: '/login/new/usr',
+                type: 'post',
+                dataType: 'json',
+                data: data.field,
+                beforeSend: function () {
+                    load = layer.load();
+                },
+                complete: function () {
+                    layer.close(load);
+                },
+                success: function (res) {
+                    if (res.code == respSuccess) {
+                        layer.msg(res.msg, {
+                            icon: 6,//成功的表情
+                            anim: 5,
+                            time: 1000 //1秒关闭（如果不配置，默认是3秒）
+                        }, function () {
+                            window.location.href = "/";
+                        });
+                    } else {
+                        layer.msg(res.msg, {
+                            icon: 5,
+                            anim: 6,
+                            time: 1000
+                        });
+                    }
+                }
+            });
             return false;
+        });
+
+        $('#sendCode').on('click', function () {
+            var data = form.val('infoFilter');
+            $.ajax({
+                url: '/login/code',
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    account: data['account'],
+                    email: data['email']
+                },
+                beforeSend: function () {
+                    load = layer.load();
+                },
+                complete: function () {
+                    layer.close(load);
+                },
+                success: function (res) {
+                    layer.msg(res.msg);
+                }
+            });
         });
     });
 </script>

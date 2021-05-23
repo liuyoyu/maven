@@ -12,4 +12,6 @@ public interface UserService {
     Message insert(UserUF userUF);
 
     Message find(String account);
+
+    Message countAccountAndEmail(String account, String email);
 }

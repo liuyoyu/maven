@@ -19,9 +19,15 @@ public interface UserMapper {
     @Select("select * from user_uf where account=#{account}")
     UserUF getOneByAccount(String account);
 
+    @Select("select count(id) from user_uf where email = #{email}")
+    int countByEmail(@Param("email") String email);
+
     @Update("update user_uf set password=#{password}, name=#{name}, sex=#{sex}, telephone=#{telephone}, email=#{email} where id=#{id}")
     int update(UserUF userUF);
 
     @Select("select * from user_uf where account = #{account} and password = #{password}")
     UserUF findByAccountAndPassword(@Param("account") String account, @Param("password") String password);
+
+    @Select("select count(id) from user_uf where account = #{account} or email = #{email}")
+    int countAccountOrEmail(@Param("account") String account, @Param("email") String email);
 }

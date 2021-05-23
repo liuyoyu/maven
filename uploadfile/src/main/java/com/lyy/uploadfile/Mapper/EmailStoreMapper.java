@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmailStoreMapper {
 
-    @Insert("insert into email_store(id, account, code, createDate) values(#{id}, #{account}, #{code}, #{createDate})")
+    @Insert("insert into email_store(id, account, toEmailAddr, froEmailAddr, contextHtml, context, createDate) " +
+            "values(#{id}, #{account}, #{toEmailAddr}, #{froEmailAddr}, #{contextHtml}, " +
+            "#{context}, #{createDate})")
     int insert(EmailStore emailStore);
 }

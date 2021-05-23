@@ -1,12 +1,13 @@
 -- 表主键长度统一12字节
 
 -- 创建UserUF类对应的表
+drop table user_uf;
 create table user_uf(
 id number(12) primary key,
 account varchar(20) not null,
 password varchar(30) not null,
 name varchar(20) not null,
-sex varchar(2),
+sex varchar(4),
 telephone number(11),
 email varchar(30) not null,
 createDate date
@@ -19,13 +20,16 @@ roleName varchar(20),
 createDate date,
 status int
 );
+insert into role_uf(id, roleName, createDate, status) values(1, '系统用户', null, 0);
+insert into role_uf(id, roleName, createDate, status) values(2, '后台用户', null, 0);
+insert into role_uf(id, roleName, createDate, status) values(3, '普通用户', null, 0);
 
 -- 创建用户角色表
 create table user_role_uf(
 id number(12) primary key,
 account varchar(20),
 roleId number(12),
-createDate date,
+createDate date
 );
 
 -- 创建TablePrimaryKey表格，该表格用来存储各个表的主键增长方式，其他增减新的数据时，都要访问该表获取自身的主键值
@@ -76,11 +80,13 @@ status int
 );
 
 -- 创建email表
+drop table email_store;
 create table email_store(
 id number(12) primary key,
 account varchar(20),
 froEmailAddr varchar(20), -- 发送邮箱
 toEmailAddr varchar(20),  -- 接收邮箱
-code int,
+contextHtml varchar(200),
+context varchar(20),
 createDate date
 );

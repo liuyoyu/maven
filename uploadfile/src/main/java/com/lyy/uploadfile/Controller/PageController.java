@@ -126,11 +126,4 @@ public class PageController extends BaseController {
         modelAndView.addObject("user_name", loginInfo.getName());
         return modelAndView;
     }
-
-    @GetMapping("/signUp")
-    @ResponseBody
-    public ModelAndView jumpToRegister(){
-        modelAndView.setViewName("/register");
-        return modelAndView;
-    }
 }

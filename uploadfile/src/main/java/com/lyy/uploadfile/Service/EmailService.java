@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface EmailService {
 
-    Message sendHTMLMail(List<String> to, String from, String subject, List<String> cc, String content);
+    Message sendHTMLMail(String[] to, String from, String subject, String[] cc, String content);
 }
