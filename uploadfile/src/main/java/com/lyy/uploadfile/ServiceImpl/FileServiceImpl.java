@@ -114,4 +114,16 @@ public class FileServiceImpl implements FileService {
         int insert = downloadMapper.insert(downloadUF);
         return insert == 0 ? Message.success("新增失败") : Message.fail("新增失败");
     }
+
+    @Override
+    public List<FileUF> searchByFileName(String fileName, int page, int limit) {
+        int start = (page - 1) * limit, end = page * limit;
+        List<FileUF> search = fileUFMapper.search(fileName, start, end);
+        return search;
+    }
+
+    @Override
+    public int countByFileName(String fileName) {
+        return fileUFMapper.countByFileName(fileName);
+    }
 }

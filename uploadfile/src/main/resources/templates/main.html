@@ -126,7 +126,6 @@
                 {field:'uploadAccount', title: '上传账号', hide: true},
                 {field:'reviseAccount', title: '审核人账号', hide: true}
             ] ],
-            id: 'tableReload',
             page: {
                 layout: ['count', 'prev', 'page', 'next', 'skip'],
                 group: 3,
@@ -153,7 +152,8 @@
             reload: function () {
                 var input = layui.$('#tableReloadInput');
                 //执行重载
-                table.reload('tableReload', {
+                tableObj.reload({
+                    elem: '#fileList',
                     url: '/file/search',
                     page: {
                         curr: 1 //重新从第 1 页开始

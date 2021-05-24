@@ -60,11 +60,9 @@ public class FileController extends BaseController {
     public Result search(@RequestParam("fileName") String fileName,
                          @RequestParam("page") int page,
                          @RequestParam("limit") int limit) {
-        List<FileListVO> res = new ArrayList<>();
-        for (int i = 0; i < limit; i++) {
-            //res.add(new FileListVO(((page - 1) * limit +i) + "_刘永裕", new Date(), "-", "-"));
-        }
-        return PageData.success(res, 50);
+        int count = fileService.countByFileName(fileName);
+        List<FileUF> fileUFS = fileService.searchByFileName(fileName, page, limit);
+        return PageData.success(fileUFS, count);
     }
 
     @PostMapping("/upload")

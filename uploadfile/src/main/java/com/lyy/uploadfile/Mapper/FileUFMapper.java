@@ -1,5 +1,6 @@
 package com.lyy.uploadfile.Mapper;
 
+import com.lyy.uploadfile.Configture.DTO.FileDTO;
 import com.lyy.uploadfile.Entry.FileUF;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -33,4 +34,10 @@ public interface FileUFMapper {
 
     @Update("update file_uf set downloadCount = #{count} where id = #{id}")
     int updateDownloadCount(@Param("id") long id, @Param("count") int count);
+
+    @Select("select * from (select rownum as rn, f.* from file_uf f where f.fileName like '%'||#{fileName}||'%' and rownum <= #{end}) t where t.rn > #{start}")
+    List<FileUF> search(@Param("fileName") String fileName, @Param("start") int start, @Param("end") int end);
+
+    @Select("select count(id) from file_uf where fileName like '%'||#{fileName}||'%'")
+    int countByFileName(@Param("fileName") String fileName);
 }

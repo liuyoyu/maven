@@ -4,6 +4,8 @@ import com.lyy.uploadfile.Entry.DownloadUF;
 import com.lyy.uploadfile.Entry.FileUF;
 import com.lyy.uploadfile.Utils.Message;
 
+import java.util.List;
+
 public interface FileService {
 
     Message create(FileUF fileUF);
@@ -23,4 +25,8 @@ public interface FileService {
     Message addDownloadFile(String account, long fileId);
 
     Message insertDownloadFile(DownloadUF downloadUF);
+
+    List<FileUF> searchByFileName(String fileName, int page, int limit);
+
+    int countByFileName(String fileName);
 }
