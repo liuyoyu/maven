@@ -25,4 +25,7 @@ public interface MenuMapper {
 
     @Select("select * from (select rownum as rn, m.* from menu m where rownum <= pageEnd) t where t.rn > pageStart")
     List<Menu> getAllbyPage(int pageStart, int pageEnd);
+
+    @Select("select count(id) from menu")
+    int countAllByPage();
 }

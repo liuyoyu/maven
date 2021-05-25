@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49b47a1d-36ac-4961-b414-4755394d6e6a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/MenuRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuRoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/adminPageHTML.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/upload_file.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/upload_file.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/upload_file.log.2021-05-16.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/uploadfile/src/main/resources/templates/admin.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,24 +53,112 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mybatis.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql">
+      <file leaf-file-name="MenuRoleMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuRoleMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+            <state relative-caret-position="332">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/LoginController.java">
+      <file leaf-file-name="MenuRole.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/MenuRole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="117" column="49" selection-start-line="117" selection-start-column="49" selection-end-line="117" selection-end-column="49" />
+            <state relative-caret-position="195">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1297#1322#1" expanded="true" />
+                <element signature="e#1288#1289#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
+                <element signature="e#1358#1359#0" expanded="true" />
+                <element signature="e#1394#1395#0" expanded="true" />
+                <element signature="e#1429#1430#0" expanded="true" />
+                <element signature="e#1462#1463#0" expanded="true" />
+                <element signature="e#1512#1513#0" expanded="true" />
+                <element signature="e#1556#1557#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuRoleService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuRoleService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuRoleServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuRoleServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1811#1812#0" expanded="true" />
+                <element signature="e#1862#1863#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="45" column="52" lean-forward="true" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+              <folding>
+                <element signature="e#1622#1623#0" expanded="true" />
+                <element signature="e#1664#1665#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -72,60 +166,11 @@
       <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+            <state relative-caret-position="132">
+              <caret line="52" column="46" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUFMapper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="40" column="74" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="130" column="25" lean-forward="true" selection-start-line="130" selection-start-column="25" selection-end-line="130" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/FileServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="120" column="45" lean-forward="true" selection-start-line="120" selection-start-column="45" selection-end-line="120" selection-end-column="45" />
-              <folding>
-                <element signature="e#4212#4213#0" expanded="true" />
-                <element signature="e#4257#4258#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -136,16 +181,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>USR_INFORMATION</find>
-      <find>searchBar</find>
       <find>setrevi</find>
       <find>console</find>
       <find>\n</find>
@@ -174,6 +217,8 @@
       <find>select count(id) from user_role_uf where account = {account} and id = {id}</find>
       <find>fileList</find>
       <find>tableReload</find>
+      <find>menuLeft</find>
+      <find>menuRIght</find>
     </findStrings>
     <replaceStrings>
       <replace>objs</replace>
@@ -197,27 +242,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/DTO/UserRoleDTO.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/RoleMapper.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/RoleService.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/RoleUF.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/RoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/UserRoleService.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/DownloadMapper.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/DTO/FileDTO.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/downloadList.html" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/task.html" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/admin.html" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/UserRoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/Menu.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuMapper.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/MenuVO.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuService.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/UserController.java" />
         <option value="$PROJECT_DIR$/uploadfile/pom.xml" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/emailUtil.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuServiceImpl.java" />
         <option value="$PROJECT_DIR$/uploadfile/README.md" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/WebMVCConfig.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/PageController.java" />
@@ -240,7 +276,6 @@
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/register.html" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/UserRoleMapper.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/UserRole.java" />
-        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/LoginController.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java" />
@@ -248,6 +283,16 @@
         <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/main.html" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java" />
         <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/templates/admin.html" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/MenuRole.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuRoleService.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuRoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuMapper.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuService.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuServiceImpl.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/MenuController.java" />
+        <option value="$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuRoleMapper.java" />
       </list>
     </option>
   </component>
@@ -536,17 +581,17 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static/js" />
+      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static/myJS" />
+      <recent name="$PROJECT_DIR$/excel2DB/lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static/myJS" />
       <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/excelMerge/src/main/java/com/liuyongyu" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static" />
-      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static/js" />
-      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/static/myJS" />
-      <recent name="$PROJECT_DIR$/uploadfile/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/excel2DB/lib" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -884,7 +929,7 @@
       <workItem from="1621179486833" duration="33000" />
       <workItem from="1621348442907" duration="72573000" />
       <workItem from="1621772777351" duration="886000" />
-      <workItem from="1621779639855" duration="2608000" />
+      <workItem from="1621779639855" duration="9334000" />
     </task>
     <servers />
   </component>
@@ -921,7 +966,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335927000" />
+    <option name="totallyTimeSpent" value="342653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -946,7 +991,7 @@
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.24945135" />
       <window_info id="UI Designer" order="5" />
-      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.39871794" />
+      <window_info anchor="bottom" id="Debug" order="7" visible="true" weight="0.39871794" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32948717" />
       <window_info anchor="bottom" id="Messages" order="15" weight="0.32948717" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
@@ -958,7 +1003,7 @@
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.3269934" />
       <window_info anchor="bottom" id="Spring" order="2" />
       <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49786323" visible="true" weight="0.30212143" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49786323" visible="true" weight="0.30212143" />
       <window_info anchor="right" id="Bean Validation" order="0" />
       <window_info id="Web" order="0" sideWeight="0.50213677" side_tool="true" weight="0.27432334" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -981,14 +1026,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="189" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="191" />
     </breakpoint-manager>
   </component>
@@ -997,55 +1034,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/DTO/FileDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/VO/FileListVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/downloadList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="39" column="88" selection-start-line="39" selection-start-column="88" selection-end-line="39" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/task.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="45" column="88" selection-start-line="45" selection-start-column="88" selection-end-line="45" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/basePageHTML.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/RoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -1060,39 +1048,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Utils/emailUtil.java" />
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Configture/Interface/PrimaryKey.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1276,13 +1236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/EmailStoreMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1329,13 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/FileService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -1361,20 +1307,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java">
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+        <state relative-caret-position="77">
+          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/adminPageHTML.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1092">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/templates/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/resources/mybatis.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="93" column="26" lean-forward="true" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/FileUFMapper.java">
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuRoleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="40" column="74" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
+        <state relative-caret-position="165">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1811#1812#0" expanded="true" />
+            <element signature="e#1862#1863#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="52" column="46" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Service/MenuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/ServiceImpl/MenuServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+          <folding>
+            <element signature="e#1622#1623#0" expanded="true" />
+            <element signature="e#1664#1665#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Entry/MenuRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1288#1289#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1429#1430#0" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
+            <element signature="e#1512#1513#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Mapper/MenuRoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadfile/src/main/java/com/lyy/uploadfile/Controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="45" column="52" lean-forward="true" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

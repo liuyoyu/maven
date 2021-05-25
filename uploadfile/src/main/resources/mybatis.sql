@@ -79,6 +79,15 @@ seq numeric (3, 1),
 status int
 );
 
+-- 创建菜单角色
+create table menu_role(
+id number(12) primary key,
+roleId number(12),
+muneId number(12),
+createDate date,
+status int
+);
+
 -- 创建email表
 drop table email_store;
 create table email_store(

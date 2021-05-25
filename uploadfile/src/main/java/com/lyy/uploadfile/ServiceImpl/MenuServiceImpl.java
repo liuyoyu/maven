@@ -49,4 +49,9 @@ public class MenuServiceImpl implements MenuService {
         menuMapper.delete(id);
         return Message.success("成功");
     }
+
+    @Override
+    public int countAllByPage() {
+        return menuMapper.countAllByPage();
+    }
 }

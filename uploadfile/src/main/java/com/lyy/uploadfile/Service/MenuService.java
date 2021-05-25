@@ -14,4 +14,6 @@ public interface MenuService {
     Message update(Menu menu);
 
     Message delete(long id);
+
+    int countAllByPage();
 }
