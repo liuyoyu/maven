@@ -13,17 +13,13 @@ import java.util.List;
 @Service
 public class MenuRoleServiceImpl implements MenuRoleService {
 
-    MenuRoleService menuRoleService;
-
     TablePrimaryKeyService tablePrimaryKeyService;
 
     MenuRoleMapper menuRoleMapper;
 
     @Autowired
-    public MenuRoleServiceImpl(MenuRoleService menuRoleService,
-                               TablePrimaryKeyService tablePrimaryKeyService,
+    public MenuRoleServiceImpl(TablePrimaryKeyService tablePrimaryKeyService,
                                MenuRoleMapper menuRoleMapper) {
-        this.menuRoleService = menuRoleService;
         this.tablePrimaryKeyService = tablePrimaryKeyService;
         this.menuRoleMapper = menuRoleMapper;
     }
@@ -57,5 +53,10 @@ public class MenuRoleServiceImpl implements MenuRoleService {
     @Override
     public int countByPage() {
         return menuRoleMapper.countByPage();
+    }
+
+    @Override
+    public List<MenuRole> getByRole(long id) {
+        return menuRoleMapper.getByRoleId(id);
     }
 }

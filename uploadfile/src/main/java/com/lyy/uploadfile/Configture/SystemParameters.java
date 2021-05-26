@@ -6,6 +6,8 @@ public class SystemParameters {
     public static final String COOKIE_USR_INFORMATION = "USER_INFORMATION";
     //end
 
+    public static final Long MENUPARENTID = -1L;
+
 
     // JWT 校验值    start
     public static final String JWT_VERIDATION_NAME_1 = "user_account";

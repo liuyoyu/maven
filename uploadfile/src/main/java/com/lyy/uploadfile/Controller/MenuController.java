@@ -1,18 +1,25 @@
 package com.lyy.uploadfile.Controller;
 
+import com.lyy.uploadfile.Configture.DTO.UserRoleDTO;
 import com.lyy.uploadfile.Entry.Menu;
 import com.lyy.uploadfile.Entry.MenuRole;
+import com.lyy.uploadfile.Entry.UserUF;
+import com.lyy.uploadfile.Service.LoginService;
 import com.lyy.uploadfile.Service.MenuRoleService;
 import com.lyy.uploadfile.Service.MenuService;
 import com.lyy.uploadfile.Utils.Message;
 import com.lyy.uploadfile.Utils.PageData;
 import com.lyy.uploadfile.Utils.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/menu")
@@ -22,9 +29,14 @@ public class MenuController {
 
     MenuRoleService menuRoleService;
 
-    public MenuController(MenuService menuService, MenuRoleService menuRoleService) {
+    LoginService loginService;
+
+    @Autowired
+    public MenuController(MenuService menuService, MenuRoleService menuRoleService,
+                          LoginService loginService) {
         this.menuService = menuService;
         this.menuRoleService = menuRoleService;
+        this.loginService = loginService;
     }
 
     @GetMapping("/list")

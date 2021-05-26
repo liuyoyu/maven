@@ -11,7 +11,11 @@ public class UserRole {
 
     private String account;
 
+    private String userName;
+
     private long roleId;
+
+    private String roleName;
 
     private Date createDate;
 
@@ -45,5 +49,21 @@ public class UserRole {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

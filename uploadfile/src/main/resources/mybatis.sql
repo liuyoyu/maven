@@ -80,10 +80,11 @@ status int
 );
 
 -- 创建菜单角色
+drop table menu_role;
 create table menu_role(
 id number(12) primary key,
 roleId number(12),
-muneId number(12),
+menuId number(12),
 createDate date,
 status int
 );

@@ -61,4 +61,9 @@ public class UserRoleServiceImpl implements UserRoleService {
         int update = userRoleMapper.update(id, roleId);
         return update == 1 ? Message.success("更新成功") : Message.fail("更新失败");
     }
+
+    @Override
+    public Message getByAccount(String account) {
+        return null;
+    }
 }

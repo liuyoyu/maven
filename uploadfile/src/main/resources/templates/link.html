@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="header">
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, userUF-scalable=no" name="viewport"/>
-    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
-    <link rel="shortcut icon" th:href="@{/static/favicon.ico}" type="image/x-icon" />
-</div>
+    <div th:fragment="header">
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, userUF-scalable=no" name="viewport"/>
+        <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+        <link rel="shortcut icon" th:href="@{/static/favicon.ico}" type="image/x-icon" />
+    </div>
+    <div th:fragment="left_menu">
+        <ul class="layui-nav layui-nav-tree" lay-filter="leftMenu" lay-shrink="all">
+            <li class="layui-nav-item layui-nav-itemed">
+                <a class="" href="javascript:;">欢迎页面</a>
+            </li>
+            <li class="layui-nav-item" th:each="parent : ${menu}">
+                <a class="" href="javascript:;"><span th:text="${parent.name}">父菜单</span></a>
+                <dl class="layui-nav-child">
+                    <dd th:each="child : ${parent.child}">
+                        <a th:href="${child.url}">
+                            <span th:text="${child.name}">子菜单</span>
+                        </a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
 </html>

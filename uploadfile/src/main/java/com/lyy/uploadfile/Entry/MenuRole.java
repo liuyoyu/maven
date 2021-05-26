@@ -15,9 +15,13 @@ public class MenuRole {
 
     private long menuId;
 
+    private long menuParentId;
+
     private String menuName;
 
-    private int status;
+    private String url;
+
+    private int status = STATUS.USING.value;
 
     private Date createDate;
 
@@ -83,5 +87,21 @@ public class MenuRole {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public long getMenuParentId() {
+        return menuParentId;
+    }
+
+    public void setMenuParentId(long menuParentId) {
+        this.menuParentId = menuParentId;
     }
 }

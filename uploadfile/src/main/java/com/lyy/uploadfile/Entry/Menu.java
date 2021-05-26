@@ -1,22 +1,38 @@
 package com.lyy.uploadfile.Entry;
 
+import com.lyy.uploadfile.Configture.Interface.PrimaryKey;
+import com.lyy.uploadfile.Configture.SystemParameters;
+
 import java.util.Date;
 import java.util.List;
 
 public class Menu {
+
+    @PrimaryKey
     private long id;
 
     private String name;
 
-    private String url;
+    private String url = "";
 
-    private long parentId;
+    private long parentId = SystemParameters.MENUPARENTID;  //父菜单 id = -1;
 
     private double seq;
 
     private int status;
 
     private Date createDate;
+
+    private List<Menu> child;
+
+    public Menu() {
+    }
+
+    public Menu(MenuRole menuRole) {
+        this.id = menuRole.getId();
+        this.name = menuRole.getMenuName();
+        this.status = menuRole.getStatus();
+    }
 
     public enum STATUS{
         USING(0),
@@ -84,5 +100,13 @@ public class Menu {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public List<Menu> getChild() {
+        return child;
+    }
+
+    public void setChild(List<Menu> child) {
+        this.child = child;
     }
 }

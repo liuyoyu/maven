@@ -17,7 +17,7 @@ public interface UserRoleMapper {
     int update(long id, long roleId);
 
     @Select("select * from (select rownum as rn, u.id, u.name as userName, u.account, u.sex, u.telephone as tel, u.email, " +
-            " r.id as roleId, r.name as roleName from user_role_uf ur " +
+            " r.id as roleId, r.roleName, r.status as roleStatus from user_role_uf ur " +
             "left join user_uf u on ur.account = u.account " +
             "left join role_uf r on ur.roleId = r.id " +
             "where rownum <= #{pageEnd}) t where t.rn > {pageStart}")
@@ -36,4 +36,10 @@ public interface UserRoleMapper {
 
     @Delete("delete from user_role_uf where id = #{id}")
     int deleteOne(long id);
+
+    @Select("select ur.id, ur.account, u.name as userName, u.sex, u.telephone, u.email, r.id as roleId, r.roleName, r.status as roleStatus " +
+            "from user_role_uf ur left join user_uf u on ur.id = u.id left join role_uf r on ur.roleId = r.id " +
+            "where ur.account = #{account}")
+    @ResultType(UserRoleDTO.class)
+    UserRoleDTO getByAccount(String account);
 }

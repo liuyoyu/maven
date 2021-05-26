@@ -10,6 +10,7 @@ public class UserRoleDTO {
     private String email;
     private long roleId;
     private String roleName;
+    private int roleStatus;
 
     public long getId() {
         return id;
@@ -73,5 +74,13 @@ public class UserRoleDTO {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public int getStatus() {
+        return roleStatus;
+    }
+
+    public void setStatus(int status) {
+        this.roleStatus = status;
     }
 }

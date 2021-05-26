@@ -1,14 +1,16 @@
 package com.lyy.uploadfile.Controller;
 
+import com.lyy.uploadfile.Configture.DTO.UserRoleDTO;
 import com.lyy.uploadfile.Configture.SystemParameters;
-import com.lyy.uploadfile.Entry.FileUF;
+import com.lyy.uploadfile.Entry.Menu;
+import com.lyy.uploadfile.Entry.MenuRole;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Service.FileService;
 import com.lyy.uploadfile.Service.LoginService;
+import com.lyy.uploadfile.Service.MenuRoleService;
+import com.lyy.uploadfile.Service.MenuService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
-import com.lyy.uploadfile.Utils.Message;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 控制thymeleaf页面跳转
@@ -28,11 +33,19 @@ public class PageController extends BaseController {
 
     FileService fileService;
 
+    MenuService menuService;
+
+    MenuRoleService menuRoleService;
+
     @Autowired
     public PageController(LoginService loginService,
-                          FileService fileService) {
+                          FileService fileService,
+                          MenuService menuService,
+                          MenuRoleService menuRoleService) {
         this.loginService = loginService;
         this.fileService = fileService;
+        this.menuService = menuService;
+        this.menuRoleService = menuRoleService;
     }
 
     /**
@@ -120,10 +133,37 @@ public class PageController extends BaseController {
     @GetMapping("/uploadFile/admin")
     @ResponseBody
     public ModelAndView jumpToAdmin(){
+        UserUF user = loginService.getLoginInfo();
         modelAndView.setViewName("/admin");
-        UserUF loginInfo = loginService.getLoginInfo();
-        modelAndView.addObject("user_account", loginInfo.getAccount());
-        modelAndView.addObject("user_name", loginInfo.getName());
+        modelAndView.addObject("menu", getMenu());
+        modelAndView.addObject("user_account", user.getAccount());
+        modelAndView.addObject("user_name", user.getName());
         return modelAndView;
+    }
+
+    private List<Menu> getMenu(){
+        UserRoleDTO user = loginService.getLoginInfoDetail();
+        List<MenuRole> menuRoles = menuRoleService.getByRole(user.getId());
+        List<Menu> res = new ArrayList<>();
+        Map<Long, Menu> t1 = new HashMap<>();
+        Map<Long, List<Menu>> t2 = new HashMap<>();
+        for (int i = 0; i < menuRoles.size(); i++) {
+            MenuRole m = menuRoles.get(i);
+            Menu mn = new Menu(m);
+            t1.put(m.getId(), mn);
+            if (SystemParameters.MENUPARENTID == m.getMenuParentId()) {
+                continue;
+            }
+            List<Menu> list = t2.getOrDefault(m.getMenuParentId(), new ArrayList<>());
+            list.add(mn);
+            t2.put(m.getMenuParentId(), list);
+        }
+        for (Map.Entry<Long, List<Menu>> entry : t2.entrySet()) {
+            long key = entry.getKey();
+            Menu menu = t1.get(key);
+            menu.setChild(entry.getValue());
+            res.add(menu);
+        }
+        return res;
     }
 }

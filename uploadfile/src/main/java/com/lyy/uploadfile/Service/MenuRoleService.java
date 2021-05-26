@@ -17,4 +17,6 @@ public interface MenuRoleService {
     Message delete(long id);
 
     Message insert(MenuRole menuRole);
+
+    List<MenuRole> getByRole(long id);
 }

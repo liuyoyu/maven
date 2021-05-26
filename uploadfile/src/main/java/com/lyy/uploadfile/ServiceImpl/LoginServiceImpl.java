@@ -1,9 +1,13 @@
 package com.lyy.uploadfile.ServiceImpl;
 
+import com.lyy.uploadfile.Configture.DTO.UserRoleDTO;
 import com.lyy.uploadfile.Configture.SystemParameters;
+import com.lyy.uploadfile.Entry.UserRole;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Mapper.UserMapper;
+import com.lyy.uploadfile.Mapper.UserRoleMapper;
 import com.lyy.uploadfile.Service.LoginService;
+import com.lyy.uploadfile.Service.UserRoleService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
 import com.lyy.uploadfile.Utils.Message;
@@ -16,8 +20,18 @@ import javax.servlet.http.Cookie;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-    @Autowired
+    final
     UserMapper userMapper;
+
+    final
+    UserRoleMapper userRoleMapper;
+
+    @Autowired
+    public LoginServiceImpl(UserMapper userMapper, UserRoleMapper userRoleMapper) {
+        this.userMapper = userMapper;
+        this.userRoleMapper = userRoleMapper;
+    }
+
     @Override
     public Message login(String account, String password) {
         UserUF user = userMapper.findByAccountAndPassword(account, password);
@@ -46,5 +60,12 @@ public class LoginServiceImpl implements LoginService {
         String name = (String)jsonObject.get(SystemParameters.JWT_VERIDATION_NAME_2);
         String account = (String) jsonObject.get(SystemParameters.JWT_VERIDATION_NAME_1);
         return new UserUF(name, account);
+    }
+
+    @Override
+    public UserRoleDTO getLoginInfoDetail() {
+        UserUF loginInfo = getLoginInfo();
+        UserRoleDTO byAccount = userRoleMapper.getByAccount(loginInfo.getAccount());
+        return byAccount;
     }
 }

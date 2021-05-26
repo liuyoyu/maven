@@ -13,7 +13,7 @@ public class RoleUF {
 
     private Date createDate;
 
-    private int status;  // 0 - 可用； 1 - 禁用
+    private int status = STATUS.USING.value;  // 0 - 可用； 1 - 禁用
 
     public enum STATUS{
         USING(0),

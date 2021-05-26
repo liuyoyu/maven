@@ -1,4 +1,4 @@
-2021-05-23 17:57:37.849 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:28:25.937 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -7,12 +7,17 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 17:57:37.869 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14499 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 17:57:37.869 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 17:57:39.820 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 17:57:40.263 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.596 seconds (JVM running for 3.618)
-2021-05-23 17:57:40.576 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-23 17:58:52.044 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:28:25.984 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7589 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:28:25.985 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:28:27.889 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:28:28.257 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.508 seconds (JVM running for 3.781)
+2021-05-26 22:28:28.511 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:28:28.515 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:28:28.946 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:28:29.186 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:28:29.189 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:28:29.237 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-26 22:29:19.060 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -21,12 +26,17 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 17:58:52.069 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14506 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 17:58:52.070 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 17:58:54.085 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 17:58:54.452 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.634 seconds (JVM running for 3.892)
-2021-05-23 17:59:04.694 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-23 17:59:22.602 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:29:19.083 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7598 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:29:19.084 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:29:21.089 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:29:21.456 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.627 seconds (JVM running for 3.781)
+2021-05-26 22:29:21.661 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:29:21.666 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:29:22.112 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:29:22.378 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:29:22.380 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:29:22.435 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-26 22:32:53.036 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -35,12 +45,17 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 17:59:22.624 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14511 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 17:59:22.625 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 17:59:24.688 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 17:59:25.051 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.661 seconds (JVM running for 3.853)
-2021-05-23 17:59:25.432 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-23 17:59:29.634 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:32:53.056 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7611 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:32:53.057 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:32:55.023 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:32:55.361 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.553 seconds (JVM running for 3.669)
+2021-05-26 22:32:55.592 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:32:55.599 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:32:56.086 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:32:56.405 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:32:56.407 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:32:56.450 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-26 22:33:40.325 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -49,12 +64,17 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 17:59:29.655 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14517 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 17:59:29.656 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 17:59:31.552 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 17:59:31.923 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.497 seconds (JVM running for 3.643)
-2021-05-23 17:59:42.161 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:01:16.588 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:33:40.350 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7618 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:33:40.351 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:33:42.243 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:33:42.616 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.502 seconds (JVM running for 3.677)
+2021-05-26 22:33:42.827 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:33:42.832 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:33:43.284 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:33:43.575 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:33:43.577 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:33:43.601 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-26 22:36:08.805 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -63,12 +83,17 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 18:01:16.611 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14522 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 18:01:16.613 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 18:01:18.636 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:01:19.000 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.649 seconds (JVM running for 3.773)
-2021-05-23 18:01:29.237 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:01:37.070 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:36:08.830 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7629 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:36:08.831 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:36:10.755 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:36:11.119 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.537 seconds (JVM running for 3.736)
+2021-05-26 22:36:11.329 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:36:11.333 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:36:11.786 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:36:12.072 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:36:12.073 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:36:12.089 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-26 22:39:11.833 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -77,12 +102,17 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 18:01:37.092 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14532 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 18:01:37.093 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 18:01:39.190 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:01:39.580 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.766 seconds (JVM running for 4.075)
-2021-05-23 18:01:49.811 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:03:42.577 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:39:11.857 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7638 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:39:11.858 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:39:13.770 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:39:14.128 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.512 seconds (JVM running for 3.54)
+2021-05-26 22:39:14.343 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:39:14.348 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:39:14.788 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:39:15.060 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:39:15.062 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:39:15.089 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-26 22:39:38.005 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -91,12 +121,17 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 18:03:42.598 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14551 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 18:03:42.598 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 18:03:44.575 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:03:44.952 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.601 seconds (JVM running for 3.762)
-2021-05-23 18:03:48.194 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:15:22.400 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+2021-05-26 22:39:38.033 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7649 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:39:38.035 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:39:40.390 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:39:40.758 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.992 seconds (JVM running for 4.394)
+2021-05-26 22:39:40.984 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:39:40.989 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:39:41.455 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:39:41.739 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:39:41.742 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:39:41.763 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-26 22:40:52.260 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
 
 Found multiple occurrences of org.json.JSONObject on the class path:
 
@@ -105,8 +140,13 @@ Found multiple occurrences of org.json.JSONObject on the class path:
 
 You may wish to exclude one of them to ensure predictable runtime behavior
 
-2021-05-23 18:15:22.423 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 14586 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
-2021-05-23 18:15:22.424 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
-2021-05-23 18:15:24.850 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-23 18:15:25.244 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 3.03 seconds (JVM running for 4.077)
-2021-05-23 18:15:25.757 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:40:52.280 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on 192.168.2.103 with PID 7670 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-26 22:40:52.281 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-26 22:40:54.183 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:40:54.566 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.508 seconds (JVM running for 3.666)
+2021-05-26 22:40:54.795 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-26 22:40:54.800 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-26 22:40:55.272 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-26 22:40:55.516 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 22:40:55.519 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-26 22:40:55.536 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.

@@ -1,8 +1,17 @@
 package com.lyy.uploadfile;
 
+import com.lyy.uploadfile.Configture.SystemBaseRoles;
+import com.lyy.uploadfile.Configture.SystemParameters;
+import com.lyy.uploadfile.Entry.Menu;
+import com.lyy.uploadfile.Entry.MenuRole;
+import com.lyy.uploadfile.Service.MenuRoleService;
+import com.lyy.uploadfile.Service.MenuService;
 import com.lyy.uploadfile.Utils.LocalCache;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Date;
 
 @SpringBootTest
 class UploadfileApplicationTests {
@@ -19,4 +28,34 @@ class UploadfileApplicationTests {
         }
     }
 
+    @Autowired
+    MenuService menuService;
+    @Autowired
+    MenuRoleService menuRoleService;
+    @Test
+    void menuAdd(){
+        Menu menu = new Menu();
+        menu.setName("菜单列表");
+        menu.setCreateDate(new Date());
+        menu.setParentId(3);
+        menu.setSeq(0);
+        menu.setStatus(Menu.STATUS.USING.value());
+        menuService.insert(menu);
+        menu = new Menu();
+        menu.setName("菜单分配");
+        menu.setCreateDate(new Date());
+        menu.setParentId(3);
+        menu.setSeq(0);
+        menu.setStatus(Menu.STATUS.USING.value());
+        menuService.insert(menu);
+    }
+    @Test
+    void menuRoleAdd(){
+        MenuRole menuRole = new MenuRole();
+        menuRole.setCreateDate(new Date());
+        menuRole.setRoleId(SystemBaseRoles.USER);
+        menuRole.setMenuId(6);
+        menuRole.setStatus(MenuRole.STATUS.USING.value());
+        menuRoleService.insert(menuRole);
+    }
 }

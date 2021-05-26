@@ -15,4 +15,6 @@ public interface UserRoleService {
     Message delete(long id);
 
     Message update(long id, long roleId);
+
+    Message getByAccount(String account);
 }
