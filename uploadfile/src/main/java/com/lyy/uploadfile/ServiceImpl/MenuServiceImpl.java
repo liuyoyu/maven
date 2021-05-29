@@ -54,4 +54,15 @@ public class MenuServiceImpl implements MenuService {
     public int countAllByPage() {
         return menuMapper.countAllByPage();
     }
+
+    @Override
+    public Message getOne(long menuId) {
+        Menu one = menuMapper.getOne(menuId);
+        return one == null ? Message.fail("获取菜单失败") : Message.success("获取菜单成功", one);
+    }
+
+    @Override
+    public int checkUrlNum(String url) {
+        return menuMapper.checkUrlDelipute(url);
+    }
 }

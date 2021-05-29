@@ -5,10 +5,12 @@ import com.lyy.uploadfile.Mapper.UserMapper;
 import com.lyy.uploadfile.Service.TablePrimaryKeyService;
 import com.lyy.uploadfile.Service.UserService;
 import com.lyy.uploadfile.Utils.Message;
+import com.lyy.uploadfile.Utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -71,5 +73,13 @@ public class UserServiceImpl implements UserService {
     public Message countAccountAndEmail(String account, String email) {
         int n = userMapper.countAccountOrEmail(account, email);
         return n > 0 ? Message.success("成功", n): Message.fail("失败");
+    }
+
+    @Override
+    public PageData getAllByPage(int page, int limit) {
+        int start = (page - 1) * limit, end = page * limit;
+        List<UserUF> allByList = userMapper.getAllByList(start, end);
+        int n = userMapper.countByPage();
+        return PageData.success(allByList, n);
     }
 }

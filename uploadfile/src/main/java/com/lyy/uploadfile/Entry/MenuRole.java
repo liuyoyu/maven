@@ -21,6 +21,8 @@ public class MenuRole {
 
     private String url;
 
+    private double seq;
+
     private int status = STATUS.USING.value;
 
     private Date createDate;
@@ -103,5 +105,13 @@ public class MenuRole {
 
     public void setMenuParentId(long menuParentId) {
         this.menuParentId = menuParentId;
+    }
+
+    public double getSeq() {
+        return seq;
+    }
+
+    public void setSeq(double seq) {
+        this.seq = seq;
     }
 }

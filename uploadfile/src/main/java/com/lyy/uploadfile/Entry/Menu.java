@@ -31,6 +31,9 @@ public class Menu {
     public Menu(MenuRole menuRole) {
         this.id = menuRole.getId();
         this.name = menuRole.getMenuName();
+        this.url = menuRole.getUrl();
+        this.parentId = menuRole.getMenuParentId();
+        this.seq = menuRole.getSeq();
         this.status = menuRole.getStatus();
     }
 

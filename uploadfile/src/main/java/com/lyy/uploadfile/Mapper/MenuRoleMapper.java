@@ -31,7 +31,7 @@ public interface MenuRoleMapper {
     @Select("select count(id) from menu_role")
     int countByPage();
 
-    @Select("select mr.id, mr.menuId, mr.roleId, mr.status, mr.createDate, m.name as menuName, m.url, m.parentId as menuParentId, r.roleName as roleName " +
+    @Select("select mr.id, mr.menuId, mr.roleId, mr.status, mr.createDate, m.name as menuName, m.url, m.parentId as menuParentId, m.seq, r.roleName as roleName " +
             "from menu_role mr left join menu m on mr.menuId = m.id left join role_uf r on mr.roleId = r.id " +
             "where mr.roleId = #{roleId}")
     @ResultType(MenuRole.class)

@@ -16,4 +16,8 @@ public interface MenuService {
     Message delete(long id);
 
     int countAllByPage();
+
+    Message getOne(long menuId);
+
+    int checkUrlNum(String url);
 }

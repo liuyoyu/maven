@@ -8,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -43,4 +41,12 @@ public class UserController {
 
         return res.isSuccess() ? Result.error(res.msg()) : Result.success(res.msg());
     }
+
+    @GetMapping("/list")
+    public Result getList(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        return userService.getAllByPage(page, limit);
+    }
+
+//    @GetMapping("/search")
+//    public Result search(@RequestParam(""))
 }

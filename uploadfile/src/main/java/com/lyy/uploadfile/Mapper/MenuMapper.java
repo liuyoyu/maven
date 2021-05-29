@@ -28,4 +28,10 @@ public interface MenuMapper {
 
     @Select("select count(id) from menu")
     int countAllByPage();
+
+    @Select("select * from menu where menuId = #{menuId}")
+    Menu getOne(long menuId);
+
+    @Select("select count(id) from menu where url = #{url}")
+    int checkUrlDelipute(String url);
 }
