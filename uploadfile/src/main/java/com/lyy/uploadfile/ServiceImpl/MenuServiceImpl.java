@@ -5,9 +5,11 @@ import com.lyy.uploadfile.Mapper.MenuMapper;
 import com.lyy.uploadfile.Service.MenuService;
 import com.lyy.uploadfile.Service.TablePrimaryKeyService;
 import com.lyy.uploadfile.Utils.Message;
+import com.lyy.uploadfile.Utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -64,5 +66,12 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public int checkUrlNum(String url) {
         return menuMapper.checkUrlDelipute(url);
+    }
+
+    @Override
+    public PageData search(long id, long parentId, String name, int status, Date date, String url, int start, int end) {
+        List<Menu> search = menuMapper.search(id, parentId, name, status, date, url, start, end);
+        int co = menuMapper.searchCount(id, parentId, name, status, date, url);
+        return PageData.success(search, co);
     }
 }

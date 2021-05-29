@@ -33,7 +33,7 @@ public interface UserMapper {
     @Select("select count(id) from user_uf where account = #{account} or email = #{email}")
     int countAccountOrEmail(@Param("account") String account, @Param("email") String email);
 
-    @Select("select * from (select rownum as rn, u.* from user_uf u where rownum <= end) t where rn > start ")
+    @Select("select * from (select rownum as rn, u.* from user_uf u where rownum <= #{end}) t where rn > #{start}")
     List<UserUF> getAllByList(int start, int end);
 
     @Select("select count(id) from user_uf")

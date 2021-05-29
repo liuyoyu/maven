@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>后台用户界面</title>
+    <div th:replace="link::header"></div>
+    <div th:replace="script::js_footer"></div>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="link::topbar"></div>
+    <div th:replace="link::left_menu"></div>
+    <div class="layui-body" style="padding: 3%">
+        <fieldset class="layui-elem-field">
+            <legend>菜单查询</legend>
+            <div class="layui-field-box">
+                <form class="layui-form layui-form-pane" id="conditionForm">
+                    <div class="layui-form-item">
+                        <div class="layui-btn-group">
+                            <button class="layui-btn layui-btn-normal layui-btn-sm" lay-submit lay-filter="searchSubmit" >查询</button>
+                            <button class="layui-btn layui-btn-sm">新增</button>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">ID</label>
+                            <div class="layui-input-inline">
+                                <input type="number" min="0" name="id" autocomplete="off" placeholder="菜单ID" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" autocomplete="off" placeholder="菜单名称" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">时间</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="createDate" id="createDate" placeholder="创建时间" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">父ID</label>
+                            <div class="layui-input-inline">
+                                <input type="number" min="0" name="parentId" autocomplete="off" placeholder="父菜单ID" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">状态</label>
+                            <div class="layui-inline">
+                                <select name="status">
+                                    <option value="0" selected>可用</option>
+                                    <option value="1">禁用</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">路径</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="url" autocomplete="on" placeholder="输入查询菜单URL" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <table class="layui-table" id="menuTable" lay-filter='tableFilter'></table>
+        <script type="text/html" id="rowBtn">
+            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="delete">删除</a>
+        </script>
+    </div>
+    <div th:replace="link::bottom"></div>
+</div>
+<script>
+    layui.use(['element', 'layer', 'table', 'laydate', 'form'], function(){
+        var layer = layui.layer;
+        var element = layui.element;
+        var table = layui.table;
+        var laydate = layui.laydate;
+        var form = layui.form;
+
+        var menuTable = table.render({
+            elem: '#menuTable',
+            url:'/menu/list',
+            cols:[ [
+                {field:'id', width:'5%', title: 'ID'},
+                {field:'name', width:'10%', title: '名称'},
+                {field:'url', width:'20%', title: '路径'},
+                {field:'parent', width:'8%', title: '父ID'},
+                {field:'statusName', width: '10%', title: '状态'},
+                {field:'createDateFormat', width:'22%', title: '创建时间'},
+                {field:'seq', width:'10%', title: '序列'},
+                {field:'', width:'15%', title:'操作', toolbar: '#rowBtn'}
+            ] ],
+            page: {
+                layout: ['count', 'prev', 'page', 'next', 'skip'],
+                group: 3,
+                limit: 10
+            },
+            text:{
+                none: '一个菜单都木有 '
+            },
+            loading: true,
+            done: function () {
+                layui.$('.layui-table').css('width', '100%');
+            }
+        });
+
+        table.on('tool(tableFilter)',function(obj){
+            console.log(obj.data);
+        });
+
+        form.on('submit(searchSubmit)', function (data) {
+            data.field['page'] = 0;
+            data.field['limit'] = menuTable.config.page.limit;
+            var load = null;
+            layui.$.ajax({
+                url: '/menu/list/search',
+                type: 'get',
+                dataType: 'json',
+                data: data.field,
+                beforeSend: function () {
+                    load = layer.load();
+                },
+                success: function (res) {
+                    if (res.msg == respSuccess) {
+                        menuTable.reload(res.data);
+                    }else{
+                        layer.msg(res.msg);
+                    }
+                },
+                complete: function () {
+                    layer.close(load);
+                }
+            });
+            return false;
+        });
+
+        laydate.render({
+            elem: '#createDate'
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,12 +1,10 @@
 package com.lyy.uploadfile.Mapper;
 
 import com.lyy.uploadfile.Entry.Menu;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -17,21 +15,32 @@ public interface MenuMapper {
     int insert(Menu menu);
 
     @Delete("delete from menu where id = {id}")
-    int delete(long id);
+    int delete(@Param("id")long id);
 
     @Update("update table set name = #{name}, parentId = #{parentId}, seq = #{seq}, createDate = #{createDate}, " +
             "status = #{status}, url = #{url} where id = #{id}")
     int update(Menu menu);
 
-    @Select("select * from (select rownum as rn, m.* from menu m where rownum <= pageEnd) t where t.rn > pageStart")
-    List<Menu> getAllbyPage(int pageStart, int pageEnd);
+    @Select("select * from (select rownum as rn, m.* from menu m where rownum <= #{pageEnd}) t where t.rn > #{pageStart}")
+    List<Menu> getAllbyPage(@Param("pageStart")int pageStart, @Param("pageEnd") int pageEnd);
 
     @Select("select count(id) from menu")
     int countAllByPage();
 
     @Select("select * from menu where menuId = #{menuId}")
-    Menu getOne(long menuId);
+    Menu getOne(@Param("menuId") long menuId);
 
     @Select("select count(id) from menu where url = #{url}")
-    int checkUrlDelipute(String url);
+    int checkUrlDelipute(@Param("url") String url);
+
+    @Select("select * from (" +
+            "select rownum as rn, m.* from menu m where id like '%'||#{id}||'%' and name like '%'||#{name}||'%' and parentId like '%'||#{parentId}||'%' and status like '%'||#{status}||'%' and createDate = #{createDate} and url like '%'||#{url}||'%' and rownum <= #{end} " +
+            ") t where t.rn > #{start}")
+    List<Menu> search(@Param("id") long id, @Param("parentId") long parentId, @Param("name") String name,
+                      @Param("status") int status, @Param("createDate") Date date, @Param("url") String url,
+                      @Param("start") int start, @Param("end") int end);
+    @Select("select count(id) from menu where id like '%'||#{id}||'%' and name like '%'||#{name}||'%' and parentId like '%'||#{parentId}||'%' " +
+            "and status like '%'||#{status}||'%' and createDate = #{createDate} and url like '%'||#{url}||'%'")
+    int searchCount(@Param("id") long id, @Param("parentId") long parentId, @Param("name") String name,
+                    @Param("status") int status, @Param("createDate") Date date, @Param("url") String url);
 }

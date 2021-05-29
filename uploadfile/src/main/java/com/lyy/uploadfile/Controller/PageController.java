@@ -99,7 +99,7 @@ public class PageController extends BaseController {
         return modelAndView;
     }
 
-    @GetMapping("/uploadFile/admin")
+    @GetMapping("/uploadFile/administrator")
     @ResponseBody
     public ModelAndView jumpToAdmin(){
         getMenu("admin");

@@ -3,6 +3,7 @@ package com.lyy.uploadfile.Entry;
 import com.lyy.uploadfile.Configture.Interface.PrimaryKey;
 import com.lyy.uploadfile.Configture.SystemParameters;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class Menu {
     private Date createDate;
 
     private List<Menu> child;
+
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
 
     public Menu() {
     }
@@ -111,5 +114,26 @@ public class Menu {
 
     public void setChild(List<Menu> child) {
         this.child = child;
+    }
+
+    public String getStatusName(){
+        if (this.status == STATUS.USING.value()) {
+            return "可用";
+        }
+        if (this.status == STATUS.BANNED.value()) {
+            return "禁用";
+        }
+        return "";
+    }
+
+    public String getCreateDateFormat(){
+        return sdf.format(this.createDate);
+    }
+
+    public String getParent(){
+        if (this.parentId == -1) {
+            return "无";
+        }
+        return "" + this.parentId;
     }
 }
