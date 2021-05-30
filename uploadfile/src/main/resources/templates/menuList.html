@@ -19,6 +19,7 @@
                         <div class="layui-btn-group">
                             <button class="layui-btn layui-btn-normal layui-btn-sm" lay-submit lay-filter="searchSubmit" >查询</button>
                             <button class="layui-btn layui-btn-sm">新增</button>
+                            <button class="layui-btn layui-btn-sm layui-btn-danger">批量删除</button>
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -86,6 +87,7 @@
             elem: '#menuTable',
             url:'/menu/list',
             cols:[ [
+                {type: 'checkbox', width:'3%'},
                 {field:'id', width:'5%', title: 'ID'},
                 {field:'name', width:'10%', title: '名称'},
                 {field:'url', width:'20%', title: '路径'},
@@ -93,7 +95,7 @@
                 {field:'statusName', width: '10%', title: '状态'},
                 {field:'createDateFormat', width:'22%', title: '创建时间'},
                 {field:'seq', width:'10%', title: '序列'},
-                {field:'', width:'15%', title:'操作', toolbar: '#rowBtn'}
+                {field:'', width:'12%', title:'操作', toolbar: '#rowBtn'}
             ] ],
             page: {
                 layout: ['count', 'prev', 'page', 'next', 'skip'],
@@ -114,27 +116,15 @@
         });
 
         form.on('submit(searchSubmit)', function (data) {
-            data.field['page'] = 0;
-            data.field['limit'] = menuTable.config.page.limit;
-            var load = null;
-            layui.$.ajax({
+
+            menuTable.reload({
+                elem: '#menuTable',
                 url: '/menu/list/search',
-                type: 'get',
-                dataType: 'json',
-                data: data.field,
-                beforeSend: function () {
-                    load = layer.load();
-                },
-                success: function (res) {
-                    if (res.msg == respSuccess) {
-                        menuTable.reload(res.data);
-                    }else{
-                        layer.msg(res.msg);
-                    }
-                },
-                complete: function () {
-                    layer.close(load);
+                loading: true,
+                page: {
+                    curr: 1 //重新从第 1 页开始
                 }
+                , where: data.field
             });
             return false;
         });

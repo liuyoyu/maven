@@ -69,7 +69,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public PageData search(long id, long parentId, String name, int status, Date date, String url, int start, int end) {
+    public PageData search(String id, String parentId, String name, int status, String date, String url, int start, int end) {
         List<Menu> search = menuMapper.search(id, parentId, name, status, date, url, start, end);
         int co = menuMapper.searchCount(id, parentId, name, status, date, url);
         return PageData.success(search, co);

@@ -4,6 +4,7 @@ import com.lyy.uploadfile.Configture.SystemBaseRoles;
 import com.lyy.uploadfile.Configture.SystemParameters;
 import com.lyy.uploadfile.Entry.Menu;
 import com.lyy.uploadfile.Entry.MenuRole;
+import com.lyy.uploadfile.Mapper.MenuMapper;
 import com.lyy.uploadfile.Service.MenuRoleService;
 import com.lyy.uploadfile.Service.MenuService;
 import com.lyy.uploadfile.Utils.LocalCache;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
+import java.util.List;
 
 @SpringBootTest
 class UploadfileApplicationTests {
@@ -57,5 +59,13 @@ class UploadfileApplicationTests {
         menuRole.setMenuId(6);
         menuRole.setStatus(MenuRole.STATUS.USING.value());
         menuRoleService.insert(menuRole);
+    }
+
+    @Autowired
+    MenuMapper menuMapper;
+    @Test
+    void menuTest(){
+        List<Menu> test = menuMapper.test("", 0);
+        System.out.println(test.size());
     }
 }

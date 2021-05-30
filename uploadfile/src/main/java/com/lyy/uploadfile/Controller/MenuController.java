@@ -49,24 +49,16 @@ public class MenuController {
     }
 
     @GetMapping("/list/search")
-    public Result getBySearch(@RequestParam("id") long id,
+    public Result getBySearch(@RequestParam("id") String id,
                               @RequestParam("name") String name,
                               @RequestParam("url") String url,
-                              @RequestParam("parentId") long parentId,
+                              @RequestParam("parentId") String parentId,
                               @RequestParam("status") int status,
                               @RequestParam("createDate") String createDate,
                               @RequestParam("page") int page,
                               @RequestParam("limit") int limit) {
         int start = (page - 1) * limit, end = page * limit;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-        Date parse = null;
-        try {
-            parse = sdf.parse(createDate);
-        } catch (ParseException e) {
-            log.error(e.getMessage());
-        }
-        menuService.search(id, parentId, name, status, parse, url, start, end);
-        return null;
+        return menuService.search(id, parentId, name, status, createDate, url, start, end);
     }
 
     @GetMapping("/role/list")

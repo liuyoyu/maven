@@ -25,6 +25,10 @@ public class PageController extends BaseController {
     @ResponseBody
     public ModelAndView jumpTo(){
         Cookie cookieByName = HttpUtil.getCookieByName(SystemParameters.COOKIE_USR_INFORMATION);
+        if (cookieByName == null) {
+            modelAndView.setViewName("login");
+            return modelAndView;
+        }
         String token = cookieByName.getValue();
         if (JWTUtil.verify(token)) {
             //判断是否自动登录
