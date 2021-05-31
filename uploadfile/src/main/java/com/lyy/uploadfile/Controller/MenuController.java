@@ -1,5 +1,6 @@
 package com.lyy.uploadfile.Controller;
 
+import com.lyy.uploadfile.Configture.SystemParameters;
 import com.lyy.uploadfile.Entry.Menu;
 import com.lyy.uploadfile.Entry.MenuRole;
 import com.lyy.uploadfile.Service.LoginService;
@@ -48,17 +49,24 @@ public class MenuController {
         return PageData.success(allByPage, n);
     }
 
+    @GetMapping("/parent/all")
+    public Result getParentMenu(){
+        List<Menu> all = menuService.getByParentId(SystemParameters.MENUPARENTID);
+        return Result.success("获取菜单成功", all);
+    }
+
     @GetMapping("/list/search")
     public Result getBySearch(@RequestParam("id") String id,
                               @RequestParam("name") String name,
                               @RequestParam("url") String url,
                               @RequestParam("parentId") String parentId,
-                              @RequestParam("status") int status,
+                              @RequestParam("status") String status,
                               @RequestParam("createDate") String createDate,
                               @RequestParam("page") int page,
                               @RequestParam("limit") int limit) {
         int start = (page - 1) * limit, end = page * limit;
-        return menuService.search(id, parentId, name, status, createDate, url, start, end);
+        Message search = menuService.search(id, parentId, name, status, createDate, url, start, end);
+        return PageData.message(search);
     }
 
     @GetMapping("/role/list")

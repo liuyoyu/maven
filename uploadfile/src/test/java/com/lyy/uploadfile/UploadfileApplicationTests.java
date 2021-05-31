@@ -65,7 +65,7 @@ class UploadfileApplicationTests {
     MenuMapper menuMapper;
     @Test
     void menuTest(){
-        List<Menu> test = menuMapper.test("", 0);
-        System.out.println(test.size());
+        List<Menu> search = menuMapper.search("", "", "", "0", "","", 0,  10);
+        System.out.println(search.size());
     }
 }

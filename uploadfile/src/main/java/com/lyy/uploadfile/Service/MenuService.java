@@ -23,5 +23,9 @@ public interface MenuService {
 
     int checkUrlNum(String url);
 
-    PageData search(String id, String parentId, String name, int status, String date, String url, int start, int end);
+    Message search(String id, String parentId, String name, String status, String date, String url, int start, int end);
+
+    List<Menu> getAll();
+
+    List<Menu> getByParentId(long id);
 }

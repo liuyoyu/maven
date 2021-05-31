@@ -23,6 +23,11 @@ public class Message<T> {
         return Message.success(msg, null);
     }
 
+    public static Message success(Page page){
+        Message<Page> m = new Message<Page>(true, "搜索成功", page);
+        return m;
+    }
+
     public static <T>Message fail(String msg, T res){
         return new Message<>(false, msg, res);
     }
@@ -41,5 +46,19 @@ public class Message<T> {
 
     public T res(){
         return this.res;
+    }
+
+    public static class Page{
+        public Object date;
+        public int count;
+
+        private Page(Object date, int count) {
+            this.date = date;
+            this.count = count;
+        }
+
+        public static Message setMsg(Object date, int count) {
+            return Message.success(new Page(date, count));
+        }
     }
 }

@@ -19,6 +19,11 @@ public class PageData extends Result{
         return new PageData(Type.SUCCESS, msg, data, count);
     }
 
+    public static PageData message(Message msg) {
+        Message.Page  page = (Message.Page)msg.res();
+        return new PageData(Type.SUCCESS, msg.msg(), page.date, page.count);
+    }
+
     public int getCount() {
         return count;
     }

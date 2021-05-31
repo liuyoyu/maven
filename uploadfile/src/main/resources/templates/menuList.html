@@ -5,6 +5,11 @@
     <title>后台用户界面</title>
     <div th:replace="link::header"></div>
     <div th:replace="script::js_footer"></div>
+    <style>
+        .layui-layer-page .layui-layer-content {
+            overflow: visible !important;
+        }
+    </style>
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
@@ -18,8 +23,8 @@
                     <div class="layui-form-item">
                         <div class="layui-btn-group">
                             <button class="layui-btn layui-btn-normal layui-btn-sm" lay-submit lay-filter="searchSubmit" >查询</button>
-                            <button class="layui-btn layui-btn-sm">新增</button>
-                            <button class="layui-btn layui-btn-sm layui-btn-danger">批量删除</button>
+                            <a class="layui-btn layui-btn-sm btn-data" data-type="insert">新增</a>
+                            <a class="layui-btn layui-btn-sm layui-btn-danger btn-data" data-type="delete">批量删除</a>
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -51,7 +56,8 @@
                             <label class="layui-form-label">状态</label>
                             <div class="layui-inline">
                                 <select name="status">
-                                    <option value="0" selected>可用</option>
+                                    <option value="" selected>全选</option>
+                                    <option value="0">可用</option>
                                     <option value="1">禁用</option>
                                 </select>
                             </div>
@@ -59,7 +65,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">路径</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="url" autocomplete="on" placeholder="输入查询菜单URL" class="layui-input">
+                                <input type="text" name="url" autocomplete="off" placeholder="菜单URL" class="layui-input">
                             </div>
                         </div>
                     </div>
@@ -73,6 +79,44 @@
             <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="delete">删除</a>
         </script>
     </div>
+    <div id="insert_div" style="display: none">
+        <div class="layui-row" style="width: 700px; margin: 20px;">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">菜单名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" autocomplete="off" placeholder="菜单名称" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">url</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="url" autocomplete="off" placeholder="菜单url" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">父菜单</label>
+                        <div class="layui-input-block">
+                            <select name="parentId" lay-search=""></select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">序号</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="seq" autocomplete="off" placeholder="排列序号" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" checked="" name="close" lay-skin="switch" lay-text="启用|禁用">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div th:replace="link::bottom"></div>
 </div>
 <script>
@@ -82,6 +126,7 @@
         var table = layui.table;
         var laydate = layui.laydate;
         var form = layui.form;
+        var $ = layui.$;
 
         var menuTable = table.render({
             elem: '#menuTable',
@@ -116,7 +161,6 @@
         });
 
         form.on('submit(searchSubmit)', function (data) {
-
             menuTable.reload({
                 elem: '#menuTable',
                 url: '/menu/list/search',
@@ -128,6 +172,42 @@
             });
             return false;
         });
+
+        $('.layui-btn-group .btn-data').click(function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+        var active = {
+            insert : function () {
+                layer.open({
+                    type: 1,
+                    title: '新菜单信息',
+                    shadeClose: true,
+                    resize: false,
+                    content: '<div id="insert_div_layer">' + $('#insert_div').html() + '</div>',
+                    btn: ['确定', '取消'],
+                    btn1: function(){
+                        console.log('增加新的表格');
+                    },
+                    success: function () {
+                        $.get('/menu/parent/all', function (res) {
+                            if (res.code == respSuccess) {
+                                var optionHtml = '<option value="">无</option>';
+                                $.each(res.data, function (index, item) {
+                                    optionHtml += '<option value="' + item.id + '">' + item.name + '</option>';
+                                });
+                                $('#insert_div_layer select[name="parentId"]').html(optionHtml);
+                                form.render();
+                            }
+                        });
+                    }
+                });
+            },
+            delete : function () {
+
+            }
+        };
 
         laydate.render({
             elem: '#createDate'

@@ -455,3 +455,117 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 2021-05-31 00:52:13.521 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
 2021-05-31 00:52:13.524 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
 2021-05-31 00:52:13.565 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-31 12:36:07.041 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/liuyongyu/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/liuyongyu/.m2/repository/org/json/json/20210307/json-20210307.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-05-31 12:36:07.060 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on liuyongyus-mac with PID 9605 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-31 12:36:07.061 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-31 12:36:08.945 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:36:09.309 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.453 seconds (JVM running for 3.436)
+2021-05-31 12:36:09.586 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-31 12:36:09.591 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-31 12:36:10.059 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-31 12:36:10.324 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:36:10.326 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-31 12:36:10.362 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-31 12:38:16.677 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/liuyongyu/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/liuyongyu/.m2/repository/org/json/json/20210307/json-20210307.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-05-31 12:38:16.699 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on liuyongyus-mac with PID 9617 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-31 12:38:16.699 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-31 12:38:18.539 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:38:18.896 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.411 seconds (JVM running for 3.389)
+2021-05-31 12:38:19.114 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-31 12:38:19.119 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-31 12:38:19.579 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-31 12:38:19.820 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:38:19.822 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-31 12:38:19.840 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-31 12:38:38.773 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/liuyongyu/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/liuyongyu/.m2/repository/org/json/json/20210307/json-20210307.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-05-31 12:38:38.793 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on liuyongyus-mac with PID 9622 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-31 12:38:38.793 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-31 12:38:40.645 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:38:41.006 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.442 seconds (JVM running for 3.576)
+2021-05-31 12:38:41.216 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-31 12:38:41.220 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-31 12:38:41.665 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-31 12:38:41.931 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:38:41.933 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-31 12:38:41.957 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-31 12:40:59.122 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/liuyongyu/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/liuyongyu/.m2/repository/org/json/json/20210307/json-20210307.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-05-31 12:40:59.143 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on liuyongyus-mac with PID 9629 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-31 12:40:59.144 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-31 12:41:01.134 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:41:01.497 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.6 seconds (JVM running for 3.713)
+2021-05-31 12:41:01.707 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-31 12:41:01.712 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-31 12:41:02.163 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-31 12:41:02.416 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:41:02.418 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-31 12:41:02.440 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-31 12:41:59.212 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/liuyongyu/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/liuyongyu/.m2/repository/org/json/json/20210307/json-20210307.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-05-31 12:41:59.235 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on liuyongyus-mac with PID 9639 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-31 12:41:59.236 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-31 12:42:01.149 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:42:01.507 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.526 seconds (JVM running for 3.684)
+2021-05-31 12:42:01.717 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-31 12:42:01.722 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-31 12:42:02.172 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-31 12:42:02.412 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:42:02.414 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-31 12:42:02.433 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.
+2021-05-31 12:48:07.696 >>> [main] >>> WARN  >>> o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer >>> 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/liuyongyu/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/liuyongyu/.m2/repository/org/json/json/20210307/json-20210307.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-05-31 12:48:07.717 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Starting UploadfileApplicationTests on liuyongyus-mac with PID 9664 (started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool/uploadfile)
+2021-05-31 12:48:07.718 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> No active profile set, falling back to default profiles: default
+2021-05-31 12:48:09.700 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:48:10.057 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplicationTests >>> Started UploadfileApplicationTests in 2.564 seconds (JVM running for 3.751)
+2021-05-31 12:48:10.268 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Starting...
+2021-05-31 12:48:10.273 >>> [main] >>> WARN  >>> com.zaxxer.hikari.util.DriverDataSource >>> Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2021-05-31 12:48:10.734 >>> [main] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Start completed.
+2021-05-31 12:48:11.005 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-31 12:48:11.007 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown initiated...
+2021-05-31 12:48:11.054 >>> [SpringContextShutdownHook] >>> INFO  >>> com.zaxxer.hikari.HikariDataSource >>> HikariPool-1 - Shutdown completed.

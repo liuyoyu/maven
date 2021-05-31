@@ -127,6 +127,9 @@ public class Menu {
     }
 
     public String getCreateDateFormat(){
+        if (this.createDate == null) {
+            return "";
+        }
         return sdf.format(this.createDate);
     }
 
