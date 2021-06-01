@@ -86,4 +86,10 @@ public class MenuServiceImpl implements MenuService {
     public List<Menu> getByParentId(long parentId) {
         return menuMapper.getParentMenu(parentId);
     }
+
+    @Override
+    public int deleteBatch(List<Long> idList) {
+        return menuMapper.deleteBatch(idList);
+    }
+
 }

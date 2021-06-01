@@ -28,4 +28,6 @@ public interface MenuService {
     List<Menu> getAll();
 
     List<Menu> getByParentId(long id);
+
+    int deleteBatch(List<Long> idList);
 }

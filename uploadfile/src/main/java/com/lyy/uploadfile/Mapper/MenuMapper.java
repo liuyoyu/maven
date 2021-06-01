@@ -2,6 +2,7 @@ package com.lyy.uploadfile.Mapper;
 
 import com.lyy.uploadfile.Entry.Menu;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.jdbc.SQL;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -53,4 +54,26 @@ public interface MenuMapper {
 
     @Select("select id, name from menu where parentId = #{parentId}")
     List<Menu> getParentMenu(@Param("parentId") long parentId);
+
+    @DeleteProvider(type = Provider.class, method = "batchDelete")
+    int deleteBatch(@Param("idList") List<Long> idList);
+
+
+    class Provider{
+        //批量删除
+        public String batchDelete(@Param("idList") List<Long> idList){
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < idList.size(); i++) {
+                if (i != 0) {
+                    sb.append(",");
+                }
+                sb.append(idList.get(i));
+            }
+            return new SQL(){{
+                DELETE_FROM("menu");
+                WHERE("id in (" + sb.toString() + ")");
+            }}.toString();
+        }
+
+    }
 }

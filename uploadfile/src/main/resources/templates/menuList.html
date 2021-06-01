@@ -104,7 +104,7 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">序号</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="seq" autocomplete="off" placeholder="排列序号" class="layui-input">
+                            <input type="number" name="seq" autocomplete="off" placeholder="排列序号" class="layui-input">
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,8 @@
 
         var active = {
             insert : function () {
-                layer.open({
+                var load = null;
+                var insert_open = layer.open({
                     type: 1,
                     title: '新菜单信息',
                     shadeClose: true,
@@ -188,9 +189,36 @@
                     content: '<div id="insert_div_layer">' + $('#insert_div').html() + '</div>',
                     btn: ['确定', '取消'],
                     btn1: function(){
-                        console.log('增加新的表格');
+                        var data = form.val('insertFilter');
+                        data['status'] = data['status'] === false ? '1' : '0';
+                        $.ajax({
+                            url: '/menu/new',
+                            type: 'post',
+                            dataType: 'json',
+                            data: data,
+                            beforeSend: function () {
+                                load = layer.load();
+                            },
+                            success: function (res) {
+                                if (res.code == respSuccess) {
+                                    layer.msg(res.msg);
+                                    layer.close(insert_open);
+                                    menuTable.reload({
+                                        elem: '#menuTable',
+                                        url: '/menu/list',
+                                        page: {
+                                            curr:menuTable.config.page.curr
+                                        }
+                                    });
+                                }
+                            },
+                            complete: function () {
+                                layer.close(load);
+                            }
+                        });
                     },
                     success: function () {
+                        $('#insert_div_layer form').attr('lay-filter', 'insertFilter');
                         $.get('/menu/parent/all', function (res) {
                             if (res.code == respSuccess) {
                                 var optionHtml = '<option value="">无</option>';
@@ -205,7 +233,33 @@
                 });
             },
             delete : function () {
-
+                var load = null, idList = [];
+                var data = table.checkStatus('menuTable').data;
+                for (var i = 0; i < data.length; i++) {
+                    idList.push(data[i]["id"]);
+                }
+                $.ajax({
+                    url: '/menu/delete/list',
+                    type: 'delete',
+                    dataType: 'json',
+                    data: {list: idList},
+                    beforeSend: function () {
+                        load = layer.load();
+                    },
+                    success: function(res){
+                        layer.msg(res.msg);
+                        menuTable.reload({
+                            elem: '#menuTable',
+                            url: '/menu/list',
+                            page: {
+                                curr:menuTable.config.page.curr
+                            }
+                        });
+                    },
+                    complete: function () {
+                        layer.close(load);
+                    }
+                });
             }
         };
 

@@ -12,10 +12,7 @@ import com.lyy.uploadfile.Utils.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -67,6 +64,29 @@ public class MenuController {
         int start = (page - 1) * limit, end = page * limit;
         Message search = menuService.search(id, parentId, name, status, createDate, url, start, end);
         return PageData.message(search);
+    }
+
+    @PostMapping("/new")
+    public Result insertMenu(@RequestParam("name") String name,
+                             @RequestParam("parentId") String parentId,
+                             @RequestParam("url") String url,
+                             @RequestParam("seq") double seq,
+                             @RequestParam("status") int status) {
+        Menu menu = new Menu();
+        menu.setName(name);
+        menu.setParentId("".equals(parentId) ? SystemParameters.MENUPARENTID : Long.valueOf(parentId));
+        menu.setUrl(url);
+        menu.setSeq(seq);
+        menu.setStatus(status);
+        menu.setCreateDate(new Date());
+        Message insert = menuService.insert(menu);
+        return Result.message(insert);
+    }
+
+    @DeleteMapping("/delete/list")
+    public Result deleteList(@RequestParam("list[]") List<Long> list){
+        int i = menuService.deleteBatch(list);
+        return i == -1 ? Result.error("删除失败") : Result.success("成功删除" + i + "条记录");
     }
 
     @GetMapping("/role/list")
