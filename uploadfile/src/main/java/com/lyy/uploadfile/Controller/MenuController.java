@@ -71,16 +71,37 @@ public class MenuController {
                              @RequestParam("parentId") String parentId,
                              @RequestParam("url") String url,
                              @RequestParam("seq") String seq,
-                             @RequestParam("status") int status) {
+                             @RequestParam("status") String status) {
         Menu menu = new Menu();
         menu.setName(name);
         menu.setParentId("".equals(parentId) ? SystemParameters.MENUPARENTID : Long.valueOf(parentId));
         menu.setUrl(url);
         menu.setSeq("".equals(seq) ? 0 : Double.valueOf(seq));
-        menu.setStatus(status);
+        menu.setStatus(Integer.valueOf(status));
         menu.setCreateDate(new Date());
         Message insert = menuService.insert(menu);
         return Result.message(insert);
+    }
+
+    @PostMapping("/edit")
+    public Result edit(@RequestParam("id") String id,
+                       @RequestParam("name") String name,
+                       @RequestParam("parentId") String parentId,
+                       @RequestParam("url") String url,
+                       @RequestParam("seq") String seq,
+                       @RequestParam("status") int status){
+        Message one = menuService.getOne(Long.valueOf(id));
+        if (!one.isSuccess()) {
+            return Result.error("没找到要修改的菜单");
+        }
+        Menu menu = (Menu) one.res();
+        menu.setName(name);
+        menu.setParentId("".equals(parentId) ? SystemParameters.MENUPARENTID : Long.valueOf(parentId));
+        menu.setUrl(url);
+        menu.setSeq("".equals(seq) ? 0 : Double.valueOf(seq));
+        menu.setStatus(status);
+        Message update = menuService.update(menu);
+        return Result.message(update);
     }
 
     @DeleteMapping("/delete/list")

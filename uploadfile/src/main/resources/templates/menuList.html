@@ -76,8 +76,8 @@
 
         <table class="layui-table" id="menuTable" lay-filter='tableFilter'></table>
         <script type="text/html" id="rowBtn">
-            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">编辑</a>
-            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="delete">删除</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
         </script>
     </div>
     <div id="insert_div" style="display: none">
@@ -105,14 +105,60 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">序号</label>
                         <div class="layui-input-inline">
-                            <input type="number" name="seq" autocomplete="off" placeholder="排列序号" class="layui-input">
+                            <input type="number" min="0" name="seq" autocomplete="off" placeholder="排列序号" class="layui-input">
                         </div>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">状态</label>
                     <div class="layui-input-inline">
-                        <input type="checkbox" checked="" name="close" lay-skin="switch" lay-text="启用|禁用">
+                        <input type="checkbox" checked="" lay-skin="switch" lay-text="启用|禁用">
+                        <input type="number" name="status" value="0" class="layui-hide">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="edit_div" style="display: none">
+        <div class="layui-row" style="width: 700px; margin: 20px;">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">菜单ID</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="id" disabled="" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">菜单名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" autocomplete="off" placeholder="菜单名称" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">url</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="url" autocomplete="off" placeholder="菜单url" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">父菜单</label>
+                        <div class="layui-input-block">
+                            <select name="parentId" lay-search=""></select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">序号</label>
+                        <div class="layui-input-inline">
+                            <input type="number" min="0" name="seq" autocomplete="off" placeholder="排列序号" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" checked="" lay-skin="switch" lay-text="启用|禁用">
+                        <input type="number" name="status" class="layui-hide">
                     </div>
                 </div>
             </form>
@@ -158,9 +204,74 @@
         });
 
         table.on('tool(tableFilter)',function(obj){
-            console.log(obj.data);
             if (obj.event === 'edit') {
-
+                var load = null;
+                var insert_open = layer.open({
+                    type: 1,
+                    title: '编辑菜单信息',
+                    shadeClose: true,
+                    resize: false,
+                    content: '<div id="edit_div_layer">' + $('#edit_div').html() + '</div>',
+                    btn: ['确定', '取消'],
+                    btn1: function(){
+                        var data = form.val('editFilter');
+                        $.ajax({
+                            url: '/menu/edit',
+                            type: 'post',
+                            dataType: 'json',
+                            data: data,
+                            beforeSend: function () {
+                                load = layer.load();
+                            },
+                            success: function (res) {
+                                if (res.code == respSuccess) {
+                                    layer.msg(res.msg);
+                                    layer.close(insert_open);
+                                    menuTable.reload({
+                                        elem: '#menuTable',
+                                        url: '/menu/list',
+                                        page: {
+                                            curr:menuTable.config.page.curr
+                                        }
+                                    });
+                                }
+                            },
+                            complete: function () {
+                                layer.close(load);
+                            }
+                        });
+                    },
+                    success: function () {
+                        $('#edit_div_layer form').attr('lay-filter', 'editFilter');
+                        $('#edit_div_layer input[type="checkbox"]').attr('lay-filter', 'editSwitch');
+                        if (obj.data.status == 1) {
+                            $('#edit_div_layer input[type="checkbox"]').removeAttr('checked');
+                        } else {
+                            $('#edit_div_layer input[type="checkbox"]').attr('checked', 'checked');
+                        }
+                        $.get('/menu/parent/all', function (res) {
+                            if (res.code == respSuccess) {
+                                var optionHtml = '<option value="">无</option>';
+                                $.each(res.data, function (index, item) {
+                                    if (item.id == obj.data.parentId) {
+                                        optionHtml += '<option value="' + item.id + '" selected="">' + item.name + '</option>';
+                                    } else {
+                                        optionHtml += '<option value="' + item.id + '">' + item.name + '</option>';
+                                    }
+                                });
+                                $('#edit_div_layer select[name="parentId"]').html(optionHtml);
+                                form.render();
+                            }
+                        });
+                        form.val('editFilter',{
+                            'id': obj.data.id,
+                            'name': obj.data.name,
+                            'url': obj.data.url,
+                            'status': obj.data.status,
+                            'seq': obj.data.seq
+                        });
+                    }
+                });
             }else if (obj.event === 'delete') {
                 var load = null;
                 var index = layer.confirm('是否删除该菜单',{
@@ -225,7 +336,6 @@
                     btn: ['确定', '取消'],
                     btn1: function(){
                         var data = form.val('insertFilter');
-                        data['status'] = data['status'] === false ? '1' : '0';
                         $.ajax({
                             url: '/menu/new',
                             type: 'post',
@@ -254,6 +364,7 @@
                     },
                     success: function () {
                         $('#insert_div_layer form').attr('lay-filter', 'insertFilter');
+                        $('#insert_div_layer input[type="checkbox"]').attr('lay-filter', 'insertSwitch');
                         $.get('/menu/parent/all', function (res) {
                             if (res.code == respSuccess) {
                                 var optionHtml = '<option value="">无</option>';
@@ -304,6 +415,14 @@
 
         laydate.render({
             elem: '#createDate'
+        });
+
+        form.on('switch(insertSwitch)',function (data) {
+            $('#insert_div_layer input[name="status"]').val(this.checked ? 0 : 1);
+        });
+
+        form.on('switch(editSwitch)',function (data) {
+            $('#edit_div_layer input[name="status"]').val(this.checked ? 0 : 1);
         });
     });
 </script>

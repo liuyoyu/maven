@@ -18,7 +18,7 @@ public interface MenuMapper {
     @Delete("delete from menu where id = #{id}")
     int delete(@Param("id")long id);
 
-    @Update("update table set name = #{name}, parentId = #{parentId}, seq = #{seq}, createDate = #{createDate}, " +
+    @Update("update menu set name = #{name}, parentId = #{parentId}, seq = #{seq}, createDate = #{createDate}, " +
             "status = #{status}, url = #{url} where id = #{id}")
     int update(Menu menu);
 
@@ -28,7 +28,7 @@ public interface MenuMapper {
     @Select("select count(id) from menu")
     int countAllByPage();
 
-    @Select("select * from menu where menuId = #{menuId}")
+    @Select("select * from menu where id = #{menuId}")
     Menu getOne(@Param("menuId") long menuId);
 
     @Select("select count(id) from menu where url = #{url}")
