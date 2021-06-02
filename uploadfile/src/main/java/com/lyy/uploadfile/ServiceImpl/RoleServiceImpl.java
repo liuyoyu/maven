@@ -59,4 +59,10 @@ public class RoleServiceImpl implements RoleService {
         int i = roleMapper.updateStatus(status.value(), id);
         return i == 1 ? Message.success("更新状态成功") : Message.fail("更新状态失败");
     }
+
+    @Override
+    public List<RoleUF> getAll() {
+        return roleMapper.getList();
+    }
+
 }

@@ -14,4 +14,6 @@ public interface RoleService {
     Message insert(RoleUF roleUF);
 
     Message changeStatus(long id, RoleUF.STATUS status);
+
+    List<RoleUF> getAll();
 }

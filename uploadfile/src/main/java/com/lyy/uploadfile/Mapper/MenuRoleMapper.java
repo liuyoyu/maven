@@ -21,12 +21,12 @@ public interface MenuRoleMapper {
     int update(MenuRole menuRole);
 
     @Select("select t.*, r.id as roleId, r.roleName as roleName, m.id as menuId, m.name as menuName " +
-            "from (select rownum as rn, mr.* from menu_role mr where rownnum <= #{end}) t " +
+            "from (select rownum as rn, mr.* from menu_role mr where rownum <= #{end}) t " +
             "left join role_uf r on r.id = t.roleId " +
             "left join menu m on m.id = t.menuId " +
             "where t.rn > #{start}")
     @ResultType(MenuRole.class)
-    List<MenuRole> getByPage(int start, int end);
+    List<MenuRole> getByPage(@Param("start") int start, @Param("end") int end);
 
     @Select("select count(id) from menu_role")
     int countByPage();

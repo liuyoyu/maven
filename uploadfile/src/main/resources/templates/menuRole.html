@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>后台用户界面</title>
+    <div th:replace="link::header"></div>
+    <div th:replace="script::js_footer"></div>
+    <style>
+        .layui-layer-page .layui-layer-content {
+            overflow: visible !important;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="link::topbar"></div>
+    <div th:replace="link::left_menu"></div>
+    <div class="layui-body" style="padding: 3%">
+        <fieldset class="layui-elem-field">
+            <legend>菜单角色查询</legend>
+            <div class="layui-field-box">
+                <form class="layui-form layui-form-pane" id="conditionForm">
+                    <div class="layui-form-item">
+                        <div class="layui-btn-group">
+                            <button class="layui-btn layui-btn-normal layui-btn-sm" lay-submit lay-filter="searchSubmit" >查询</button>
+                            <a class="layui-btn layui-btn-sm btn-data" data-type="insert">新增</a>
+                            <a class="layui-btn layui-btn-sm layui-btn-danger btn-data" data-type="delete">批量删除</a>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">菜单ID</label>
+                            <div class="layui-input-inline">
+                                <input type="number" min="0" name="menuId" autocomplete="off" placeholder="菜单ID" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">菜单名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="menuName" autocomplete="off" placeholder="菜单名称" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">状态</label>
+                            <div class="layui-inline">
+                                <select name="status">
+                                    <option value="" selected>全选</option>
+                                    <option value="0">可用</option>
+                                    <option value="1">禁用</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">角色ID</label>
+                            <div class="layui-input-inline">
+                                <input type="number" min="0" name="roleId" autocomplete="off" placeholder="菜单ID" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">角色名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="roleName" autocomplete="off" placeholder="菜单名称" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+        <table class="layui-table" id="menuRoleTable" lay-filter='tableRoleFilter'></table>
+        <script type="text/html" id="rowBtn">
+            <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+        </script>
+    </div>
+    <div id="insert_div" style="display: none">
+        <div class="layui-row" style="width: 700px; margin: 20px;">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">菜单</label>
+                        <div class="layui-input-block">
+                            <select name="menuId" lay-search=""></select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">角色</label>
+                        <div class="layui-input-block">
+                            <select name="roleId" lay-search=""></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" checked="" lay-skin="switch" lay-text="启用|禁用">
+                        <input type="number" name="status" value="0" class="layui-hide">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="link::bottom"></div>
+</div>
+<script>
+    layui.use(['element', 'layer', 'table', 'form'], function(){
+        var layer = layui.layer;
+        var element = layui.element;
+        var table = layui.table;
+        var $ = layui.$;
+        var form = layui.form;
+
+        table.render({
+            elem: '#menuRoleTable',
+            url:'/menu/role/list',
+            cols:[ [
+                {type: 'checkbox', width:'3%'},
+                {field:'id', width:'5%', title: 'ID', hide: true},
+                {field:'menuId', width:'10%', title: '菜单ID'},
+                {field:'menuName', width:'10%', title: '菜单名称'},
+                {field:'roleId', width:'10%', title: '角色ID'},
+                {field:'roleName', width:'10%', title: '角色名字'},
+                {field:'statusName', width: '10%', title: '状态'},
+                {field:'', width:'12%', title:'操作', toolbar: '#rowBtn'}
+            ] ],
+            page: {
+                layout: ['count', 'prev', 'page', 'next', 'skip'],
+                group: 3,
+                limit: 10
+            },
+            text:{
+                none: '一个菜单都木有'
+            },
+            loading: true,
+            done: function () {
+                layui.$('.layui-table').css('width', '100%');
+            }
+        });
+
+        table.on('tool(tableRoleFilter)',function(obj){
+            console.log(obj);
+        });
+
+        $('.layui-btn-group .btn-data').click(function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+        var active = {
+            insert : function () {
+                var load = null;
+                var insert_open = layer.open({
+                    type: 1,
+                    title: '新菜单角色信息',
+                    shadeClose: true,
+                    resize: false,
+                    content: '<div id="insert_div_layer">' + $('#insert_div').html() + '</div>',
+                    btn: ['确定', '取消'],
+                    btn1: function(){
+                        var data = form.val('insertFilter');
+                        $.ajax({
+                            url: '/menu/new',
+                            type: 'post',
+                            dataType: 'json',
+                            data: data,
+                            beforeSend: function () {
+                                load = layer.load();
+                            },
+                            success: function (res) {
+                                if (res.code == respSuccess) {
+                                    layer.msg(res.msg);
+                                    layer.close(insert_open);
+                                    menuTable.reload({
+                                        elem: '#menuTable',
+                                        url: '/menu/list',
+                                        page: {
+                                            curr:menuTable.config.page.curr
+                                        }
+                                    });
+                                }
+                            },
+                            complete: function () {
+                                layer.close(load);
+                            }
+                        });
+                    },
+                    success: function () {
+                        $('#insert_div_layer form').attr('lay-filter', 'insertFilter');
+                        $('#insert_div_layer input[type="checkbox"]').attr('lay-filter', 'insertSwitch');
+                        $.get('/menu/all', function (res) {
+                            if (res.code == respSuccess) {
+                                var optionHtml = '<option value="">无</option>';
+                                $.each(res.data, function (index, item) {
+                                    optionHtml += '<option value="' + item.id + '">' + item.name + '</option>';
+                                });
+                                $('#insert_div_layer select[name="menuId"]').html(optionHtml);
+                                form.render();
+                            }
+                        });
+                        $.get('/role/all',function (res) {
+                            if (res.code == respSuccess) {
+                                var optionHtml = '<option value="">无</option>';
+                                $.each(res.data, function (index, item) {
+                                    optionHtml += '<option value="' + item.id + '">' + item.roleName + '</option>';
+                                });
+                                $('#insert_div_layer select[name="roleId"]').html(optionHtml);
+                                form.render();
+                            }
+                        });
+                    }
+                });
+            },
+            delete : function () {
+                var load = null, idList = [];
+                var data = table.checkStatus('menuRoleTable').data;
+                for (var i = 0; i < data.length; i++) {
+                    idList.push(data[i]["id"]);
+                }
+                if (idList.length == 0) {
+                    layer.msg("请选择需要删除菜单", {icon: 2});
+                } else {
+                    layer.confirm("将删除选中的数据，无法撤回操作，确认删除？",{
+                        btn:['嗯!','算了'],
+                        title: '删除提示'
+                    },function () {
+                        $.ajax({
+                            url: '/menu/delete/list',
+                            type: 'delete',
+                            dataType: 'json',
+                            data: {list: idList},
+                            beforeSend: function () {
+                                load = layer.load();
+                            },
+                            success: function(res){
+                                layer.msg(res.msg);
+                                menuTable.reload({
+                                    elem: '#menuTable',
+                                    url: '/menu/list',
+                                    page: {
+                                        curr:menuTable.config.page.curr
+                                    }
+                                });
+                            },
+                            complete: function () {
+                                layer.close(load);
+                            }
+                        });
+                    });
+                }
+            }
+        };
+        form.on('switch(insertSwitch)',function () {
+            $('#insert_div_layer input[name="status"]').val(this.checked ? 0 : 1);
+        });
+    });
+</script>
+</body>
+</html>

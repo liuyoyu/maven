@@ -20,7 +20,7 @@ public class Menu {
 
     private double seq;
 
-    private int status;
+    private int status = STATUS.USING.value;
 
     private Date createDate;
 

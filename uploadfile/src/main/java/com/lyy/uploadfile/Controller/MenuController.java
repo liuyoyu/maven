@@ -14,8 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -50,6 +48,12 @@ public class MenuController {
     public Result getParentMenu(){
         List<Menu> all = menuService.getByParentId(SystemParameters.MENUPARENTID);
         return Result.success("获取菜单成功", all);
+    }
+
+    @GetMapping("/all")
+    public Result getAllMenu(){
+        List<Menu> all = menuService.getAll();
+        return Result.success("获取成功", all);
     }
 
     @GetMapping("/list/search")

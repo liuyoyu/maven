@@ -4,6 +4,7 @@ import com.lyy.uploadfile.Entry.RoleUF;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import javax.management.relation.Role;
 import java.util.List;
 
 @Repository
@@ -20,4 +21,7 @@ public interface RoleMapper {
 
     @Delete("delete from role_uf where id = {id}")
     int deleteOne(long id);
+
+    @Select("select * from role_uf")
+    List<RoleUF> getList();
 }

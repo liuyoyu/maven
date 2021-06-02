@@ -1,6 +1,7 @@
 package com.lyy.uploadfile.Entry;
 
 import com.lyy.uploadfile.Configture.Interface.PrimaryKey;
+import com.lyy.uploadfile.Configture.SystemParameters;
 
 import java.util.Date;
 
@@ -15,7 +16,7 @@ public class MenuRole {
 
     private long menuId;
 
-    private long menuParentId;
+    private long menuParentId = SystemParameters.MENUPARENTID;
 
     private String menuName;
 
@@ -113,5 +114,15 @@ public class MenuRole {
 
     public void setSeq(double seq) {
         this.seq = seq;
+    }
+
+    public String getStatusName(){
+        if (this.status == Menu.STATUS.USING.value()) {
+            return "可用";
+        }
+        if (this.status == Menu.STATUS.BANNED.value()) {
+            return "禁用";
+        }
+        return "";
     }
 }
