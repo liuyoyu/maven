@@ -15,7 +15,7 @@ public interface MenuMapper {
             "values(#{id}, #{name}, #{url}, #{parentId}, #{seq}, #{createDate}, #{status})")
     int insert(Menu menu);
 
-    @Delete("delete from menu where id = {id}")
+    @Delete("delete from menu where id = #{id}")
     int delete(@Param("id")long id);
 
     @Update("update table set name = #{name}, parentId = #{parentId}, seq = #{seq}, createDate = #{createDate}, " +

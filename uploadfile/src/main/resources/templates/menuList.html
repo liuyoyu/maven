@@ -9,6 +9,7 @@
         .layui-layer-page .layui-layer-content {
             overflow: visible !important;
         }
+        body
     </style>
 </head>
 <body>
@@ -158,6 +159,40 @@
 
         table.on('tool(tableFilter)',function(obj){
             console.log(obj.data);
+            if (obj.event === 'edit') {
+
+            }else if (obj.event === 'delete') {
+                var load = null;
+                var index = layer.confirm('是否删除该菜单',{
+                    btn: ['删了', '再想想'],
+                    title: '删除 - '+obj.data.name
+                },function () {
+                    $.ajax({
+                        url: '/menu/delete/this',
+                        type: 'delete',
+                        dataType: 'json',
+                        data: {id: obj.data.id},
+                        beforeSend: function(){
+                            load = layer.load();
+                        },
+                        success: function (res) {
+                            layer.msg(res.msg, {icon: 1});
+                            menuTable.reload({
+                                elem: '#menuTable',
+                                url: '/menu/list',
+                                page: {
+                                    curr:menuTable.config.page.curr
+                                }
+                            });
+                        },
+                        complete: function () {
+                            layer.close(load);
+                        }
+                    });
+                },function () {
+                    layer.close(index);
+                });
+            }
         });
 
         form.on('submit(searchSubmit)', function (data) {
@@ -238,28 +273,32 @@
                 for (var i = 0; i < data.length; i++) {
                     idList.push(data[i]["id"]);
                 }
-                $.ajax({
-                    url: '/menu/delete/list',
-                    type: 'delete',
-                    dataType: 'json',
-                    data: {list: idList},
-                    beforeSend: function () {
-                        load = layer.load();
-                    },
-                    success: function(res){
-                        layer.msg(res.msg);
-                        menuTable.reload({
-                            elem: '#menuTable',
-                            url: '/menu/list',
-                            page: {
-                                curr:menuTable.config.page.curr
-                            }
-                        });
-                    },
-                    complete: function () {
-                        layer.close(load);
-                    }
-                });
+                if (idList.length == 0) {
+                    layer.msg("请选择需要删除菜单", {icon: 2});
+                } else {
+                    $.ajax({
+                        url: '/menu/delete/list',
+                        type: 'delete',
+                        dataType: 'json',
+                        data: {list: idList},
+                        beforeSend: function () {
+                            load = layer.load();
+                        },
+                        success: function(res){
+                            layer.msg(res.msg);
+                            menuTable.reload({
+                                elem: '#menuTable',
+                                url: '/menu/list',
+                                page: {
+                                    curr:menuTable.config.page.curr
+                                }
+                            });
+                        },
+                        complete: function () {
+                            layer.close(load);
+                        }
+                    });
+                }
             }
         };
 

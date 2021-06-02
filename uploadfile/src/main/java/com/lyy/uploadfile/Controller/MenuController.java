@@ -70,13 +70,13 @@ public class MenuController {
     public Result insertMenu(@RequestParam("name") String name,
                              @RequestParam("parentId") String parentId,
                              @RequestParam("url") String url,
-                             @RequestParam("seq") double seq,
+                             @RequestParam("seq") String seq,
                              @RequestParam("status") int status) {
         Menu menu = new Menu();
         menu.setName(name);
         menu.setParentId("".equals(parentId) ? SystemParameters.MENUPARENTID : Long.valueOf(parentId));
         menu.setUrl(url);
-        menu.setSeq(seq);
+        menu.setSeq("".equals(seq) ? 0 : Double.valueOf(seq));
         menu.setStatus(status);
         menu.setCreateDate(new Date());
         Message insert = menuService.insert(menu);
@@ -87,6 +87,12 @@ public class MenuController {
     public Result deleteList(@RequestParam("list[]") List<Long> list){
         int i = menuService.deleteBatch(list);
         return i == -1 ? Result.error("删除失败") : Result.success("成功删除" + i + "条记录");
+    }
+
+    @DeleteMapping("/delete/this")
+    public Result deleteThis(@RequestParam("id") long id) {
+        Message delete = menuService.delete(id);
+        return Result.message(delete);
     }
 
     @GetMapping("/role/list")
