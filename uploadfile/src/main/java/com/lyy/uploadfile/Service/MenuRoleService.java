@@ -19,4 +19,8 @@ public interface MenuRoleService {
     Message insert(MenuRole menuRole);
 
     List<MenuRole> getByRole(long id);
+
+    Message search(String menuId, String menuName, String roleId, String roleName, String status, int page, int limit);
+
+    int deleteList(List<Long> idList);
 }

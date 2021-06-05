@@ -65,4 +65,9 @@ public class RoleServiceImpl implements RoleService {
         return roleMapper.getList();
     }
 
+    @Override
+    public Message getOne(Long id) {
+        RoleUF one = roleMapper.getOne(id);
+        return one == null ? Message.fail("获取失败") : Message.success("获取成功", one);
+    }
 }

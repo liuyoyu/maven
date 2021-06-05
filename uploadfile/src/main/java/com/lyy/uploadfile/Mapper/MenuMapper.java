@@ -74,6 +74,5 @@ public interface MenuMapper {
                 WHERE("id in (" + sb.toString() + ")");
             }}.toString();
         }
-
     }
 }

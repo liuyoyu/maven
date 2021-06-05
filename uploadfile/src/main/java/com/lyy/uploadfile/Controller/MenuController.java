@@ -6,6 +6,7 @@ import com.lyy.uploadfile.Entry.MenuRole;
 import com.lyy.uploadfile.Service.LoginService;
 import com.lyy.uploadfile.Service.MenuRoleService;
 import com.lyy.uploadfile.Service.MenuService;
+import com.lyy.uploadfile.Service.RoleService;
 import com.lyy.uploadfile.Utils.Message;
 import com.lyy.uploadfile.Utils.PageData;
 import com.lyy.uploadfile.Utils.Result;
@@ -29,12 +30,15 @@ public class MenuController {
 
     LoginService loginService;
 
+    RoleService roleService;
+
     @Autowired
     public MenuController(MenuService menuService, MenuRoleService menuRoleService,
-                          LoginService loginService) {
+                          LoginService loginService, RoleService roleService) {
         this.menuService = menuService;
         this.menuRoleService = menuRoleService;
         this.loginService = loginService;
+        this.roleService = roleService;
     }
 
     @GetMapping("/list")
@@ -125,6 +129,31 @@ public class MenuController {
         List<MenuRole> all = menuRoleService.getAll(page, limit);
         int n = menuRoleService.countByPage();
         return PageData.success(all, n);
+    }
+
+    @GetMapping("/role/list/search")
+    public Result searchUsrRoleList(@RequestParam("menuId") String menuId, @RequestParam("menuName") String menuName,
+                                    @RequestParam("roleId") String roleId, @RequestParam("roleName") String roleName,
+                                    @RequestParam("status") String status, @RequestParam("page") int page, @RequestParam("limit") int limit) {
+        Message search = menuRoleService.search(menuId, menuName, roleId, roleName, status, page, limit);
+        return PageData.message(search);
+    }
+
+    @RequestMapping("/role/new")
+    public Result insertMenuRole(@RequestParam("roleId") long roleId, @RequestParam("menuId") Long menuId, @RequestParam("status") int status) {
+        MenuRole menuRole = new MenuRole();
+        menuRole.setRoleId(roleId);
+        menuRole.setMenuId(menuId);
+        menuRole.setStatus(status);
+        menuRole.setCreateDate(new Date());
+        Message insert = menuRoleService.insert(menuRole);
+        return Result.message(insert);
+    }
+
+    @DeleteMapping("/role/delete/list")
+    public Result deleteMenuRoleList(@RequestParam("list[]") List<Long> list){
+        int i = menuRoleService.deleteList(list);
+        return i == -1 ? Result.error("删除失败") : Result.success("成功删除" + i + "条记录");
     }
 
     @GetMapping("/role/delete")
