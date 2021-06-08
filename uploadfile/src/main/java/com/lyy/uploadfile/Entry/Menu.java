@@ -32,7 +32,7 @@ public class Menu {
     }
 
     public Menu(MenuRole menuRole) {
-        this.id = menuRole.getId();
+        this.id = menuRole.getMenuId();
         this.name = menuRole.getMenuName();
         this.url = menuRole.getUrl();
         this.parentId = menuRole.getMenuParentId();

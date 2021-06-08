@@ -5,6 +5,8 @@ import org.springframework.lang.NonNull;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.beans.Transient;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserUF {
@@ -30,6 +32,9 @@ public class UserUF {
     private String email;
 
     private Date createDate;
+
+    public UserUF() {
+    }
 
     public UserUF(String name, String account) {
         this.account = account;
@@ -98,5 +103,17 @@ public class UserUF {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getCreateDateFormat(){
+        if (this.createDate == null) {
+            return "";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分");
+        return sdf.format(this.createDate);
+    }
+
+    public void setDefaultPwd(){
+        this.password = "123";
     }
 }

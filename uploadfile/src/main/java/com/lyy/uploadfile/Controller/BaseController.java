@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class BaseController {
@@ -45,7 +42,7 @@ public class BaseController {
     protected void getMenu(String view){
         //根据用户角色，获取左菜单列表
         UserRoleDTO user = loginService.getLoginInfoDetail();
-        List<MenuRole> menuRoles = menuRoleService.getByRole(user.getId());
+        List<MenuRole> menuRoles = menuRoleService.getByRole(user.getRoleId());
         List<Menu> res = new ArrayList<>();
         Map<Long, Menu> t1 = new HashMap<>();
         Map<Long, List<Menu>> t2 = new HashMap<>();

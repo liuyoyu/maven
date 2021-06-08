@@ -19,4 +19,10 @@ public interface UserService {
     Message countAccountAndEmail(String account, String email);
 
     PageData getAllByPage(int page, int limit);
+
+    Message search(String name, String account, String sex, String createDate, String telemail, int page, int limit);
+
+    int deleteList(List<Long> idList);
+
+    void delete(long id);
 }

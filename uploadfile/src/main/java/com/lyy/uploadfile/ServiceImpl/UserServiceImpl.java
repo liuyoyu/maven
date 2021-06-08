@@ -6,9 +6,13 @@ import com.lyy.uploadfile.Service.TablePrimaryKeyService;
 import com.lyy.uploadfile.Service.UserService;
 import com.lyy.uploadfile.Utils.Message;
 import com.lyy.uploadfile.Utils.PageData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +22,10 @@ public class UserServiceImpl implements UserService {
     final UserMapper userMapper;
 
     final TablePrimaryKeyService tablePrimaryKeyService;
+
+    static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     public UserServiceImpl(UserMapper userMapper, TablePrimaryKeyService tablePrimaryKeyService) {
@@ -45,7 +53,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Message update(UserUF userUF) {
-        int update = userMapper.update(userUF);
+        UserUF one = userMapper.getOneByAccount(userUF.getAccount());
+        if (one == null) {
+            return Message.fail("用户不存在");
+        }
+        one.setTelephone(userUF.getTelephone());
+        one.setName(userUF.getName());
+        one.setSex(userUF.getSex());
+        one.setAccount(userUF.getAccount());
+        one.setEmail(userUF.getEmail());
+        int update = userMapper.update(one);
         if (update <= 0) {
             return Message.fail("更新用户失败");
         }
@@ -65,7 +82,7 @@ public class UserServiceImpl implements UserService {
         Long id = tablePrimaryKeyService.get(UserUF.class);
         userUF.setId(id);
         userUF.setCreateDate(new Date());
-        int insert = userMapper.insert(userUF);
+        userMapper.insert(userUF);
         return Message.success("用户创建成功", userUF);
     }
 
@@ -81,5 +98,24 @@ public class UserServiceImpl implements UserService {
         List<UserUF> allByList = userMapper.getAllByList(start, end);
         int n = userMapper.countByPage();
         return PageData.success(allByList, n);
+    }
+
+    @Override
+    public Message search(String name, String account, String sex, String createDate, String telemail, int page, int limit) {
+        int start = (page - 1) * limit, end = page * limit;
+        List<UserUF> search = userMapper.search(account, name, sex, createDate, telemail, start, end);
+        int n = userMapper.searchCount(account, name, sex, telemail, createDate);
+        return Message.Page.setMsg(search, n);
+    }
+
+    @Override
+    public int deleteList(List<Long> idList) {
+
+        return userMapper.deleteBatch(idList);
+    }
+
+    @Override
+    public void delete(long id) {
+        userMapper.delete(id);
     }
 }
