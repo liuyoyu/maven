@@ -46,6 +46,9 @@ public interface UserMapper {
     @Select("select count(id) from user_uf where name like '%'||#{name}||'%' and account like '%'||#{account}||'%' and sex like '%'||#{sex}||'%' and (telephone like '%'||#{telemail}||'%' or email like '%'||#{telemail}||'%') and createDate like '%'||#{createDate}||'%'")
     int searchCount(@Param("account") String account, @Param("name") String name, @Param("sex")String sex, @Param("telemail")String telemail, @Param("createDate") String createDate );
 
+    @Update("update user_uf set password = #{password} where id = #{id}")
+    int updatePwd(@Param("password") String password, @Param("id")long id);
+
     @Delete("delete from user_uf where id = #{id}")
     int delete(@Param("id") long id);
 

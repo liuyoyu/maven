@@ -69,6 +69,7 @@
 
         <table class="layui-table" id="userTable" lay-filter='tableFilter'></table>
         <script type="text/html" id="rowBtn">
+            <a class="layui-btn layui-btn- layui-btn-xs" lay-event="pwd">密码</a>
             <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
         </script>
@@ -157,6 +158,25 @@
                 <div class="layui-form-item layui-hide">
                     <div class="layui-input-block" style="margin-left: 0px;">
                         <button class="layui-btn editSubmit" lay-submit>提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="pwd_div" style="display: none">
+        <div class="layui-row" style="width: 500px; margin: 20px;">
+            <form class="layui-form">
+                <input class="layui-hide" name="id">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" lay-verify="required" name="password" autocomplete="off" placeholder="输入密码" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" lay-verify="required" name="rePassword" autocomplete="off" placeholder="请重新输入密码" class="layui-input">
                     </div>
                 </div>
             </form>
@@ -258,6 +278,47 @@
                     });
                 },function () {
                     layer.close(index);
+                });
+            }else if (obj.event === 'pwd') {
+                var index = layer.open({
+                    type: 1,
+                    title: '重设用户[' + obj.data.name + ']密码',
+                    shadeClose: true,
+                    resize: false,
+                    content: '<div id="pwd_div_layer">' + $('#pwd_div').html() + '</div>',
+                    btn: ['确定', '取消'],
+                    btn1: function(){
+                        var data = form.val('pwdFilter');
+                        if (data['password'] !== data['rePassword']) {
+                            layer.msg("两次密码不一致", {icon: 2});
+                        }else{
+                            $.ajax({
+                                url: '/user/pwd',
+                                dataType: 'json',
+                                type: 'post',
+                                data: {'password': data['password'], 'id': data['id']},
+                                beforeSend: function () {
+                                    load = layer.load();
+                                },
+                                success: function (res) {
+                                    if (res.code == respSuccess) {
+                                        layer.close(index);
+                                        layer.msg(res.msg, {icon: 1});
+                                    }
+
+                                },
+                                complete: function () {
+                                    layer.close(load);
+                                }
+                            });
+                        }
+                    },
+                    success: function () {
+                        $('#pwd_div_layer form').attr('lay-filter', 'pwdFilter');
+                        form.val('pwdFilter',{
+                            'id': obj.data.id
+                        });
+                    }
                 });
             }
         });

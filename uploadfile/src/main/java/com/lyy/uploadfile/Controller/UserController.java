@@ -91,4 +91,10 @@ public class UserController {
         Message update = userService.update(userUF);
         return Result.message(update);
     }
+
+    @PostMapping("/pwd")
+    public Result setPwd(@RequestParam("id") long id, @RequestParam("password") String password) {
+        Message message = userService.setPwd(id, password);
+        return Result.message(message);
+    }
 }

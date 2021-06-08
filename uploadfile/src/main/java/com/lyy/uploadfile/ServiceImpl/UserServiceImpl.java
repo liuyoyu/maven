@@ -118,4 +118,10 @@ public class UserServiceImpl implements UserService {
     public void delete(long id) {
         userMapper.delete(id);
     }
+
+    @Override
+    public Message setPwd(long id, String pwd) {
+        int i = userMapper.updatePwd(pwd, id);
+        return i == 1 ? Message.success("重设密码成功") : Message.fail("重置密码失败");
+    }
 }

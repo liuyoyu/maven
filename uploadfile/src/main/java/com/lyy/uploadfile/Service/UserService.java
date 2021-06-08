@@ -25,4 +25,6 @@ public interface UserService {
     int deleteList(List<Long> idList);
 
     void delete(long id);
+
+    Message setPwd(long id, String pwd);
 }
