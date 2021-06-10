@@ -19,6 +19,20 @@ public class UserRole {
 
     private Date createDate;
 
+    private int status = STATUS.UNUSED.val();
+
+    public enum STATUS{
+        USING(0),   //使用中
+        UNUSED(1);  //未使用
+        int status;
+
+        STATUS(int status) {
+            this.status = status;
+        }
+
+        public int val(){return this.status;}
+    }
+
     public long getId() {
         return id;
     }
@@ -65,5 +79,13 @@ public class UserRole {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

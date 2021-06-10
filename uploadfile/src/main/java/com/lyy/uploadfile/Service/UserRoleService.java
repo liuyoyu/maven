@@ -10,11 +10,19 @@ public interface UserRoleService {
 
     Message insert(UserRole userRole);
 
-    List<UserRoleDTO> getAllByPage(int page, int limit);
+    Message getAllByPage(int page, int limit);
 
     Message delete(long id);
 
     Message update(long id, long roleId);
 
+    Message update(long id, int status);
+
+    Message update(UserRole userRole);
+
     Message getByAccount(String account);
+
+    Message search(String account, String roleId, String status, int page, int limit);
+
+    int deleteList(List<Long> id);
 }

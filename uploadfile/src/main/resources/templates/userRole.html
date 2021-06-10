@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>菜单角色管理</title>
+    <title>用户角色管理</title>
     <div th:replace="link::header"></div>
     <div th:replace="script::js_footer"></div>
     <style>
@@ -17,7 +17,7 @@
     <div th:replace="link::left_menu"></div>
     <div class="layui-body" style="padding: 3%">
         <fieldset class="layui-elem-field">
-            <legend>菜单角色查询</legend>
+            <legend>用户角色查询</legend>
             <div class="layui-field-box">
                 <form class="layui-form layui-form-pane" id="conditionForm">
                     <div class="layui-form-item">
@@ -29,44 +29,39 @@
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">菜单ID</label>
-                            <div class="layui-input-inline">
-                                <input type="number" min="0" name="menuId" autocomplete="off" placeholder="菜单ID" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">菜单名称</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="menuName" autocomplete="off" placeholder="菜单名称" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline" style="margin-top:5px">
-                            <label class="layui-form-label">状态</label>
+                            <label class="layui-form-label">用户账号</label>
                             <div class="layui-inline">
-                                <select name="status">
-                                    <option value="" selected>全选</option>
-                                    <option value="0">可用</option>
-                                    <option value="1">禁用</option>
+                                <select name="account" lay-search="">
+                                    <option value="">无</option>
+                                    <option th:each="opt : ${user_select}" th:value="${opt.account}" th:text="${opt.name}+'('+${opt.account}+')'">
+                                    </option>
                                 </select>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">角色ID</label>
-                            <div class="layui-input-inline">
-                                <input type="number" min="0" name="roleId" autocomplete="off" placeholder="角色ID" class="layui-input">
+                        <div class="layui-inline" style="margin-top:5px">
+                            <label class="layui-form-label">角色名称</label>
+                            <div class="layui-inline">
+                                <select name="roleId">
+                                    <option value="">无</option>
+                                    <option th:each="opt : ${role_select}" th:value="${opt.id}" th:text="${opt.roleName}"></option>
+                                </select>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">角色名称</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="roleName" autocomplete="off" placeholder="角色名称" class="layui-input">
+                        <div class="layui-inline" style="margin-top:5px">
+                            <label class="layui-form-label">使用状态</label>
+                            <div class="layui-inline">
+                                <select name="status">
+                                    <option value="">无</option>
+                                    <option value="0">使用</option>
+                                    <option value="1">不使用</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         </fieldset>
-        <table class="layui-table" id="menuRoleTable" lay-filter='tableRoleFilter'></table>
+        <table class="layui-table" id="userRoleTable" lay-filter='tableRoleFilter'></table>
         <script type="text/html" id="rowBtn">
             <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
@@ -77,23 +72,32 @@
             <form class="layui-form">
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label">菜单</label>
-                        <div class="layui-input-block">
-                            <select name="menuId" lay-search=""></select>
+                        <label class="layui-form-label">用户</label>
+                        <div class="layui-inline">
+                            <select name="account" lay-search="">
+                                <option selected></option>
+                                <option th:each="opt : ${user_select}" th:value="${opt.account}" th:text="${opt.name}+'('+${opt.account}+')'">
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="layui-inline">
                         <label class="layui-form-label">角色</label>
-                        <div class="layui-input-block">
-                            <select name="roleId" lay-search=""></select>
+                        <div class="layui-inline">
+                            <select name="roleId" lay-search="">
+                                <option selected></option>
+                                <option th:each="opt : ${role_select}" th:value="${opt.id}" th:text="${opt.roleName}"></option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">状态</label>
-                    <div class="layui-input-inline">
-                        <input type="checkbox" checked="" lay-skin="switch" lay-text="启用|禁用">
-                        <input type="number" name="status" value="0" class="layui-hide">
+                    <label class="layui-form-label">是否使用</label>
+                    <div class="layui-inline">
+                        <select name="status">
+                            <option value="0">使用</option>
+                            <option value="1">不使用</option>
+                        </select>
                     </div>
                 </div>
             </form>
@@ -105,10 +109,10 @@
                 <div class="layui-form-item">
                     <input class="layui-hide" name="id">
                     <div class="layui-inline">
-                        <label class="layui-form-label">菜单</label>
+                        <label class="layui-form-label">用户</label>
                         <div class="layui-inline">
                             <select name="account" lay-search="">
-                                <!--<option th:each="opt : ${user_select}" th:value="${opt.account}" th:text="${opt.name}+'('+${opt.account}+')'">-->
+                                <option th:each="opt : ${user_select}" th:value="${opt.account}" th:text="${opt.name}+'('+${opt.account}+')'">
                                 </option>
                             </select>
                         </div>
@@ -117,17 +121,17 @@
                         <label class="layui-form-label">角色</label>
                         <div class="layui-inline">
                             <select name="roleId" lay-search="">
-                                <!--<option th:each="opt : ${role_select}" th:value="${opt.id}" th:text="${opt.roleName}"></option>-->
+                                <option th:each="opt : ${role_select}" th:value="${opt.id}" th:text="${opt.roleName}"></option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">状态</label>
+                    <label class="layui-form-label">是否使用</label>
                     <div class="layui-inline">
                         <select name="status">
-                            <option value="0">可用</option>
-                            <option value="1">禁用</option>
+                            <option value="0">使用</option>
+                            <option value="1">不使用</option>
                         </select>
                     </div>
                 </div>
@@ -144,17 +148,18 @@
         var $ = layui.$;
         var form = layui.form;
 
-        var menuRoleTable = table.render({
-            elem: '#menuRoleTable',
-            url:'/menu/role/list',
+        var userRoleTable = table.render({
+            elem: '#userRoleTable',
+            url:'/user/role/list',
             cols:[ [
                 {type: 'checkbox', width:'3%'},
                 {field:'id', width:'5%', title: 'ID', hide: true},
-                {field:'menuId', width:'10%', title: '菜单ID'},
-                {field:'menuName', width:'10%', title: '菜单名称'},
-                {field:'roleId', width:'10%', title: '角色ID'},
-                {field:'roleName', width:'10%', title: '角色名字'},
-                {field:'statusName', width: '10%', title: '状态'},
+                {field:'account', width:'20%', title: '用户账号'},
+                {field:'userName', width:'20%', title: '用户名称'},
+                {field:'roleId',  hide: true},
+                {field:'roleName', width:'20%', title: '角色名字'},
+                {field:'statusName', width: '20%', title: '使用状态'},
+                {field:'status', hide: true},
                 {field:'', width:'12%', title:'操作', toolbar: '#rowBtn'}
             ] ],
             page: {
@@ -174,12 +179,12 @@
         table.on('tool(tableRoleFilter)',function(obj){
             if (obj.event === 'delete') {
                 var load = null;
-                var index = layer.confirm('是否删除该菜单角色',{
+                var index = layer.confirm('是否删除该用户角色',{
                     btn: ['删了', '再想想'],
-                    title: '删除 - '+obj.data.menuName + ' ' + obj.data.roleName,
+                    title: '删除 - '+obj.data.userName + ' ' + obj.data.roleName,
                 },function () {
                     $.ajax({
-                        url: '/menu/role/delete/this',
+                        url: '/user/role/delete/this',
                         type: 'delete',
                         dataType: 'json',
                         data: {id: obj.data.id},
@@ -190,10 +195,10 @@
                             layer.close(index);
                             layer.msg(res.msg, {icon: 1});
                             userRoleTable.reload({
-                                elem: '#menuRoleTable',
-                                url: '/menu/role/list',
+                                elem: '#userRoleTable',
+                                url: '/user/role/list',
                                 page: {
-                                    curr: menuRoleTable.config.page.curr
+                                    curr: userRoleTable.config.page.curr
                                 }
                             });
                         },
@@ -207,7 +212,7 @@
             }else if (obj.event === 'edit') {
                 var edit_open = layer.open({
                     type: 1,
-                    title: '编辑菜单角色信息',
+                    title: '编辑用户角色信息',
                     shadeClose: true,
                     resize: false,
                     content: '<div id="edit_div_layer">' + $('#edit_div').html() + '</div>',
@@ -215,7 +220,7 @@
                     btn1:function(){
                         var data = form.val('editFilter');
                         if (data['account'] == ''){
-                            layer.msg('请输入菜单',{icon:2});
+                            layer.msg('请输入用户',{icon:2});
                         } else if (data['roleId'] == '') {
                             layer.msg('请选择角色', {icon: 2});
                         } else {
@@ -232,10 +237,10 @@
                                         layer.msg(res.msg);
                                         layer.close(edit_open);
                                         userRoleTable.reload({
-                                            elem: '#menuRoleTable',
-                                            url: '/menu/role/list',
+                                            elem: '#userRoleTable',
+                                            url: '/user/role/list',
                                             page: {
-                                                curr: menuRoleTable.config.page.curr
+                                                curr: userRoleTable.config.page.curr
                                             }
                                         });
                                     }
@@ -249,7 +254,7 @@
                     success: function () {
                         $('#edit_div_layer form').attr('lay-filter', 'editFilter');
                         $('#edit_div_layer input[name="id"]').val(obj.data.id);
-                        $('#edit_div_layer option[value="'+obj.data.menuId+'"]').attr('selected', 'selected');
+                        $('#edit_div_layer option[value="'+obj.data.account+'"]').attr('selected', 'selected');
                         $('#edit_div_layer option[value="'+obj.data.roleId+'"]').attr('selected', 'selected');
                         $('#edit_div_layer select[name="status"]').children('option[value="'+ obj.data.status+'"]').attr('selected', 'selected');
                         form.render();
@@ -268,68 +273,54 @@
                 var load = null;
                 var insert_open = layer.open({
                     type: 1,
-                    title: '新菜单角色信息',
+                    title: '新用户角色信息',
                     shadeClose: true,
                     resize: false,
                     content: '<div id="insert_div_layer">' + $('#insert_div').html() + '</div>',
                     btn: ['确定', '取消'],
                     btn1: function(){
                         var data = form.val('insertFilter');
-                        $.ajax({
-                            url: '/menu/role/new',
-                            type: 'post',
-                            dataType: 'json',
-                            data: data,
-                            beforeSend: function () {
-                                load = layer.load();
-                            },
-                            success: function (res) {
-                                if (res.code == respSuccess) {
-                                    layer.msg(res.msg);
-                                    layer.close(insert_open);
-                                    menuRoleTable.reload({
-                                        elem: '#menuRoleTable',
-                                        url: '/menu/role/list',
-                                        page: {
-                                            curr: menuRoleTable.config.page.curr
-                                        }
-                                    });
+                        if (data['account'] == ''){
+                            layer.msg('请输入用户',{icon:2})
+                        } else if (data['roleId'] == '') {
+                            layer.msg('请选择角色', {icon: 2});
+                        } else {
+                            $.ajax({
+                                url: '/user/role/new',
+                                type: 'post',
+                                dataType: 'json',
+                                data: data,
+                                beforeSend: function () {
+                                    load = layer.load();
+                                },
+                                success: function (res) {
+                                    if (res.code == respSuccess) {
+                                        layer.msg(res.msg);
+                                        layer.close(insert_open);
+                                        userRoleTable.reload({
+                                            elem: '#userRoleTable',
+                                            url: '/user/role/list',
+                                            page: {
+                                                curr: userRoleTable.config.page.curr
+                                            }
+                                        });
+                                    }
+                                },
+                                complete: function () {
+                                    layer.close(load);
                                 }
-                            },
-                            complete: function () {
-                                layer.close(load);
-                            }
-                        });
+                            });
+                        }
                     },
                     success: function () {
                         $('#insert_div_layer form').attr('lay-filter', 'insertFilter');
-                        $('#insert_div_layer input[type="checkbox"]').attr('lay-filter', 'insertSwitch');
-                        $.get('/menu/all', function (res) {
-                            if (res.code == respSuccess) {
-                                var optionHtml = '<option value="">无</option>';
-                                $.each(res.data, function (index, item) {
-                                    optionHtml += '<option value="' + item.id + '">' + item.name + '</option>';
-                                });
-                                $('#insert_div_layer select[name="menuId"]').html(optionHtml);
-                                form.render();
-                            }
-                        });
-                        $.get('/role/all',function (res) {
-                            if (res.code == respSuccess) {
-                                var optionHtml = '<option value="">无</option>';
-                                $.each(res.data, function (index, item) {
-                                    optionHtml += '<option value="' + item.id + '">' + item.roleName + '</option>';
-                                });
-                                $('#insert_div_layer select[name="roleId"]').html(optionHtml);
-                                form.render();
-                            }
-                        });
+                        form.render();
                     }
                 });
             },
             delete : function () {
                 var load = null, idList = [];
-                var data = table.checkStatus('menuRoleTable').data;
+                var data = table.checkStatus('userRoleTable').data;
                 for (var i = 0; i < data.length; i++) {
                     idList.push(data[i]["id"]);
                 }
@@ -341,7 +332,7 @@
                         title: '删除提示'
                     },function () {
                         $.ajax({
-                            url: '/menu/role/delete/list',
+                            url: '/user/role/delete/list',
                             type: 'delete',
                             dataType: 'json',
                             data: {list: idList},
@@ -350,11 +341,11 @@
                             },
                             success: function(res){
                                 layer.msg(res.msg);
-                                menuRoleTable.reload({
-                                    elem: '#menuRoleTable',
-                                    url: '/menu/role/list',
+                                userRoleTable.reload({
+                                    elem: '#userRoleTable',
+                                    url: '/user/role/list',
                                     page: {
-                                        curr:menuRoleTable.config.page.curr
+                                        curr:userRoleTable.config.page.curr
                                     }
                                 });
                             },
@@ -368,9 +359,9 @@
         };
 
         form.on('submit(searchSubmit)', function (data) {
-            menuRoleTable.reload({
-                elem: '#menuRoleTable',
-                url: '/menu/role/list/search',
+            userRoleTable.reload({
+                elem: '#userRoleTable',
+                url: '/user/role/list/search',
                 loading: true,
                 page: {
                     curr: 1 //重新从第 1 页开始
@@ -378,10 +369,6 @@
                 , where: data.field
             });
             return false;
-        });
-
-        form.on('switch(insertSwitch)',function () {
-            $('#insert_div_layer input[name="status"]').val(this.checked ? 0 : 1);
         });
     });
 </script>

@@ -1,5 +1,8 @@
 package com.lyy.uploadfile.Configture.DTO;
 
+import com.lyy.uploadfile.Entry.RoleUF;
+import com.lyy.uploadfile.Entry.UserRole;
+
 public class UserRoleDTO {
 
     private long id;
@@ -10,7 +13,7 @@ public class UserRoleDTO {
     private String email;
     private long roleId;
     private String roleName;
-    private int roleStatus;
+    private int roleStatus;  //用户角色状态
 
     public long getId() {
         return id;
@@ -82,5 +85,15 @@ public class UserRoleDTO {
 
     public void setStatus(int status) {
         this.roleStatus = status;
+    }
+
+    public String getStatusName(){
+        if (this.roleStatus == UserRole.STATUS.USING.val()) {
+            return "正在使用";
+        }
+        if (this.roleStatus == UserRole.STATUS.UNUSED.val()) {
+            return "拥有";
+        }
+        return "";
     }
 }

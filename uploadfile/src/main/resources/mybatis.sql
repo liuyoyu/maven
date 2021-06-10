@@ -29,7 +29,8 @@ create table user_role_uf(
 id number(12) primary key,
 account varchar(20),
 roleId number(12),
-createDate date
+createDate date,
+status int
 );
 
 -- 创建TablePrimaryKey表格，该表格用来存储各个表的主键增长方式，其他增减新的数据时，都要访问该表获取自身的主键值

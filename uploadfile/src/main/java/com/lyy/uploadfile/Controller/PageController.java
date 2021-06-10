@@ -1,21 +1,37 @@
 package com.lyy.uploadfile.Controller;
 
 import com.lyy.uploadfile.Configture.SystemParameters;
+import com.lyy.uploadfile.Entry.RoleUF;
 import com.lyy.uploadfile.Entry.UserUF;
+import com.lyy.uploadfile.Service.RoleService;
+import com.lyy.uploadfile.Service.UserService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
+import com.lyy.uploadfile.Utils.Message;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
+import java.util.List;
 
 /**
  * 控制thymeleaf页面跳转
  */
 @Controller
 public class PageController extends BaseController {
+
+    RoleService roleService;
+
+    UserService userService;
+
+    @Autowired
+    public PageController(RoleService role, UserService userService) {
+        this.roleService = role;
+        this.userService = userService;
+    }
 
     /**
      * 对跳转页面进行判断
@@ -120,6 +136,10 @@ public class PageController extends BaseController {
             return modelAndView;
         }
         getMenu(page);
+        List<RoleUF> all = roleService.getAll();
+        List<UserUF> allAccountAndName = userService.getAllAccountAndName();
+        modelAndView.addObject("role_select", all);
+        modelAndView.addObject("user_select", allAccountAndName);
         return modelAndView;
     }
 }

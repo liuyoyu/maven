@@ -1,13 +1,12 @@
 package com.lyy.uploadfile.Controller;
 
 import com.lyy.uploadfile.Configture.DTO.UserRoleDTO;
+import com.lyy.uploadfile.Configture.SystemBaseRoles;
 import com.lyy.uploadfile.Configture.SystemParameters;
 import com.lyy.uploadfile.Entry.Menu;
 import com.lyy.uploadfile.Entry.MenuRole;
-import com.lyy.uploadfile.Service.FileService;
-import com.lyy.uploadfile.Service.LoginService;
-import com.lyy.uploadfile.Service.MenuRoleService;
-import com.lyy.uploadfile.Service.MenuService;
+import com.lyy.uploadfile.Entry.UserRole;
+import com.lyy.uploadfile.Service.*;
 import com.lyy.uploadfile.Utils.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,6 +30,9 @@ public class BaseController {
     @Autowired
     MenuRoleService menuRoleService;
 
+    @Autowired
+    UserRoleService userRoleService;
+
     public BaseController(){
         this.modelAndView = new ModelAndView();
     }
@@ -41,7 +43,8 @@ public class BaseController {
      */
     protected void getMenu(String view){
         //根据用户角色，获取左菜单列表
-        UserRoleDTO user = loginService.getLoginInfoDetail();
+        List<UserRoleDTO> userRole = loginService.getLoginInfoDetail();
+        UserRoleDTO user = getUsingRole(userRole);
         List<MenuRole> menuRoles = menuRoleService.getByRole(user.getRoleId());
         List<Menu> res = new ArrayList<>();
         Map<Long, Menu> t1 = new HashMap<>();
@@ -72,5 +75,19 @@ public class BaseController {
         modelAndView.addObject("menu", res);
         modelAndView.addObject("user_account", user.getAccount());
         modelAndView.addObject("user_name", user.getUserName());
+    }
+
+    protected UserRoleDTO getUsingRole(List<UserRoleDTO> list) {
+        UserRoleDTO userRoleDTO = null;
+        for (UserRoleDTO roleDTO : list) {
+            if (roleDTO.getStatus() == UserRole.STATUS.USING.val()) {
+                return roleDTO;
+            }
+            if (roleDTO.getRoleId() == SystemBaseRoles.USER) {
+                userRoleDTO = roleDTO;
+            }
+        }
+        userRoleService.update(userRoleDTO.getId(), UserRole.STATUS.USING.val());
+        return userRoleDTO; //没有正在使用中的角色，则返回用户角色；
     }
 }

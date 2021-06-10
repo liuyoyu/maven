@@ -4,6 +4,7 @@ import com.lyy.uploadfile.Entry.UserUF;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -36,6 +37,9 @@ public interface UserMapper {
 
     @Select("select count(id) from user_uf")
     int countByPage();
+
+    @Select("select account, name from user_uf")
+    List<UserUF> getAccountAndName();
 
     @Select("select * from (" +
             " select rownum as rn, u.id, u.name, u.account, u.sex, u.telephone, u.email, u.createDate from user_uf u where name like '%'||#{name}||'%' and account like '%'||#{account}||'%' and sex like '%'||#{sex}||'%' and (telephone like '%'||#{telemail}||'%' or email like '%'||#{telemail}||'%') and createDate like '%'||#{createDate}||'%' " +

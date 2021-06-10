@@ -101,6 +101,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserUF> getAllAccountAndName() {
+        List<UserUF> accountAndName = userMapper.getAccountAndName();
+        return accountAndName;
+    }
+
+    @Override
     public Message search(String name, String account, String sex, String createDate, String telemail, int page, int limit) {
         int start = (page - 1) * limit, end = page * limit;
         List<UserUF> search = userMapper.search(account, name, sex, createDate, telemail, start, end);

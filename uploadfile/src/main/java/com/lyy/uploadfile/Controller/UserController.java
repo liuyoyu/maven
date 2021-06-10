@@ -1,5 +1,6 @@
 package com.lyy.uploadfile.Controller;
 
+import com.lyy.uploadfile.Configture.DTO.UserRoleDTO;
 import com.lyy.uploadfile.Configture.SystemBaseRoles;
 import com.lyy.uploadfile.Configture.SystemParameters;
 import com.lyy.uploadfile.Entry.UserRole;
@@ -10,6 +11,7 @@ import com.lyy.uploadfile.Utils.Message;
 import com.lyy.uploadfile.Utils.PageData;
 import com.lyy.uploadfile.Utils.Result;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -96,5 +98,56 @@ public class UserController {
     public Result setPwd(@RequestParam("id") long id, @RequestParam("password") String password) {
         Message message = userService.setPwd(id, password);
         return Result.message(message);
+    }
+
+    @GetMapping("/role/list")
+    public Result getUserRoleList(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+        Message allByPage = userRoleService.getAllByPage(page, limit);
+        return PageData.message(allByPage);
+    }
+
+    @GetMapping("/role/list/search")
+    public Result search(@RequestParam("account") String account,
+                         @RequestParam("roleId") String roleId,
+                         @RequestParam("status") String status,
+                         @RequestParam("page")int page, @RequestParam("limit")int limit) {
+        Message search = userRoleService.search(account, roleId, status, page, limit);
+        return PageData.message(search);
+    }
+
+    @PostMapping("/role/new")
+    public Result insertUserRole(@RequestParam("account") String account, @RequestParam("roleId") long roleId,
+                                 @RequestParam("status") int status) {
+        UserRole userRole = new UserRole();
+        userRole.setAccount(account);
+        userRole.setRoleId(roleId);
+        userRole.setCreateDate(new Date());
+        userRole.setStatus(status);
+        Message insert = userRoleService.insert(userRole);
+        return Result.message(insert);
+    }
+
+    @DeleteMapping("/role/delete/list")
+    public Result deleteList(@RequestParam("list[]") List<Long> idList) {
+        int n = userRoleService.deleteList(idList);
+        return Result.success("成功删除"+n+"个用户");
+    }
+
+    @DeleteMapping("/role/delete/this")
+    public Result deleteUserRoleThis(@RequestParam("id") long id) {
+        Message delete = userRoleService.delete(id);
+        return Result.message(delete);
+    }
+
+    @PostMapping("/role/edit")
+    public Result userRoleEdit(@RequestParam("id") String id, @RequestParam("account") String account,
+                               @RequestParam("roleId") String roleId, @RequestParam("status") int status) {
+        UserRole userRole = new UserRole();
+        userRole.setStatus(status);
+        userRole.setRoleId(Long.valueOf(roleId));
+        userRole.setId(Long.valueOf(id));
+        userRole.setAccount(account);
+        Message update = userRoleService.update(userRole);
+        return Result.message(update);
     }
 }

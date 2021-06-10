@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
+import java.util.List;
 
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -63,9 +64,9 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public UserRoleDTO getLoginInfoDetail() {
+    public List<UserRoleDTO> getLoginInfoDetail() {
         UserUF loginInfo = getLoginInfo();
-        UserRoleDTO byAccount = userRoleMapper.getByAccount(loginInfo.getAccount());
+        List<UserRoleDTO> byAccount = userRoleMapper.getByAccount(loginInfo.getAccount());
         return byAccount;
     }
 }
