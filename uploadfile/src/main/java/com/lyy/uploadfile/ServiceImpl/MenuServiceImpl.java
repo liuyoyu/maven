@@ -83,6 +83,11 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
+    public List<Menu> getIdAndName() {
+        return menuMapper.getIdAndMenu();
+    }
+
+    @Override
     public List<Menu> getByParentId(long parentId) {
         return menuMapper.getParentMenu(parentId);
     }

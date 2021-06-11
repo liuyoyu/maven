@@ -52,6 +52,9 @@ public interface MenuMapper {
     @Select("select * from menu")
     List<Menu> getAll();
 
+    @Select("select id, name from menu")
+    List<Menu> getIdAndMenu();
+
     @Select("select id, name from menu where parentId = #{parentId}")
     List<Menu> getParentMenu(@Param("parentId") long parentId);
 

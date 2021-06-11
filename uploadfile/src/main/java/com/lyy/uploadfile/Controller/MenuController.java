@@ -156,9 +156,21 @@ public class MenuController {
         return i == -1 ? Result.error("删除失败") : Result.success("成功删除" + i + "条记录");
     }
 
-    @GetMapping("/role/delete")
+    @DeleteMapping("/role/delete/this")
     public Result deleteMenuRole(@RequestParam("id") long id) {
         Message delete = menuRoleService.delete(id);
         return Result.message(delete);
+    }
+
+    @PostMapping("/role/edit")
+    public Result menuRoleEdit(@RequestParam("id") long id, @RequestParam("menuId") long menuId,
+                               @RequestParam("roleId") long roleId, @RequestParam("status") int status) {
+        MenuRole mr = new MenuRole();
+        mr.setId(id);
+        mr.setMenuId(menuId);
+        mr.setRoleId(roleId);
+        mr.setStatus(status);
+        Message update = menuRoleService.update(mr);
+        return Result.message(update);
     }
 }

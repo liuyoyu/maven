@@ -27,6 +27,8 @@ public interface MenuService {
 
     List<Menu> getAll();
 
+    List<Menu> getIdAndName();
+
     List<Menu> getByParentId(long id);
 
     int deleteBatch(List<Long> idList);

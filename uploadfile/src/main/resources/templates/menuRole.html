@@ -79,13 +79,20 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">菜单</label>
                         <div class="layui-input-block">
-                            <select name="menuId" lay-search=""></select>
+                            <select name="menuId" lay-search="">
+                                <option value=""></option>
+                                <option th:each="opt : ${menu_select}" th:value="${opt.id}" th:text="${opt.name}">
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="layui-inline">
                         <label class="layui-form-label">角色</label>
                         <div class="layui-input-block">
-                            <select name="roleId" lay-search=""></select>
+                            <select name="roleId" lay-search="">
+                                <option value=""></option>
+                                <option th:each="opt : ${role_select}" th:value="${opt.id}" th:text="${opt.roleName}"></option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -107,8 +114,8 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">菜单</label>
                         <div class="layui-inline">
-                            <select name="account" lay-search="">
-                                <!--<option th:each="opt : ${user_select}" th:value="${opt.account}" th:text="${opt.name}+'('+${opt.account}+')'">-->
+                            <select name="menuId" lay-search="">
+                                <option th:each="opt : ${menu_select}" th:value="${opt.id}" th:text="${opt.name}">
                                 </option>
                             </select>
                         </div>
@@ -117,18 +124,16 @@
                         <label class="layui-form-label">角色</label>
                         <div class="layui-inline">
                             <select name="roleId" lay-search="">
-                                <!--<option th:each="opt : ${role_select}" th:value="${opt.id}" th:text="${opt.roleName}"></option>-->
+                                <option th:each="opt : ${role_select}" th:value="${opt.id}" th:text="${opt.roleName}"></option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">状态</label>
-                    <div class="layui-inline">
-                        <select name="status">
-                            <option value="0">可用</option>
-                            <option value="1">禁用</option>
-                        </select>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" lay-skin="switch" lay-text="启用|禁用">
+                        <input type="number" name="status" class="layui-hide">
                     </div>
                 </div>
             </form>
@@ -139,7 +144,6 @@
 <script>
     layui.use(['element', 'layer', 'table', 'form'], function(){
         var layer = layui.layer;
-        var element = layui.element;
         var table = layui.table;
         var $ = layui.$;
         var form = layui.form;
@@ -189,7 +193,7 @@
                         success: function (res) {
                             layer.close(index);
                             layer.msg(res.msg, {icon: 1});
-                            userRoleTable.reload({
+                            menuRoleTable.reload({
                                 elem: '#menuRoleTable',
                                 url: '/menu/role/list',
                                 page: {
@@ -220,7 +224,7 @@
                             layer.msg('请选择角色', {icon: 2});
                         } else {
                             $.ajax({
-                                url: '/user/role/edit',
+                                url: '/menu/role/edit',
                                 type: 'post',
                                 dataType: 'json',
                                 data: data,
@@ -231,7 +235,7 @@
                                     if (res.code == respSuccess) {
                                         layer.msg(res.msg);
                                         layer.close(edit_open);
-                                        userRoleTable.reload({
+                                        menuRoleTable.reload({
                                             elem: '#menuRoleTable',
                                             url: '/menu/role/list',
                                             page: {
@@ -249,9 +253,16 @@
                     success: function () {
                         $('#edit_div_layer form').attr('lay-filter', 'editFilter');
                         $('#edit_div_layer input[name="id"]').val(obj.data.id);
-                        $('#edit_div_layer option[value="'+obj.data.menuId+'"]').attr('selected', 'selected');
-                        $('#edit_div_layer option[value="'+obj.data.roleId+'"]').attr('selected', 'selected');
-                        $('#edit_div_layer select[name="status"]').children('option[value="'+ obj.data.status+'"]').attr('selected', 'selected');
+                        $('#edit_div_layer select[name="menuId"]').children('option[value="'+obj.data.menuId+'"]').attr('selected', 'selected');
+                        $('#edit_div_layer select[name="roleId"]').children('option[value="'+obj.data.roleId+'"]').attr('selected', 'selected');
+                        if (obj.data.status == 0) {
+                            $('#edit_div_layer input[type="checkbox"]').attr('checked', 'checked');
+                            $('#edit_div_layer input[name="status"]').val(0);
+                        } else {
+                            $('#edit_div_layer input[type="checkbox"]').removeAttr('checked');
+                            $('#edit_div_layer input[name="status"]').val(1);
+                        }
+                        $('#edit_div_layer input[type="checkbox"]').attr('lay-filter', 'editSwitch');
                         form.render();
                     }
                 });
@@ -304,26 +315,7 @@
                     success: function () {
                         $('#insert_div_layer form').attr('lay-filter', 'insertFilter');
                         $('#insert_div_layer input[type="checkbox"]').attr('lay-filter', 'insertSwitch');
-                        $.get('/menu/all', function (res) {
-                            if (res.code == respSuccess) {
-                                var optionHtml = '<option value="">无</option>';
-                                $.each(res.data, function (index, item) {
-                                    optionHtml += '<option value="' + item.id + '">' + item.name + '</option>';
-                                });
-                                $('#insert_div_layer select[name="menuId"]').html(optionHtml);
-                                form.render();
-                            }
-                        });
-                        $.get('/role/all',function (res) {
-                            if (res.code == respSuccess) {
-                                var optionHtml = '<option value="">无</option>';
-                                $.each(res.data, function (index, item) {
-                                    optionHtml += '<option value="' + item.id + '">' + item.roleName + '</option>';
-                                });
-                                $('#insert_div_layer select[name="roleId"]').html(optionHtml);
-                                form.render();
-                            }
-                        });
+                        form.render();
                     }
                 });
             },
@@ -382,6 +374,11 @@
 
         form.on('switch(insertSwitch)',function () {
             $('#insert_div_layer input[name="status"]').val(this.checked ? 0 : 1);
+        });
+
+        form.on('switch(editSwitch)', function () {
+            console.log($('#edit_div_layer input[name="status"]').val());
+            $('#edit_div_layer input[name="status"]').val(this.checked ? 0 : 1);
         });
     });
 </script>

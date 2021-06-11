@@ -40,7 +40,14 @@ public class MenuRoleServiceImpl implements MenuRoleService {
 
     @Override
     public Message update(MenuRole menuRole) {
-        int update = menuRoleMapper.update(menuRole);
+        MenuRole byId = menuRoleMapper.getById(menuRole.getId());
+        if (byId == null) {
+            return Message.fail("未找到菜单");
+        }
+        byId.setRoleId(menuRole.getRoleId());
+        byId.setMenuId(menuRole.getMenuId());
+        byId.setStatus(menuRole.getStatus());
+        int update = menuRoleMapper.update(byId);
         return update == 1 ? Message.success("更新成功") : Message.fail("更新失败");
     }
 

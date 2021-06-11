@@ -21,7 +21,7 @@ public interface MenuRoleMapper {
     @Delete("delete from menu_role where id = #{id}")
     int delete(long id);
 
-    @Update("update menu_role set roleId = #{roleId}, menuId = #{menuId} where id = #{id}")
+    @Update("update menu_role set roleId = #{roleId}, menuId = #{menuId}, status = #{status} where id = #{id}")
     int update(MenuRole menuRole);
 
     @Select("select t.*, r.id as roleId, r.roleName as roleName, m.id as menuId, m.name as menuName " +
@@ -40,6 +40,9 @@ public interface MenuRoleMapper {
             "where mr.roleId = #{roleId}")
     @ResultType(MenuRole.class)
     List<MenuRole> getByRoleId(long roleId);
+
+    @Select("select * from menu_role where id = #{id}")
+    MenuRole getById(@Param("id") long id);
 
     @Select("select * from (" +
             " select rownum as rn, mr.id, mr.menuId, m.name as menuName, mr.roleId, r.roleName, mr.status, mr.createDate " +

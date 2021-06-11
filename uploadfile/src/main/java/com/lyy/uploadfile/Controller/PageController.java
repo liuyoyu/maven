@@ -1,6 +1,7 @@
 package com.lyy.uploadfile.Controller;
 
 import com.lyy.uploadfile.Configture.SystemParameters;
+import com.lyy.uploadfile.Entry.Menu;
 import com.lyy.uploadfile.Entry.RoleUF;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Service.RoleService;
@@ -136,10 +137,22 @@ public class PageController extends BaseController {
             return modelAndView;
         }
         getMenu(page);
-        List<RoleUF> all = roleService.getAll();
-        List<UserUF> allAccountAndName = userService.getAllAccountAndName();
-        modelAndView.addObject("role_select", all);
-        modelAndView.addObject("user_select", allAccountAndName);
+        specValue(page);
         return modelAndView;
+    }
+
+    private void specValue(String page) {
+        if ("userRole".equals(page)) {
+            List<RoleUF> all = roleService.getAll();
+            List<UserUF> allAccountAndName = userService.getAllAccountAndName();
+            modelAndView.addObject("role_select", all);
+            modelAndView.addObject("user_select", allAccountAndName);
+        }
+        if ("menuRole".equals(page)) {
+            List<RoleUF> all = roleService.getAll();
+            List<Menu> menus = menuService.getIdAndName();
+            modelAndView.addObject("role_select", all);
+            modelAndView.addObject("menu_select", menus);
+        }
     }
 }

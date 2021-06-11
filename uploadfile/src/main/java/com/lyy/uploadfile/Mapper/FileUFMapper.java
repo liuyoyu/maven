@@ -20,7 +20,7 @@ public interface FileUFMapper {
     List<FileUF> getByAccountAndPage(@Param("account") String account, @Param("startPage") int start, @Param("endPage") int end);
 
     @Insert("insert into file_uf (id, fileName, fileType, storeName, fileSize, uploadName, uploadAccount, reviseName, reviseAccount, uploadDate, status, locatePath, downloadCount) " +
-            "values(#{id}, #{fileName}, #{fiadmin.htmlleType}, #{storeName}, #{fileSize}, #{uploadName}, #{uploadAccount}, #{reviseName}, #{reviseAccount}, #{uploadDate}, #{status}, #{locatePath}, #{downloadCount})")
+            "values(#{id}, #{fileName}, #{fileType}, #{storeName}, #{fileSize}, #{uploadName}, #{uploadAccount}, #{reviseName}, #{reviseAccount}, #{uploadDate}, #{status}, #{locatePath}, #{downloadCount})")
     int insert(FileUF fileUF);
 
     @Update("update file_uf set status = #{status} where id = #{id}")
