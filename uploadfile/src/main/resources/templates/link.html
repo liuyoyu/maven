@@ -9,6 +9,32 @@
         <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
         <link rel="shortcut icon" th:href="@{/static/favicon.ico}" type="image/x-icon" />
     </div>
+    <div th:fragment="topbar2">
+        <div class="layui-header">
+            <div class="layui-logo">UF</div>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="/uploadFile/mainPage">首页</a></li>
+                <li class="layui-nav-item"><a href="/uploadFile/myTask">审核任务</a></li>
+                <li class="layui-nav-item"><a href="/uploadFile/myDownload">下载记录</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                        <span th:text="${user_name}">用户名称</span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd style="text-align: center;"><a href="javascript:;">个人信息</a></dd>
+                        <dd style="text-align: center;">
+                            <a href="javascript:;" th:text="${curr_role}"></a>
+                        </dd>
+                        <hr>
+                        <dd style="text-align: center;"><a href="/login/out" id="signOu">朕退了</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div th:fragment="topbar">
         <div class="layui-header">
             <div class="layui-logo layui-hide-xs layui-bg-black">UF</div>
@@ -25,7 +51,10 @@
                         <span th:text="${user_name}">用户名称</span>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="">个人信息</a></dd>
+                        <dd><a href="javascript:;">个人信息</a></dd>
+                        <dd>
+                            <a href="javascript:;" th:text="${curr_role}"></a>
+                        </dd>
                         <hr>
                         <dd style="text-align: center;"><a href="/login/out" id="signOu">朕退了</a></dd>
                     </dl>

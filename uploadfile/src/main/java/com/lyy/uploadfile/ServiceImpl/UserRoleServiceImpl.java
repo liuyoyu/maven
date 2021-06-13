@@ -99,8 +99,8 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public Message getByAccount(String account) {
-        return null;
+    public List<UserRoleDTO> getByAccount(String account) {
+        return userRoleMapper.getByAccount(account);
     }
 
     @Override

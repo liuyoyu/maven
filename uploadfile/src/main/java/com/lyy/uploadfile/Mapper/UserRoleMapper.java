@@ -63,7 +63,7 @@ public interface UserRoleMapper {
     int deleteOne(long id);
 
     @Select("select ur.id, ur.account, u.name as userName, u.sex, u.telephone, u.email, r.id as roleId, r.roleName, ur.status as roleStatus " +
-            "from user_role_uf ur left join user_uf u on ur.id = u.id left join role_uf r on ur.roleId = r.id " +
+            "from user_role_uf ur left join user_uf u on ur.account = u.account left join role_uf r on ur.roleId = r.id " +
             "where ur.account = #{account}")
     @ResultType(UserRoleDTO.class)
     List<UserRoleDTO> getByAccount(String account);

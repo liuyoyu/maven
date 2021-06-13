@@ -20,7 +20,7 @@ public interface UserRoleService {
 
     Message update(UserRole userRole);
 
-    Message getByAccount(String account);
+    List<UserRoleDTO> getByAccount(String account);
 
     Message search(String account, String roleId, String status, int page, int limit);
 

@@ -41,7 +41,7 @@ public class BaseController {
      * 负责后台用户界面跳转
      * @param view 视图 与template文件下的页面名称一一对应
      */
-    protected void getMenu(String view){
+    protected void setPageParam(String view){
         //根据用户角色，获取左菜单列表
         List<UserRoleDTO> userRole = loginService.getLoginInfoDetail();
         UserRoleDTO user = getUsingRole(userRole);
@@ -75,6 +75,24 @@ public class BaseController {
         modelAndView.addObject("menu", res);
         modelAndView.addObject("user_account", user.getAccount());
         modelAndView.addObject("user_name", user.getUserName());
+        addLoginRole(user.getAccount());
+    }
+
+    protected void addLoginRole(String account){
+        List<UserRoleDTO> byAccount = userRoleService.getByAccount(account);
+        List<UserRoleDTO> userRoleList = new ArrayList<>();
+        UserRoleDTO currRole = null;
+        for (UserRoleDTO userRoleDTO : byAccount) {
+            if (userRoleDTO.getStatus() == UserRole.STATUS.USING.val()) {
+                currRole = userRoleDTO;
+            }
+            UserRoleDTO t = new UserRoleDTO();
+            t.setAccount(userRoleDTO.getAccount());
+            t.setRoleName(userRoleDTO.getRoleName());
+            userRoleList.add(t);
+        }
+        modelAndView.addObject("curr_role", currRole.getRoleName());
+        modelAndView.addObject("user_role_list", userRoleList);
     }
 
     protected UserRoleDTO getUsingRole(List<UserRoleDTO> list) {

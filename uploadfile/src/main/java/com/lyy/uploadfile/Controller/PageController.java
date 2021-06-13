@@ -8,7 +8,6 @@ import com.lyy.uploadfile.Service.RoleService;
 import com.lyy.uploadfile.Service.UserService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
-import com.lyy.uploadfile.Utils.Message;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,6 +55,7 @@ public class PageController extends BaseController {
                 modelAndView.setViewName("main");
                 modelAndView.addObject("user_account", jsonObject.get(SystemParameters.JWT_VERIDATION_NAME_1));
                 modelAndView.addObject("user_name", jsonObject.get(SystemParameters.JWT_VERIDATION_NAME_2));
+                super.addLoginRole((String) jsonObject.get(SystemParameters.JWT_VERIDATION_NAME_1));
                 return modelAndView;
             }
         }
@@ -91,7 +91,7 @@ public class PageController extends BaseController {
         }
     }
 
-    private static final String[] msg={"密码失效，请从新登录", "请先登录！"};
+    private final String[] msg={"密码失效，请从新登录", "请先登录！"};
     @RequestMapping("/uploadFile/loginPage")
     @ResponseBody
     public ModelAndView jumpToLoginPage(@RequestParam("status") int status) {
@@ -123,7 +123,7 @@ public class PageController extends BaseController {
     @GetMapping("/uploadFile/administrator")
     @ResponseBody
     public ModelAndView jumpToAdmin(){
-        getMenu("admin");
+        setPageParam("admin");
         return modelAndView;
     }
 
@@ -136,7 +136,7 @@ public class PageController extends BaseController {
             modelAndView.setViewName("error");
             return modelAndView;
         }
-        getMenu(page);
+        setPageParam(page);
         specValue(page);
         return modelAndView;
     }

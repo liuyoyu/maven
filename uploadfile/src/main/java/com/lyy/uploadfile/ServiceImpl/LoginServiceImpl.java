@@ -2,6 +2,8 @@ package com.lyy.uploadfile.ServiceImpl;
 
 import com.lyy.uploadfile.Configture.DTO.UserRoleDTO;
 import com.lyy.uploadfile.Configture.SystemParameters;
+import com.lyy.uploadfile.Controller.BaseController;
+import com.lyy.uploadfile.Controller.PageController;
 import com.lyy.uploadfile.Entry.UserRole;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Mapper.UserMapper;
@@ -37,7 +39,7 @@ public class LoginServiceImpl implements LoginService {
     public Message login(String account, String password) {
         UserUF user = userMapper.findByAccountAndPassword(account, password);
         if (user == null) {
-            user = userMapper.getOneByAccount(account);
+            List<UserRoleDTO> byAccount = userRoleMapper.getByAccount(account);
         }else{
             return Message.success("登录成功", user);
         }
