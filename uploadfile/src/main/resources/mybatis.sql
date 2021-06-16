@@ -101,3 +101,15 @@ contextHtml varchar(200),
 context varchar(20),
 createDate date
 );
+
+-- 任务流程表
+create table task_flow(
+id number(12) primary key,
+taskName varchar(100),
+taskStartTime date,
+taskEndTime date,
+reviseAccount varchar(20),
+userAccount varchar(20),
+status int,
+fileId number(12)
+);
