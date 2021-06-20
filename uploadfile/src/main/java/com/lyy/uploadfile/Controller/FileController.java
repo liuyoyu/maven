@@ -82,6 +82,7 @@ public class FileController extends BaseController {
         try {
             file.transferTo(t);
         } catch (IOException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
         }
         FileUF fileUF = new FileUF();
@@ -92,60 +93,60 @@ public class FileController extends BaseController {
         fileUF.setReviseAccount("");//todo 审核人
         fileUF.setUploadName(loginInfo.getName());
         fileUF.setUploadAccount(loginInfo.getAccount());
-        fileUF.setStatus(1);//todo 审核
+        fileUF.setStatus(FileUF.STATUS.REVISING.getVal());//todo 审核
         fileUF.setUploadDate(new Date());
         fileUF.setLocatePath(filePath);
         fileService.create(fileUF);
         return Result.success(name + " 文件上传成功", fileUF);
     }
 
-    /**
-     * 多文件上传（预留）
-     * @param files
-     * @return
-     */
-    @PostMapping("/upload/multi")
-    public Result upload(@RequestParam("files") MultipartFile[] files) {
-        StringBuilder msg = new StringBuilder();
-        UserUF loginInfo = loginService.getLoginInfo();
-        for (int i=0; i<files.length; i++) {
-            MultipartFile file = files[i];
-            if (file.isEmpty()) {
-                if (i != 0) msg.append("\n");
-                msg.append("第"+i+"个文件上传失败");
-                continue;
-            }
-            String fileName = file.getOriginalFilename();
-            String suffixName = fileName.substring(fileName.lastIndexOf('.') + 1);
-            String newFileName = UUID.randomUUID() + suffixName;
-            File t = new File(filePath + newFileName);
-            if (t.getParentFile() != null && !t.getParentFile().exists()) {
-                t.getParentFile().mkdir();
-            }
-            boolean fail = false;
-            try {
-                file.transferTo(t);
-            } catch (IOException e) {
-                e.printStackTrace();
-                fail = true;
-            }
-            if (!fail) {
-                FileUF fileUF = new FileUF();
-                fileUF.setFileName(fileName);
-                fileUF.setFileType(suffixName);
-                fileUF.setFileSize(FileUtil.fileSize2String(file.getSize()));
-                fileUF.setStoreName(newFileName);
-                fileUF.setReviseAccount("");
-                fileUF.setUploadName(loginInfo.getName());
-                fileUF.setUploadAccount(loginInfo.getAccount());
-                fileUF.setStatus(1);
-                fileUF.setUploadDate(new Date());
-                fileUF.setLocatePath(filePath);
-                fileService.create(fileUF);
-            }
-        }
-        return Result.success("".equals(msg.toString()) ? "文件上传成功" : msg.toString());
-    }
+//    /**
+//     * 多文件上传（预留）
+//     * @param files
+//     * @return
+//     */
+//    @PostMapping("/upload/multi")
+//    public Result upload(@RequestParam("files") MultipartFile[] files) {
+//        StringBuilder msg = new StringBuilder();
+//        UserUF loginInfo = loginService.getLoginInfo();
+//        for (int i=0; i<files.length; i++) {
+//            MultipartFile file = files[i];
+//            if (file.isEmpty()) {
+//                if (i != 0) msg.append("\n");
+//                msg.append("第"+i+"个文件上传失败");
+//                continue;
+//            }
+//            String fileName = file.getOriginalFilename();
+//            String suffixName = fileName.substring(fileName.lastIndexOf('.') + 1);
+//            String newFileName = UUID.randomUUID() + suffixName;
+//            File t = new File(filePath + newFileName);
+//            if (t.getParentFile() != null && !t.getParentFile().exists()) {
+//                t.getParentFile().mkdir();
+//            }
+//            boolean fail = false;
+//            try {
+//                file.transferTo(t);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                fail = true;
+//            }
+//            if (!fail) {
+//                FileUF fileUF = new FileUF();
+//                fileUF.setFileName(fileName);
+//                fileUF.setFileType(suffixName);
+//                fileUF.setFileSize(FileUtil.fileSize2String(file.getSize()));
+//                fileUF.setStoreName(newFileName);
+//                fileUF.setReviseAccount("");
+//                fileUF.setUploadName(loginInfo.getName());
+//                fileUF.setUploadAccount(loginInfo.getAccount());
+//                fileUF.setStatus(1);
+//                fileUF.setUploadDate(new Date());
+//                fileUF.setLocatePath(filePath);
+//                fileService.create(fileUF);
+//            }
+//        }
+//        return Result.success("".equals(msg.toString()) ? "文件上传成功" : msg.toString());
+//    }
 
     @GetMapping("download/{fileId}")
     public Result download(@PathVariable("fileId") long id, HttpServletResponse response) throws IOException {
@@ -157,7 +158,7 @@ public class FileController extends BaseController {
         lock.lock();
         try{
             FileUF fileuf = (FileUF)one.res();
-            if (fileuf.getStatus() == FileUF.STATUS.BANNED.getVal()) {
+            if (fileuf.getStatus() != FileUF.STATUS.DOWNLOAD.getVal()) {
                 return Result.error("不允许下载");
             }
             fileuf.setDownloadCount(fileuf.getDownloadCount() + 1);
@@ -219,6 +220,9 @@ public class FileController extends BaseController {
         }
 
         FileUF fileuf = (FileUF)one.res();
+        if (fileuf.getStatus() != FileUF.STATUS.DOWNLOAD.getVal()) {
+            return Result.error("不允许访问");
+        }
         File f = new File(fileuf.getLocatePath() + "/" + fileuf.getStoreName() + "." + fileuf.getFileType());
 
         String fileName = f.getName();
@@ -277,6 +281,9 @@ public class FileController extends BaseController {
             return Result.error("文件不存在");
         }
         FileUF res = (FileUF)one.res();
+        if (res.getStatus() != FileUF.STATUS.DOWNLOAD.getVal()) {
+            return Result.error("不允许访问");
+        }
         File file = new File(res.getLocatePath() + "/" + res.getStoreName() + "." + res.getFileType());
         try {
             response.setContentType("application/pdf");

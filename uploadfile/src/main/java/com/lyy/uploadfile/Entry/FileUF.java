@@ -34,6 +34,7 @@ public class FileUF {
     private int status;     //状态：1 -可下载；0 -无法下载
 
     public enum STATUS{
+        REVISING(2),
         DOWNLOAD(1),
         BANNED(0);
         private int value;
@@ -125,7 +126,7 @@ public class FileUF {
     }
 
     public String getDownloadStatus() {
-        return status == 0 ? "否" : "能";
+        return status == STATUS.BANNED.getVal() ? "否" : status == STATUS.DOWNLOAD.getVal() ? "能" : "待审核";
     }
 
     public void setStatus(int status) {
