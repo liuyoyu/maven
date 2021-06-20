@@ -28,9 +28,11 @@ public class WebMVCConfig implements WebMvcConfigurer {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         if (thymeleafViewResolver != null) {
-            Map<String, String> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
 //            map.put("basePath", basePath);
             map.put("respSuccess", String.valueOf(Result.Type.SUCCESS.value()));
+            map.put("userId", SystemBaseRoles.USER);
+            map.put("adminId", SystemBaseRoles.ADMIN);
             thymeleafViewResolver.setStaticVariables(map);
         }
     }

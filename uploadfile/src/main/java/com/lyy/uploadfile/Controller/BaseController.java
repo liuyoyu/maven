@@ -88,10 +88,13 @@ public class BaseController {
             }
             UserRoleDTO t = new UserRoleDTO();
             t.setAccount(userRoleDTO.getAccount());
+            t.setUserName(userRoleDTO.getUserName());
+            t.setRoleId(userRoleDTO.getRoleId());
             t.setRoleName(userRoleDTO.getRoleName());
             userRoleList.add(t);
         }
         modelAndView.addObject("curr_role", currRole.getRoleName());
+        modelAndView.addObject("curr_role_id", currRole.getRoleId());
         modelAndView.addObject("user_role_list", userRoleList);
     }
 

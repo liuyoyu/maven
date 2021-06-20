@@ -14,7 +14,7 @@
             <div class="layui-logo">UF</div>
             <ul class="layui-nav layui-layout-left">
                 <li class="layui-nav-item"><a href="/uploadFile/mainPage">首页</a></li>
-                <li class="layui-nav-item"><a href="/uploadFile/myTask">审核任务</a></li>
+                <li class="layui-nav-item" th:if="${curr_role_id == adminId}"><a href="/uploadFile/myTask">审核任务</a></li>
                 <li class="layui-nav-item"><a href="/uploadFile/myDownload">下载记录</a></li>
             </ul>
             <ul class="layui-nav layui-layout-right">
@@ -25,8 +25,10 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd style="text-align: center;"><a href="javascript:;">个人信息</a></dd>
-                        <dd style="text-align: center;">
-                            <a href="javascript:;" th:text="${curr_role}"></a>
+                        <hr>
+                        <dd style="text-align: center;" th:each="role : ${user_role_list}">
+                            <a th:href="'/uploadFile/changeRole?roleId='+${role.roleId}" th:text="${role.roleName}" th:if="${role.roleId != curr_role_id}" style="color: #c2c2c2;"></a>
+                            <a th:href="'/uploadFile/changeRole?roleId='+${role.roleId}" th:text="${role.roleName}" th:if="${role.roleId == curr_role_id}"></a>
                         </dd>
                         <hr>
                         <dd style="text-align: center;"><a href="/login/out" id="signOu">朕退了</a></dd>
@@ -51,9 +53,11 @@
                         <span th:text="${user_name}">用户名称</span>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">个人信息</a></dd>
-                        <dd>
-                            <a href="javascript:;" th:text="${curr_role}"></a>
+                        <dd style="text-align: center;"><a href="javascript:;">个人信息</a></dd>
+                        <hr>
+                        <dd style="text-align: center;" th:each="role : ${user_role_list}">
+                            <a th:href="'/uploadFile/changeRole?roleId='+${role.roleId}" th:text="${role.roleName}" th:if="${role.roleId != curr_role_id}" style="color: #c2c2c2;"></a>
+                            <a th:href="'/uploadFile/changeRole?roleId='+${role.roleId}" th:text="${role.roleName}" th:if="${role.roleId == curr_role_id}"></a>
                         </dd>
                         <hr>
                         <dd style="text-align: center;"><a href="/login/out" id="signOu">朕退了</a></dd>

@@ -23,6 +23,9 @@ public interface UserRoleMapper {
     @Update("update user_role_uf set status = #{status} where account = #{account}")
     int updateStatusByAccount(@Param("account") String account, @Param("status") int status);
 
+    @Update("update user_role_uf set status = #{status} where account = #{account} and roleId = #{roleId}")
+    int updateStatusByAccountAndRoleId(@Param("account") String account, @Param("roleId") long roleId, @Param("status") int status);
+
     @Update("update user_role_uf set account = #{account}, roleId = #{roleId}, status = #{status} where id = #{id}")
     int updateUserRole(UserRole userRole);
 

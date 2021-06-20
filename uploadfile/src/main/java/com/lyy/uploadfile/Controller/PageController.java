@@ -97,6 +97,18 @@ public class PageController extends BaseController {
         }
     }
 
+    @RequestMapping("/uploadFile/changeRole")
+    @ResponseBody
+    public ModelAndView jumpToMainPageAgain(@RequestParam("roleId")long roleId) {
+        UserUF loginInfo = loginService.getLoginInfo();
+        userRoleService.changeUsingRole(loginInfo.getAccount(), roleId);
+        modelAndView.setViewName("main");
+        modelAndView.addObject("user_name", loginInfo.getName());
+        modelAndView.addObject("user_account", loginInfo.getAccount());
+        addLoginRole(loginInfo.getAccount());
+        return modelAndView;
+    }
+
     private final String[] msg={"密码失效，请从新登录", "请先登录！"};
     @RequestMapping("/uploadFile/loginPage")
     @ResponseBody

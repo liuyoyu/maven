@@ -25,4 +25,6 @@ public interface UserRoleService {
     Message search(String account, String roleId, String status, int page, int limit);
 
     int deleteList(List<Long> id);
+
+    void changeUsingRole(String account, long roleId);
 }

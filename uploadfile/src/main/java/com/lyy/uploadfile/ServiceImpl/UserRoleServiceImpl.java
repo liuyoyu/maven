@@ -116,4 +116,10 @@ public class UserRoleServiceImpl implements UserRoleService {
         int i = userRoleMapper.deleteBatch(id);
         return i;
     }
+
+    @Override
+    public void changeUsingRole(String account, long roleId) {
+        userRoleMapper.updateStatusByAccount(account, UserRole.STATUS.UNUSED.val());
+        userRoleMapper.updateStatusByAccountAndRoleId(account, roleId, UserRole.STATUS.USING.val());
+    }
 }
