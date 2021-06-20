@@ -27,33 +27,60 @@
 <body>
 <img th:src="@{/img/bg.jpg}" class="imgCover" style="z-index: -1; position: absolute; left: 0; top: 0;"/>
 <div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo">UF</div>
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="/uploadFile/mainPage">首页</a></li>
-            <li class="layui-nav-item"><a href="/uploadFile/myTask">审核任务</a></li>
-            <li class="layui-nav-item"><a href="/uploadFile/myDownload">下载记录</a></li>
-        </ul>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                    <span th:text="${user_name}">用户名称</span>
-                </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">个人信息</a></dd>
-                    <hr>
-                    <dd style="text-align: center;"><a href="/login/out" id="signOu">朕退了</a></dd>
-                </dl>
-            </li>
-        </ul>
-    </div>
+    <div th:replace="link::topbar2"></div>
 
     <div class="layui-body" style="left: 0">
         <div class="layui-container" style="margin-top: 5%;">
-            <div class="layui-row">
-
-            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>当前任务</legend>
+                <div class="layui-field-box">
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md6" th:if="${tasks.size() == 0}">
+                            <div class="layui-panel">
+                                <div style="padding: 30px;">没有待处理的任务</div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md6" th:each="task : ${tasks}">
+                            <div class="layui-card" th:id="${task.id}">
+                                <div class="layui-card-header" th:text="${task.taskName}"></div>
+                                <div class="layui-card-body">
+                                    <p th:text="'申请人: '+${task.userName}+'('+${task.userAccount}+')'"></p>
+                                    <p th:text="'审核人: '+${task.reviseName}+'('+${task.reviseAccount}+')'"></p>
+                                    <p th:text="'文件名称: '+${task.fileName}"></p>
+                                    <p th:text="'文件大小: '+${task.fileSize}"></p>
+                                    <p th:text="'流程状态: '+${task.status}"></p>
+                                    <p th:text="${'发起时间: '+task.taskStartTime}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>历史任务</legend>
+                <div class="layui-field-box">
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md6" th:if="${historyTasks.size() == 0}">
+                            <div class="layui-panel">
+                                <div style="padding: 30px;">（空）</div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md6" th:each="task : ${historyTasks}">
+                            <div class="layui-card">
+                                <div class="layui-card-header" th:text="${task.taskName}"></div>
+                                <div class="layui-card-body">
+                                    <p th:text="'申请人: '+${task.userName}+'('+${task.userAccount}+')'"></p>
+                                    <p th:text="'审核人: '+${task.reviseName}+'('+${task.reviseAccount}+')'"></p>
+                                    <p th:text="'文件名称: '+${task.fileName}"></p>
+                                    <p th:text="'文件大小: '+${task.fileSize}"></p>
+                                    <p th:text="'流程状态: '+${task.status}"></p>
+                                    <p th:text="${'发起时间: '+task.taskStartTime}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
         </div>
     </div>
 
@@ -63,10 +90,12 @@
     </div>
 </div>
 <script>
-    layui.use(['table', 'layer', 'upload', 'element'], function(){
+    layui.use(['layer'], function(){
+        var layer = layui.layer;
+        var $ = layui.$;
+        var load = null;
 
     });
-
 </script>
 </body>
 </html>

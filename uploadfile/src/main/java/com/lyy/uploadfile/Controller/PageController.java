@@ -3,8 +3,10 @@ package com.lyy.uploadfile.Controller;
 import com.lyy.uploadfile.Configture.SystemParameters;
 import com.lyy.uploadfile.Entry.Menu;
 import com.lyy.uploadfile.Entry.RoleUF;
+import com.lyy.uploadfile.Entry.TaskFlow;
 import com.lyy.uploadfile.Entry.UserUF;
 import com.lyy.uploadfile.Service.RoleService;
+import com.lyy.uploadfile.Service.TaskFlowService;
 import com.lyy.uploadfile.Service.UserService;
 import com.lyy.uploadfile.Utils.HttpUtil;
 import com.lyy.uploadfile.Utils.JWTUtil;
@@ -27,10 +29,13 @@ public class PageController extends BaseController {
 
     UserService userService;
 
+    TaskFlowService taskFlowService;
+
     @Autowired
-    public PageController(RoleService role, UserService userService) {
+    public PageController(RoleService role, UserService userService, TaskFlowService taskFlowService) {
         this.roleService = role;
         this.userService = userService;
+        this.taskFlowService = taskFlowService;
     }
 
     /**
@@ -117,6 +122,10 @@ public class PageController extends BaseController {
         modelAndView.setViewName("task");
         modelAndView.addObject("user_account", loginInfo.getAccount());
         modelAndView.addObject("user_name", loginInfo.getName());
+        List<TaskFlow> myTaskList = taskFlowService.getMyTaskList(loginInfo.getAccount());
+        List<TaskFlow> historyList = taskFlowService.getHistoryList(loginInfo.getAccount());
+        modelAndView.addObject("tasks", myTaskList);
+        modelAndView.addObject("historyTasks", historyList);
         return modelAndView;
     }
 

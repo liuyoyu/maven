@@ -1,7 +1,7 @@
 package com.lyy.uploadfile.Service;
 
 import com.lyy.uploadfile.Entry.TaskFlow;
-import com.lyy.uploadfile.Mapper.TaskFlowMapper;
+import com.lyy.uploadfile.Utils.Message;
 
 import java.util.List;
 
@@ -16,4 +16,6 @@ public interface TaskFlowService {
     void refuse(long id);
 
     void cancel(long id);
+
+    Message apply(String userAccount, String reviseAccount, long fileId, String taskName);
 }

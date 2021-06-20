@@ -43,6 +43,7 @@ createDate date
 
 -- 创建File表，用来保存文件信息
 -- drop table file_uf;
+drop table file_uf;
 create table file_uf(
 id number(12) primary key,
 fileName varchar(200),
@@ -110,6 +111,6 @@ taskStartTime date,
 taskEndTime date,
 reviseAccount varchar(20),
 userAccount varchar(20),
-status int,
-fileId number(12)
+fileId number(12),
+status int
 );
