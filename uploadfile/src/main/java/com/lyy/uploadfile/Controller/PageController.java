@@ -92,6 +92,7 @@ public class PageController extends BaseController {
             modelAndView.setViewName("main");
             modelAndView.addObject("user_name", name);
             modelAndView.addObject("user_account", account);
+            addLoginRole(account);
             return modelAndView;
         }
     }
@@ -112,6 +113,7 @@ public class PageController extends BaseController {
         modelAndView.setViewName("downloadList");
         modelAndView.addObject("user_account", loginInfo.getAccount());
         modelAndView.addObject("user_name", loginInfo.getName());
+        addLoginRole(loginInfo.getAccount());
         return modelAndView;
     }
 
@@ -126,6 +128,7 @@ public class PageController extends BaseController {
         List<TaskFlow> historyList = taskFlowService.getHistoryList(loginInfo.getAccount());
         modelAndView.addObject("tasks", myTaskList);
         modelAndView.addObject("historyTasks", historyList);
+        addLoginRole(loginInfo.getAccount());
         return modelAndView;
     }
 

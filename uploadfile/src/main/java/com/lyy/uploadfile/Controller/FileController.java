@@ -157,6 +157,9 @@ public class FileController extends BaseController {
         lock.lock();
         try{
             FileUF fileuf = (FileUF)one.res();
+            if (fileuf.getStatus() == FileUF.STATUS.BANNED.getVal()) {
+                return Result.error("不允许下载");
+            }
             fileuf.setDownloadCount(fileuf.getDownloadCount() + 1);
             File file = new File(fileuf.getLocatePath() + "/" + fileuf.getStoreName() + "." + fileuf.getFileType());
             if(file.exists()){ //判断文件父目录是否存在
@@ -192,7 +195,6 @@ public class FileController extends BaseController {
                 duf.setAccount(loginInfo.getAccount());
                 duf.setDownloadDate(new Date());
                 fileService.insertDownloadFile(duf);
-
                 return null;
             }
         }finally {

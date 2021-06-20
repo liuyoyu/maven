@@ -33,6 +33,16 @@ public class FileUF {
 
     private int status;     //状态：1 -可下载；0 -无法下载
 
+    public enum STATUS{
+        DOWNLOAD(1),
+        BANNED(0);
+        private int value;
+        STATUS(int value){
+            this.value = value;
+        }
+        public int getVal(){return this.value;}
+    }
+
     private int downloadCount;
 
     private String locatePath;
