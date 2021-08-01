@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="hikari-cp-2.13.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/generateCode/lib/hikari-cp-2.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/generateCode/lib/hikari-cp-2.13.0.jar!/" recursive="false" />
+  </library>
+</component>

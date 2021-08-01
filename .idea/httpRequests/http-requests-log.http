@@ -1,3 +1,35 @@
+GET http://localhost:8080/uploadFile/myTask?id=1&account=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-20T025126.200.html
+
+###
+
+GET http://localhost:8080/uploadFile/myTask?id=1&account=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-20T025121.200.html
+
+###
+
+GET http://localhost:8080/uploadFile/myTask?id=1&account=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-20T024851.200.html
+
+###
+
+GET http://localhost:8080/uploadFile/myTask?id=1&account=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-20T024807.200.html
+
+###
+
 POST http://localhost:8080/user/new?id=1&account=1
 Accept: */*
 Cache-Control: no-cache

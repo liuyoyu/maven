@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
+    <root id="root">
+      <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
+      <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.4.1.Final" />
+    </root>
+  </artifact>
+</component>

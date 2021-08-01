@@ -1,27 +1,22 @@
-2021-05-25 21:25:21.862 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.103 with PID 2611 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
-2021-05-25 21:25:21.881 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
-2021-05-25 21:25:22.894 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
-2021-05-25 21:25:22.903 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
-2021-05-25 21:25:22.903 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
-2021-05-25 21:25:22.958 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
-2021-05-25 21:25:22.958 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 1030 ms
-2021-05-25 21:25:23.337 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-25 21:25:23.531 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
-2021-05-25 21:25:23.540 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 1.995 seconds (JVM running for 2.54)
-2021-05-25 21:25:55.518 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-05-25 21:25:55.519 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
-2021-05-25 21:25:55.525 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 6 ms
-2021-05-25 21:43:25.997 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
-2021-05-25 21:43:27.985 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.103 with PID 2700 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
-2021-05-25 21:43:27.989 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> No active profile set, falling back to default profiles: default
-2021-05-25 21:43:28.987 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
-2021-05-25 21:43:28.994 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
-2021-05-25 21:43:28.995 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
-2021-05-25 21:43:29.050 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
-2021-05-25 21:43:29.050 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 999 ms
-2021-05-25 21:43:29.439 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-25 21:43:29.636 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
-2021-05-25 21:43:29.645 >>> [main] >>> INFO  >>> com.lyy.uploadfile.UploadfileApplication >>> Started UploadfileApplication in 2.198 seconds (JVM running for 2.946)
-2021-05-25 21:43:32.464 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-05-25 21:43:32.464 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Initializing Servlet 'dispatcherServlet'
-2021-05-25 21:43:32.470 >>> [http-nio-127.0.0.1-8080-exec-1] >>> INFO  >>> org.springframework.web.servlet.DispatcherServlet >>> Completed initialization in 6 ms
+2021-07-11 09:58:06.731 >>> [main] >>> INFO  >>> UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.100 with PID 18282 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-07-11 09:58:06.812 >>> [main] >>> INFO  >>> UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-07-11 09:58:14.950 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-07-11 09:58:14.993 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-07-11 09:58:14.994 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-07-11 09:58:15.525 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-07-11 09:58:15.526 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 8396 ms
+2021-07-11 09:58:20.902 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-11 09:58:23.081 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-11 09:58:23.234 >>> [main] >>> INFO  >>> UploadfileApplication >>> Started UploadfileApplication in 18.371 seconds (JVM running for 2491.676)
+2021-07-11 09:59:08.686 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-11 09:59:14.842 >>> [main] >>> INFO  >>> UploadfileApplication >>> Starting UploadfileApplication on 192.168.2.100 with PID 18614 (/Users/liuyongyu/IdeaProjects/tool/uploadfile/target/classes started by liuyongyu in /Users/liuyongyu/IdeaProjects/tool)
+2021-07-11 09:59:14.844 >>> [main] >>> INFO  >>> UploadfileApplication >>> No active profile set, falling back to default profiles: default
+2021-07-11 09:59:15.668 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat initialized with port(s): 8080 (http)
+2021-07-11 09:59:15.675 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardService >>> Starting service [Tomcat]
+2021-07-11 09:59:15.676 >>> [main] >>> INFO  >>> org.apache.catalina.core.StandardEngine >>> Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-07-11 09:59:15.727 >>> [main] >>> INFO  >>> o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] >>> Initializing Spring embedded WebApplicationContext
+2021-07-11 09:59:15.728 >>> [main] >>> INFO  >>> o.s.b.w.s.c.ServletWebServerApplicationContext >>> Root WebApplicationContext: initialization completed in 847 ms
+2021-07-11 09:59:16.117 >>> [main] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-11 09:59:16.344 >>> [main] >>> INFO  >>> o.s.boot.web.embedded.tomcat.TomcatWebServer >>> Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-11 09:59:16.353 >>> [main] >>> INFO  >>> UploadfileApplication >>> Started UploadfileApplication in 1.809 seconds (JVM running for 5.765)
+2021-07-11 09:59:26.477 >>> [SpringContextShutdownHook] >>> INFO  >>> o.s.scheduling.concurrent.ThreadPoolTaskExecutor >>> Shutting down ExecutorService 'applicationTaskExecutor'

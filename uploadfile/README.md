@@ -15,3 +15,4 @@
 后台用户界面跳转规则：后台统一使用"/uploadFile/admin/###"格式，其中###表示要跳转的界面，注意，该###也是前
 台展示的界面名，例如，用户访问/uploadFile/admin/menuList界面，该界面的前台代码在/template/
 menuList.html中。所以，"/uploadFile/admin/###"中###即为视图名字。
+
