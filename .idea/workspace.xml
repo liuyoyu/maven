@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49b47a1d-36ac-4961-b414-4755394d6e6a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/generateCode/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generateCode/src/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/generateCode/src/generator.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,21 +80,33 @@
         <entry file="file://$PROJECT_DIR$/generateCode/src/generator.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generateCode/src/com/lyy/Service/BaseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+            <state relative-caret-position="336">
+              <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1399#1400#0" expanded="true" />
                 <element signature="e#1467#1468#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="315">
+                <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -200,6 +211,7 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -308,23 +320,6 @@
             <path>
               <item name="tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="tool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tool" type="462c0819:PsiDirectoryNode" />
-              <item name="generateCode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tool" type="462c0819:PsiDirectoryNode" />
-              <item name="generateCode" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tool" type="462c0819:PsiDirectoryNode" />
-              <item name="generateCode" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -763,8 +758,16 @@
       <workItem from="1623846689448" duration="6988000" />
       <workItem from="1624161426320" duration="22659000" />
       <workItem from="1624804762438" duration="11235000" />
-      <workItem from="1627196347891" duration="59587000" />
+      <workItem from="1627196347891" duration="61515000" />
     </task>
+    <task id="LOCAL-00001" summary="删除编译文件">
+      <created>1627824795701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627824795701</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -800,7 +803,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="594876000" />
+    <option name="totallyTimeSpent" value="596804000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -858,6 +861,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="删除编译文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除编译文件" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="302" />
@@ -874,26 +881,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/uploadfile/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploadfile/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="240">
-            <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.14.RELEASE/spring-context-5.2.14.RELEASE.jar!/org/springframework/context/ApplicationContextInitializer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1860">
@@ -1273,7 +1260,7 @@
     <entry file="file://$PROJECT_DIR$/generateCode/src/generator.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1287,15 +1274,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/generateCode/com/lyy/Api/GenerateCodeApi.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/generateCode/com/lyy/Configer/GenerateCodeConfiger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/generateCode/src/com/lyy/Service/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+        <state relative-caret-position="336">
+          <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1399#1400#0" expanded="true" />
             <element signature="e#1467#1468#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="315">
+            <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
