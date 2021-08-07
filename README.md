@@ -23,5 +23,5 @@
 #### uploadfile
 文件上传下载网站
 
-#### 代码生成
+#### generateCode
 根据数据库表生成VO类
