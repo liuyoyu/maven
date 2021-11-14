@@ -72,12 +72,13 @@ public class JDBCUtil {
         List<TableEntity> tableEntityList = new ArrayList<>();
         while (tables.next()) {
             TableEntity table = new TableEntity();
-            table.setName(StringUtil.nameFriendly(tables.getString("TABLE_NAME")));
+            String tableName = tables.getString("TABLE_NAME");
+            table.setName(StringUtil.nameFriendly(tableName));
             table.setRemark(tables.getString("REMARKS"));
             table.setSchema(tables.getString("TABLE_SCHEM"));
             table.setCatalog(tables.getString("TABLE_CAT"));
-            table.setColumns(getColumnProperties(metaData, catalog, schema, table.getName()));
-            table.setPk(getPrimaryKey(metaData, catalog, schema, table.getName(), table.getColumns()));
+            table.setColumns(getColumnProperties(metaData, catalog, schema, tableName));
+            table.setPk(getPrimaryKey(metaData, catalog, schema, tableName, table.getColumns()));
             tableEntityList.add(table);
         }
         return tableEntityList;
@@ -306,13 +307,15 @@ public class JDBCUtil {
             TYPEMAP.put("boolean", "boolean");
             TYPEMAP.put("float", "float");
             TYPEMAP.put("double", "double");
-            TYPEMAP.put("decimal", "java.math.BigDecimal");
+            TYPEMAP.put("decimal", "long");
+//            TYPEMAP.put("decimal", "java.math.BigDecimal");
             TYPEMAP.put("date", "java.util.Date");
             TYPEMAP.put("time", "java.sql.Time");
             TYPEMAP.put("dateTime", "java.sql.TimeStamp");
             TYPEMAP.put("timestamp", "java.sql.TimeStamp");
             TYPEMAP.put("id", "long");
-            TYPEMAP.put("number", "java.math.BigDecimal");
+            TYPEMAP.put("number", "long");
+//            TYPEMAP.put("number", "java.math.BigDecimal");
         }
         String s = TYPEMAP.get(type.toLowerCase());
         if (s == null) {
