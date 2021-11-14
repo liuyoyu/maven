@@ -76,15 +76,15 @@ public class JDBCUtil {
             table.setRemark(tables.getString("REMARKS"));
             table.setSchema(tables.getString("TABLE_SCHEM"));
             table.setCatalog(tables.getString("TABLE_CAT"));
-            table.setPk(getPrimaryKey(metaData, catalog, schema, table.getName()));
             table.setColumns(getColumnProperties(metaData, catalog, schema, table.getName()));
+            table.setPk(getPrimaryKey(metaData, catalog, schema, table.getName(), table.getColumns()));
             tableEntityList.add(table);
         }
         return tableEntityList;
     }
 
     /**
-     * 获取去列中的数据
+     * 获取列中的数据
      * @param metaData
      * @param tableName
      * @throws SQLException
@@ -105,8 +105,22 @@ public class JDBCUtil {
         return columnNames;
     }
 
-    public static List<PrimaryKey> getPrimaryKey(DatabaseMetaData metaData, String catalog, String schema, String tableName) throws SQLException {
+    /**
+     *  获取主键信息
+     * @param metaData
+     * @param catalog
+     * @param schema
+     * @param tableName
+     * @param columnEntities
+     * @return
+     * @throws SQLException
+     */
+    public static List<PrimaryKey> getPrimaryKey(DatabaseMetaData metaData, String catalog, String schema, String tableName, List<ColumnEntity> columnEntities) throws SQLException {
         assert metaData != null;
+        Map<String, String> columnMap = new HashMap<>();
+        for (ColumnEntity columnEntity : columnEntities) {
+            columnMap.put(columnEntity.getName(), columnEntity.getType());//存放列名对应的数据类型
+        }
         ResultSet primaryKeys = metaData.getPrimaryKeys(catalog, schema, tableName);
         List<PrimaryKey> primaryKeyList = new ArrayList<>();
         while (primaryKeys.next()) {
@@ -114,6 +128,7 @@ public class JDBCUtil {
             pk.setColumnsName(primaryKeys.getString("COLUMN_NAME"));
             pk.setName(primaryKeys.getString("PK_NAME"));
             pk.setKeySeq(primaryKeys.getString("KEY_SEQ"));
+            pk.setFieldType(columnMap.get(pk.getColumnsName()));
             primaryKeyList.add(pk);
         }
         return primaryKeyList;
@@ -281,22 +296,22 @@ public class JDBCUtil {
     public static String tranformType(String type) {
         if (TYPEMAP == null) {
             TYPEMAP = new HashMap<>();
-            TYPEMAP.put("varchar2", "java.lang.String");
-            TYPEMAP.put("char", "java.lang.String");
-            TYPEMAP.put("text", "java.lang.String");
-            TYPEMAP.put("integer unsigned", "java.lang.String");
-            TYPEMAP.put("tintiny unsigned", "java.lang.Integer");
-            TYPEMAP.put("smallint unsigned", "java.lang.Integer");
-            TYPEMAP.put("mediumint unsigned", "java.lang.Integer");
-            TYPEMAP.put("boolean", "java.lang.Boolean");
-            TYPEMAP.put("float", "java.lang.Float");
-            TYPEMAP.put("double", "java.lang.Double");
+            TYPEMAP.put("varchar2", "String");
+            TYPEMAP.put("char", "String");
+            TYPEMAP.put("text", "String");
+            TYPEMAP.put("integer unsigned", "String");
+            TYPEMAP.put("tintiny unsigned", "int");
+            TYPEMAP.put("smallint unsigned", "int");
+            TYPEMAP.put("mediumint unsigned", "int");
+            TYPEMAP.put("boolean", "boolean");
+            TYPEMAP.put("float", "float");
+            TYPEMAP.put("double", "double");
             TYPEMAP.put("decimal", "java.math.BigDecimal");
             TYPEMAP.put("date", "java.util.Date");
             TYPEMAP.put("time", "java.sql.Time");
             TYPEMAP.put("dateTime", "java.sql.TimeStamp");
             TYPEMAP.put("timestamp", "java.sql.TimeStamp");
-            TYPEMAP.put("id", "java.lang.Long");
+            TYPEMAP.put("id", "long");
             TYPEMAP.put("number", "java.math.BigDecimal");
         }
         String s = TYPEMAP.get(type.toLowerCase());

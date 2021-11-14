@@ -11,4 +11,9 @@ public interface GenerateCodeApi {
      * 生成VO类
      */
     void generateVO();
+
+    /**
+     * 生成DAO类
+     */
+    void generateMapper();
 }

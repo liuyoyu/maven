@@ -80,9 +80,8 @@ public class TableEntity {
     public String getPrimaryKeyInfo() {
         StringBuilder sb = new StringBuilder();
         for (PrimaryKey primaryKey : pk) {
-            sb.append(primaryKey.getName()).append("_").append(primaryKey.getKeySeq()).append(" ");
+            sb.append("#").append(primaryKey.getColumnsName());
         }
-        String info = sb.toString();
-        return !"".equals(info) ? info.substring(0, info.length() - 1) : "";
+        return sb.toString();
     }
 }

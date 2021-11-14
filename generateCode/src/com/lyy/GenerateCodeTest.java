@@ -11,5 +11,6 @@ public class GenerateCodeTest {
     public static void main(String[] args) {
         GenerateCodeApi api = new GenerateCodeService();
         api.generateVO();
+        api.generateMapper();
     }
 }

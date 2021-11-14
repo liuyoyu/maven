@@ -11,6 +11,8 @@ public class PrimaryKey {
 
     private String keySeq;//主键序列
 
+    private String fieldType;
+
     public String getName() {
         return name;
     }
@@ -33,5 +35,13 @@ public class PrimaryKey {
 
     public void setKeySeq(String keySeq) {
         this.keySeq = keySeq;
+    }
+
+    public String getFieldType() {
+        return fieldType;
+    }
+
+    public void setFieldType(String fieldType) {
+        this.fieldType = fieldType;
     }
 }

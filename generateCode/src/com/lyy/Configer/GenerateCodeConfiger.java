@@ -7,7 +7,7 @@ package com.lyy.Configer;
  * date 2021/8/1
  */
 public class GenerateCodeConfiger {
-    public static final String FILENAME = "/Users/liuyongyu/IdeaProjects/tool/generateCode/src/generator.properties";
+    public static final String FILENAME = "/Users/liuyongyu/IdeaProjects/maven/generateCode/src/resource/generator.properties";
 
     public static final String JDBCURL = "database.jdbcUrl";
 
@@ -25,7 +25,11 @@ public class GenerateCodeConfiger {
 
     public static final String FTLVOFILENAME = "ftl.vo.fileName";
 
+    public static final String FTLDAOFILENAME = "ftl.dao.fileName";
+
     public static final String FTLVOPACKAGENAME = "ftl.vo.packageName";
+
+    public static final String FTLDAOPCKAGENAME = "ftl.dao.packageName";
 
     public static final String FILEOUTPUT = "file.output";
 }
