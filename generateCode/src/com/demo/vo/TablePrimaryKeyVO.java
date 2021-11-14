@@ -2,18 +2,18 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: TABLE_PRIMARY_KEY
 */
 public class TablePrimaryKeyVO{
     /**
     * 
     */
-    private java.lang.String classreferencename;
+    private String classreferencename;
     /**
     * 
     */
-    private java.lang.String currenttableid;
+    private String currenttableid;
     /**
     * 
     */
@@ -23,19 +23,19 @@ public class TablePrimaryKeyVO{
     */
     private java.util.Date createdate;
 
-    public java.lang.String getClassreferencename(){
+    public String getClassreferencename(){
         return this.classreferencename;
     }
 
-    public void setClassreferencename(java.lang.String classreferencename){
+    public void setClassreferencename(String classreferencename){
         this.classreferencename = classreferencename;
     }
 
-    public java.lang.String getCurrenttableid(){
+    public String getCurrenttableid(){
         return this.currenttableid;
     }
 
-    public void setCurrenttableid(java.lang.String currenttableid){
+    public void setCurrenttableid(String currenttableid){
         this.currenttableid = currenttableid;
     }
 

@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: USER_UF
 */
 public class UserUfVO{
@@ -13,19 +13,19 @@ public class UserUfVO{
     /**
     * 
     */
-    private java.lang.String account;
+    private String account;
     /**
     * 
     */
-    private java.lang.String password;
+    private String password;
     /**
     * 
     */
-    private java.lang.String name;
+    private String name;
     /**
     * 
     */
-    private java.lang.String sex;
+    private String sex;
     /**
     * 
     */
@@ -33,7 +33,7 @@ public class UserUfVO{
     /**
     * 
     */
-    private java.lang.String email;
+    private String email;
     /**
     * 
     */
@@ -47,35 +47,35 @@ public class UserUfVO{
         this.id = id;
     }
 
-    public java.lang.String getAccount(){
+    public String getAccount(){
         return this.account;
     }
 
-    public void setAccount(java.lang.String account){
+    public void setAccount(String account){
         this.account = account;
     }
 
-    public java.lang.String getPassword(){
+    public String getPassword(){
         return this.password;
     }
 
-    public void setPassword(java.lang.String password){
+    public void setPassword(String password){
         this.password = password;
     }
 
-    public java.lang.String getName(){
+    public String getName(){
         return this.name;
     }
 
-    public void setName(java.lang.String name){
+    public void setName(String name){
         this.name = name;
     }
 
-    public java.lang.String getSex(){
+    public String getSex(){
         return this.sex;
     }
 
-    public void setSex(java.lang.String sex){
+    public void setSex(String sex){
         this.sex = sex;
     }
 
@@ -87,11 +87,11 @@ public class UserUfVO{
         this.telephone = telephone;
     }
 
-    public java.lang.String getEmail(){
+    public String getEmail(){
         return this.email;
     }
 
-    public void setEmail(java.lang.String email){
+    public void setEmail(String email){
         this.email = email;
     }
 

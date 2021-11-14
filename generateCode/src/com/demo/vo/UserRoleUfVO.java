@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: USER_ROLE_UF
 */
 public class UserRoleUfVO{
@@ -13,7 +13,7 @@ public class UserRoleUfVO{
     /**
     * 
     */
-    private java.lang.String account;
+    private String account;
     /**
     * 
     */
@@ -35,11 +35,11 @@ public class UserRoleUfVO{
         this.id = id;
     }
 
-    public java.lang.String getAccount(){
+    public String getAccount(){
         return this.account;
     }
 
-    public void setAccount(java.lang.String account){
+    public void setAccount(String account){
         this.account = account;
     }
 

@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: FILE_UF
 */
 public class FileUfVO{
@@ -13,35 +13,35 @@ public class FileUfVO{
     /**
     * 
     */
-    private java.lang.String filename;
+    private String filename;
     /**
     * 
     */
-    private java.lang.String storename;
+    private String storename;
     /**
     * 
     */
-    private java.lang.String filetype;
+    private String filetype;
     /**
     * 
     */
-    private java.lang.String filesize;
+    private String filesize;
     /**
     * 
     */
-    private java.lang.String uploadname;
+    private String uploadname;
     /**
     * 
     */
-    private java.lang.String uploadaccount;
+    private String uploadaccount;
     /**
     * 
     */
-    private java.lang.String revisename;
+    private String revisename;
     /**
     * 
     */
-    private java.lang.String reviseaccount;
+    private String reviseaccount;
     /**
     * 
     */
@@ -53,7 +53,7 @@ public class FileUfVO{
     /**
     * 
     */
-    private java.lang.String locatepath;
+    private String locatepath;
     /**
     * 
     */
@@ -67,67 +67,67 @@ public class FileUfVO{
         this.id = id;
     }
 
-    public java.lang.String getFilename(){
+    public String getFilename(){
         return this.filename;
     }
 
-    public void setFilename(java.lang.String filename){
+    public void setFilename(String filename){
         this.filename = filename;
     }
 
-    public java.lang.String getStorename(){
+    public String getStorename(){
         return this.storename;
     }
 
-    public void setStorename(java.lang.String storename){
+    public void setStorename(String storename){
         this.storename = storename;
     }
 
-    public java.lang.String getFiletype(){
+    public String getFiletype(){
         return this.filetype;
     }
 
-    public void setFiletype(java.lang.String filetype){
+    public void setFiletype(String filetype){
         this.filetype = filetype;
     }
 
-    public java.lang.String getFilesize(){
+    public String getFilesize(){
         return this.filesize;
     }
 
-    public void setFilesize(java.lang.String filesize){
+    public void setFilesize(String filesize){
         this.filesize = filesize;
     }
 
-    public java.lang.String getUploadname(){
+    public String getUploadname(){
         return this.uploadname;
     }
 
-    public void setUploadname(java.lang.String uploadname){
+    public void setUploadname(String uploadname){
         this.uploadname = uploadname;
     }
 
-    public java.lang.String getUploadaccount(){
+    public String getUploadaccount(){
         return this.uploadaccount;
     }
 
-    public void setUploadaccount(java.lang.String uploadaccount){
+    public void setUploadaccount(String uploadaccount){
         this.uploadaccount = uploadaccount;
     }
 
-    public java.lang.String getRevisename(){
+    public String getRevisename(){
         return this.revisename;
     }
 
-    public void setRevisename(java.lang.String revisename){
+    public void setRevisename(String revisename){
         this.revisename = revisename;
     }
 
-    public java.lang.String getReviseaccount(){
+    public String getReviseaccount(){
         return this.reviseaccount;
     }
 
-    public void setReviseaccount(java.lang.String reviseaccount){
+    public void setReviseaccount(String reviseaccount){
         this.reviseaccount = reviseaccount;
     }
 
@@ -147,11 +147,11 @@ public class FileUfVO{
         this.status = status;
     }
 
-    public java.lang.String getLocatepath(){
+    public String getLocatepath(){
         return this.locatepath;
     }
 
-    public void setLocatepath(java.lang.String locatepath){
+    public void setLocatepath(String locatepath){
         this.locatepath = locatepath;
     }
 

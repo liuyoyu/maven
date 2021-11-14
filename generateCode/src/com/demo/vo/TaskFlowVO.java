@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: TASK_FLOW
 */
 public class TaskFlowVO{
@@ -13,7 +13,7 @@ public class TaskFlowVO{
     /**
     * 
     */
-    private java.lang.String taskname;
+    private String taskname;
     /**
     * 
     */
@@ -25,11 +25,11 @@ public class TaskFlowVO{
     /**
     * 
     */
-    private java.lang.String reviseaccount;
+    private String reviseaccount;
     /**
     * 
     */
-    private java.lang.String useraccount;
+    private String useraccount;
     /**
     * 
     */
@@ -47,11 +47,11 @@ public class TaskFlowVO{
         this.id = id;
     }
 
-    public java.lang.String getTaskname(){
+    public String getTaskname(){
         return this.taskname;
     }
 
-    public void setTaskname(java.lang.String taskname){
+    public void setTaskname(String taskname){
         this.taskname = taskname;
     }
 
@@ -71,19 +71,19 @@ public class TaskFlowVO{
         this.taskendtime = taskendtime;
     }
 
-    public java.lang.String getReviseaccount(){
+    public String getReviseaccount(){
         return this.reviseaccount;
     }
 
-    public void setReviseaccount(java.lang.String reviseaccount){
+    public void setReviseaccount(String reviseaccount){
         this.reviseaccount = reviseaccount;
     }
 
-    public java.lang.String getUseraccount(){
+    public String getUseraccount(){
         return this.useraccount;
     }
 
-    public void setUseraccount(java.lang.String useraccount){
+    public void setUseraccount(String useraccount){
         this.useraccount = useraccount;
     }
 

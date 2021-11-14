@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: MENU
 */
 public class MenuVO{
@@ -13,11 +13,11 @@ public class MenuVO{
     /**
     * 
     */
-    private java.lang.String name;
+    private String name;
     /**
     * 
     */
-    private java.lang.String url;
+    private String url;
     /**
     * 
     */
@@ -43,19 +43,19 @@ public class MenuVO{
         this.id = id;
     }
 
-    public java.lang.String getName(){
+    public String getName(){
         return this.name;
     }
 
-    public void setName(java.lang.String name){
+    public void setName(String name){
         this.name = name;
     }
 
-    public java.lang.String getUrl(){
+    public String getUrl(){
         return this.url;
     }
 
-    public void setUrl(java.lang.String url){
+    public void setUrl(String url){
         this.url = url;
     }
 

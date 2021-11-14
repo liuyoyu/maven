@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: ROLE_UF
 */
 public class RoleUfVO{
@@ -13,7 +13,7 @@ public class RoleUfVO{
     /**
     * 
     */
-    private java.lang.String rolename;
+    private String rolename;
     /**
     * 
     */
@@ -31,11 +31,11 @@ public class RoleUfVO{
         this.id = id;
     }
 
-    public java.lang.String getRolename(){
+    public String getRolename(){
         return this.rolename;
     }
 
-    public void setRolename(java.lang.String rolename){
+    public void setRolename(String rolename){
         this.rolename = rolename;
     }
 

@@ -21,4 +21,6 @@ public interface ${className}Mapper{
 
     @Select("select <#list fields as field>${field.name}<#if field_has_next>, </#if></#list> from ${tableName} where <#list primaryKey as pk>${pk.columnsName?lower_case} = ${r"#{"}${pk.columnsName?lower_case}${r"}"}<#if pk_has_next>, </#if></#list>")
     ${className}VO getById(<#list primaryKey as pk>@Param("${pk.columnsName?lower_case}") ${pk.fieldType} ${pk.columnsName?lower_case}<#if pk_has_next>, </#if></#list>);
+
+
 }

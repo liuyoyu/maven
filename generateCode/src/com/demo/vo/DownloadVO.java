@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:28
 *  表名: DOWNLOAD
 */
 public class DownloadVO{
@@ -13,7 +13,7 @@ public class DownloadVO{
     /**
     * 
     */
-    private java.lang.String account;
+    private String account;
     /**
     * 
     */
@@ -31,11 +31,11 @@ public class DownloadVO{
         this.id = id;
     }
 
-    public java.lang.String getAccount(){
+    public String getAccount(){
         return this.account;
     }
 
-    public void setAccount(java.lang.String account){
+    public void setAccount(String account){
         this.account = account;
     }
 

@@ -2,7 +2,7 @@ package com.demo.vo;
 
 /**
 *  该类由自动代码生成
-*  生成时间：2021/08/01 17:04:49
+*  createDate：2021/11/14 21:00:40
 *  表名: EMAIL_STORE
 */
 public class EmailStoreVO{
@@ -13,23 +13,23 @@ public class EmailStoreVO{
     /**
     * 
     */
-    private java.lang.String account;
+    private String account;
     /**
     * 
     */
-    private java.lang.String froemailaddr;
+    private String froemailaddr;
     /**
     * 
     */
-    private java.lang.String toemailaddr;
+    private String toemailaddr;
     /**
     * 
     */
-    private java.lang.String contexthtml;
+    private String contexthtml;
     /**
     * 
     */
-    private java.lang.String context;
+    private String context;
     /**
     * 
     */
@@ -43,43 +43,43 @@ public class EmailStoreVO{
         this.id = id;
     }
 
-    public java.lang.String getAccount(){
+    public String getAccount(){
         return this.account;
     }
 
-    public void setAccount(java.lang.String account){
+    public void setAccount(String account){
         this.account = account;
     }
 
-    public java.lang.String getFroemailaddr(){
+    public String getFroemailaddr(){
         return this.froemailaddr;
     }
 
-    public void setFroemailaddr(java.lang.String froemailaddr){
+    public void setFroemailaddr(String froemailaddr){
         this.froemailaddr = froemailaddr;
     }
 
-    public java.lang.String getToemailaddr(){
+    public String getToemailaddr(){
         return this.toemailaddr;
     }
 
-    public void setToemailaddr(java.lang.String toemailaddr){
+    public void setToemailaddr(String toemailaddr){
         this.toemailaddr = toemailaddr;
     }
 
-    public java.lang.String getContexthtml(){
+    public String getContexthtml(){
         return this.contexthtml;
     }
 
-    public void setContexthtml(java.lang.String contexthtml){
+    public void setContexthtml(String contexthtml){
         this.contexthtml = contexthtml;
     }
 
-    public java.lang.String getContext(){
+    public String getContext(){
         return this.context;
     }
 
-    public void setContext(java.lang.String context){
+    public void setContext(String context){
         this.context = context;
     }
 
