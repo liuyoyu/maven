@@ -37,6 +37,19 @@ public class StringUtil {
         return sb.toString();
     }
 
+    /**
+     * 调整名称格式，以驼峰为主
+     * @param name
+     * @return
+     */
+    public static String nameFriendly(String name){
+        if (name.contains("_")) {
+            return StringUtil.underScoreCaseToCamelCase(name);//下划线转驼峰
+        } else {
+            return name.toLowerCase();
+        }
+    }
+
     public static String geneJavaFilePath(String fileName, String filePath) {
         StringBuilder sb = new StringBuilder();
         sb.append(filePath).append("/").append(fileName).append(".java");

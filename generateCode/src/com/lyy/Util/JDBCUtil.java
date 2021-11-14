@@ -72,7 +72,7 @@ public class JDBCUtil {
         List<TableEntity> tableEntityList = new ArrayList<>();
         while (tables.next()) {
             TableEntity table = new TableEntity();
-            table.setName(tables.getString("TABLE_NAME"));
+            table.setName(StringUtil.nameFriendly(tables.getString("TABLE_NAME")));
             table.setRemark(tables.getString("REMARKS"));
             table.setSchema(tables.getString("TABLE_SCHEM"));
             table.setCatalog(tables.getString("TABLE_CAT"));
@@ -95,7 +95,7 @@ public class JDBCUtil {
         List<ColumnEntity> columnNames = new ArrayList<>();
         while (table.next()) {
             ColumnEntity columnEntity = new ColumnEntity();
-            columnEntity.setName(table.getString("COLUMN_NAME"));
+            columnEntity.setName(StringUtil.nameFriendly(table.getString("COLUMN_NAME")));
             columnEntity.setLength(table.getInt("COLUMN_SIZE"));
             columnEntity.setType(table.getString("TYPE_NAME"));
             columnEntity.setRemark(table.getString("REMARKS"));
@@ -125,7 +125,7 @@ public class JDBCUtil {
         List<PrimaryKey> primaryKeyList = new ArrayList<>();
         while (primaryKeys.next()) {
             PrimaryKey pk = new PrimaryKey();
-            pk.setColumnsName(primaryKeys.getString("COLUMN_NAME"));
+            pk.setColumnsName(StringUtil.nameFriendly(primaryKeys.getString("COLUMN_NAME")));
             pk.setName(primaryKeys.getString("PK_NAME"));
             pk.setKeySeq(primaryKeys.getString("KEY_SEQ"));
             pk.setFieldType(columnMap.get(pk.getColumnsName()));

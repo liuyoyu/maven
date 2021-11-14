@@ -101,7 +101,7 @@ public class GenerateCodeService implements GenerateCodeApi {
             root.put("packageName", PropertiesUtil.get(GenerateCodeConfiger.FTLVOPACKAGENAME));
             root.put("date", sdf.format(new Date()));
             root.put("tableName", entity.getName());
-            root.put("className", StringUtil.upperCaseHeader(StringUtil.underScoreCaseToCamelCase(entity.getName())));
+            root.put("className", StringUtil.upperCaseHeader(entity.getName()));
             root.put("fields", dataBaseService.transformField(entity.getColumns(), "private"));
             outputTemplate(cfg, root, PropertiesUtil.get(GenerateCodeConfiger.FTLVOFILENAME), "VO");
         }
@@ -119,7 +119,7 @@ public class GenerateCodeService implements GenerateCodeApi {
             root.put("packageName", PropertiesUtil.get(GenerateCodeConfiger.FTLDAOPCKAGENAME));
             root.put("importVO", PropertiesUtil.get(GenerateCodeConfiger.FTLVOPACKAGENAME));
             root.put("date", sdf.format(new Date()));
-            root.put("className", StringUtil.upperCaseHeader(StringUtil.underScoreCaseToCamelCase(entity.getName())));
+            root.put("className", StringUtil.upperCaseHeader(entity.getName()));
             root.put("tableName", entity.getName());
             root.put("fields", dataBaseService.transformField(entity.getColumns(), "private"));
             //处理主键数据类型，db类型->Java类型
