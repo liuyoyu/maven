@@ -7,9 +7,6 @@ package ${packageName};
 */
 public class ${className}VO{
 <#list fields as field>
-    /**
-    * ${field.remark}
-    */
     ${field.qualifier} ${field.type} ${field.name};
 </#list>
 <#list fields as field>
@@ -22,4 +19,13 @@ public class ${className}VO{
         this.${field.name} = ${field.name};
     }
 </#list>
+
+    @Override
+    public String toString(){
+        return "${className}{" +
+        <#list fields as field>
+            "\"${field.name}\" : \"" + this.${field.name} + "\"" <#if field_has_next> + ","</#if> +
+        </#list>
+        "}";
+    }
 }

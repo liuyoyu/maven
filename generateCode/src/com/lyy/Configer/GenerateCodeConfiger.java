@@ -7,7 +7,7 @@ package com.lyy.Configer;
  * date 2021/8/1
  */
 public class GenerateCodeConfiger {
-    public static final String FILENAME = "/Users/liuyongyu/IdeaProjects/maven/generateCode/src/resource/generator.properties";
+    public static final String FILENAME = System.getProperty("user.dir") + "/generateCode/src/resource/generator.properties";
 
     public static final String JDBCURL = "database.jdbcUrl";
 

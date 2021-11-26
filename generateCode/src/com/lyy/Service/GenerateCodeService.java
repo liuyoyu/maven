@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.file.FileAlreadyExistsException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -29,6 +30,8 @@ import java.util.*;
 public class GenerateCodeService implements GenerateCodeApi {
     private static final Logger logger = LoggerFactory.getLogger(GenerateCodeService.class);
     private static final DataBaseService dataBaseService = new DataBaseService();;
+
+    private static final boolean OVERRIDE = false;  //覆盖原始文件
 
     private Configuration initTemplate() {
         Configuration cfg = null;
@@ -55,34 +58,35 @@ public class GenerateCodeService implements GenerateCodeApi {
             Writer writer = getWriter(filePath);
             template.process(root, writer);
             writer.close();
-        } catch (IOException e) {
-            logger.error("获取模板出现问题", e);
+        }catch (FileAlreadyExistsException e){
+            logger.info(e.getMessage());
+        } catch(IOException e) {
+            logger.error("获取Writer时出现异常！", e);
         } catch (TemplateException e) {
-            logger.error("生成模板出现问题", e);
+            logger.error("输出模板异常", e);
         }
     }
 
     /**
      * 写入文件
      *
-     * @param filePath 文件名称
+     * @param filePath 文件路径
      * @return
      */
-    private Writer getWriter(String filePath) {
+    private Writer getWriter(String filePath) throws FileAlreadyExistsException, IOException {
         FileWriter fileWriter = null;
-        File file = null;
-        logger.info("输出文件：{}", filePath);
+        logger.info("输出路径：{}", filePath);
+        File file = new File(filePath);
+        if (!file.getParentFile().exists()) {
+            file.getParentFile().mkdirs();
+        }
+        if (file.exists() && !OVERRIDE) { // 当文件存在且不允许覆盖时，则抛出异常
+            throw new FileAlreadyExistsException("文件已经存在，不进行覆盖。[OVERRIDE: "+OVERRIDE+"]");
+        }
         try {
-            file = new File(filePath);
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            if (!file.exists()) {
-                file.createNewFile();
-            }
+            file.createNewFile();
             fileWriter = new FileWriter(file, false);
         } catch (IOException e) {
-            logger.error("==========设置输出时出现异常==========");
             e.printStackTrace();
         }
         return fileWriter;
